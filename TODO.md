@@ -1,14 +1,29 @@
 # TODO
 
-<!-- 이 프로젝트에서 해야 할 일. 사용자가 적고, Claude가 작업하면서 갱신한다(Antigravity는 읽기만 한다). -->
-<!-- 형식: - [ ] 할 일 — 담당: Claude / 검증: Antigravity -->
-<!-- 끝나면 [x]로 바꾸고 완료일을 붙여 "완료"로 옮긴다. 오래된 완료 항목은 지워도 된다(git 기록에 남는다). -->
+모든 에이전트(Claude Code, Codex)와 사용자가 함께 관리하는 할 일 목록이다. 작업하기 전에 [AGENTS.md](AGENTS.md)와 [HANDOFF](docs/agents/HANDOFF.md)를 확인한다.
+
+- 형식: `- [ ] 할 일 — 작업 ID / 담당 / 검증 계획`
+- 완료하면 `[x]`로 바꾸고, 실제로 수행한 검증과 완료일(`YYYY-MM-DD`)을 붙여 "완료"로 옮긴다.
+- 인계 상세는 이 파일이 아니라 HANDOFF에 적는다.
 
 ## 진행 중
 
 ## 할 일
 
+- [ ] 전시명·설치 장소·씬 흐름·외부 연동(API, 장비)을 확정해 AGENTS.md "0. 프로젝트 개요"에 기록 — 미배정 / 사용자 / 사용자 확인
+- [ ] Player Settings의 companyName·productName·applicationIdentifier·bundleVersion을 이 프로젝트 값으로 변경(현재 템플릿 기본값) — 미배정 / 담당 미정 / 에디터에서 값 확인, Windows 빌드 후 로그 폴더 경로 확인
+- [ ] `.vscode/`를 `.gitignore`에 추가할지 결정 — 미배정 / 사용자 / `git status`로 확인
+- [ ] 로컬 전용 에셋 4종(Particle Image, Text Animator, vFolders, vHierarchy)의 버전과 라이선스를 확인해 HANDOFF에 기록 — 미배정 / 담당 미정 / Asset Store 페이지·에셋 내 문서 확인
+
 ## 완료
+
+- [x] 활용 예정 에셋 추가 상태를 포함한 개발 준비 커밋. 유료로 보이는 에셋 4종은 `.gitignore`로 제외하고, URP 렌더러 자동 업그레이드는 포함 — SETUP-001 / Claude Code / `git status`로 제외 확인 (완료: 2026-10-19)
+
+- [x] 다중 에이전트 공통 지침 문서 체계 도입 — DOC-001 / Claude Code / 상대 링크·앵커 대상 확인, 기재 값과 실제 파일 대조 (완료: 2026-10-19, 미커밋)
+
+## 이전 이력 (템플릿 시절 기록 — 이 프로젝트의 검증 결과 아님)
+
+아래는 템플릿 저장소에서 넘어온 완료 기록이다. 당시 형식(담당 Claude / 검증 Antigravity)을 그대로 보존한다. 현재 프로젝트의 검증 근거로 쓰지 않는다.
 
 - [x] HuliacDev Template 패키지 26.10.12-1 → 26.10.16-1 업데이트(packages-lock.json 고정 커밋 1c5e127 → a036657, 창을 항상 위로 두는 `alwaysOnTop` 옵션 추가 — 기본 꺼짐이라 기존 동작과 같음), Settings.json에 `"alwaysOnTop": false` 추가, Player Settings Version 26.10.16, CHANGELOG에 빠져 있던 26.10.12-1의 운영자 영향 변경도 함께 기록 — 담당: Claude / 검증: Antigravity (완료: 2026-10-16)
 - [x] README 사용 방법을 "템플릿 폴더를 하나 clone해 두고 Assets·Packages·ProjectSettings·.gitignore·.gitattributes·CLAUDE.md만 새 폴더로 복사 → Unity Hub로 열기 → Player Settings의 Product Name 변경" 방식으로 바꿈(clone→upstream·fork 안내는 뺌). 복사한 6개로 파일 1,080개가 템플릿과 같게 들어가고 LFS 파일 없이 push되는 것을 임시 폴더에서 확인함 — 담당: Claude / 검증: Antigravity (완료: 2026-10-13)

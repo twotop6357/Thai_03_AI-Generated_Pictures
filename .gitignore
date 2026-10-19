@@ -127,3 +127,14 @@ InitTestScene*.unity*
 
 # Unity directory monitor sync temp files
 ~UnityDirMonSyncFile~*
+
+# Third-party Asset Store assets: licenses do not allow public redistribution.
+# Import them locally from the Asset Store (see AGENTS.md section 3).
+/[Aa]ssets/AssetKits/
+/[Aa]ssets/AssetKits.meta
+/[Aa]ssets/Plugins/Febucci/
+/[Aa]ssets/Plugins/Febucci.meta
+/[Aa]ssets/vFolders/
+/[Aa]ssets/vFolders.meta
+/[Aa]ssets/vHierarchy/
+/[Aa]ssets/vHierarchy.meta
