@@ -1,0 +1,236 @@
+{
+  "date": "2026-10-21",
+  "system_stats": {
+    "system": {
+      "os": "win32",
+      "ram_total": 33752997888,
+      "ram_free": 4668571648,
+      "comfyui_version": "0.37.0",
+      "required_frontend_version": "1.52.7",
+      "installed_templates_version": "0.11.66",
+      "required_templates_version": "0.11.66",
+      "comfy_package_versions": [
+        {
+          "name": "comfyui-frontend-package",
+          "installed": "1.52.7",
+          "required": "1.52.7"
+        },
+        {
+          "name": "comfyui-workflow-templates",
+          "installed": "0.11.66",
+          "required": "0.11.66"
+        },
+        {
+          "name": "comfyui-embedded-docs",
+          "installed": "0.5.12",
+          "required": "0.5.12"
+        },
+        {
+          "name": "comfy-kitchen",
+          "installed": "0.2.35",
+          "required": "0.2.35"
+        },
+        {
+          "name": "comfy-aimdo",
+          "installed": "0.5.5",
+          "required": "0.5.5"
+        }
+      ],
+      "python_version": "3.13.12 (main, Feb 12 2026, 00:38:53) [MSC v.1944 64 bit (AMD64)]",
+      "pytorch_version": "2.12.1+cu130",
+      "embedded_python": false,
+      "deploy_environment": "local-desktop2-standalone"
+    },
+    "devices": [
+      {
+        "name": "cuda:0 NVIDIA GeForce RTX 5070 Ti Laptop GPU : cudaMallocAsync",
+        "type": "cuda",
+        "index": 0,
+        "vram_total": 12820480000,
+        "vram_free": 1886797288,
+        "torch_vram_total": 67108864,
+        "torch_vram_free": 32914920
+      }
+    ]
+  },
+  "deadline_seconds": 29,
+  "target_rtx3060_verified": false,
+  "runs": [
+    {
+      "case": "egg_detail_final",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102104,
+      "ingredients": [
+        "Egg"
+      ],
+      "prompt_id": "b3846a60-4185-4c18-9a05-51c122876ec8",
+      "seconds_through_download": 3.005,
+      "under_29_seconds": true,
+      "png_bytes": 673445,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\egg_detail_final.png",
+      "comfy_output": {
+        "filename": "egg_detail_final_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "cucumber_coconut_detail_final",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102105,
+      "ingredients": [
+        "Cucumber",
+        "Coconut milk"
+      ],
+      "prompt_id": "9543fe38-4bdf-44e2-961b-425fbeec13ff",
+      "seconds_through_download": 2.379,
+      "under_29_seconds": true,
+      "png_bytes": 774918,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\cucumber_coconut_detail_final.png",
+      "comfy_output": {
+        "filename": "cucumber_coconut_detail_final_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "three_detail_final",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102110,
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Chicken"
+      ],
+      "prompt_id": "79f9fb2b-5dad-4b83-b6c8-e7ab8f6555e1",
+      "seconds_through_download": 2.237,
+      "under_29_seconds": true,
+      "png_bytes": 803334,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\three_detail_final.png",
+      "comfy_output": {
+        "filename": "three_detail_final_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "four_detail_final",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102111,
+      "ingredients": [
+        "Fish",
+        "Shrimp",
+        "Cabbage",
+        "Chili pepper"
+      ],
+      "prompt_id": "6f1bba59-baef-4363-85c2-0088853d8f62",
+      "seconds_through_download": 2.34,
+      "under_29_seconds": true,
+      "png_bytes": 790423,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\four_detail_final.png",
+      "comfy_output": {
+        "filename": "four_detail_final_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "five_detail_final",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102112,
+      "ingredients": [
+        "Beef",
+        "Garlic",
+        "Onion",
+        "Carrot",
+        "Potato"
+      ],
+      "prompt_id": "92711c5f-0178-4b99-a8ef-0553f9f35089",
+      "seconds_through_download": 2.765,
+      "under_29_seconds": true,
+      "png_bytes": 764046,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\five_detail_final.png",
+      "comfy_output": {
+        "filename": "five_detail_final_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "six_detail_final",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102113,
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Shrimp",
+        "Garlic",
+        "Mushroom",
+        "Coconut milk"
+      ],
+      "prompt_id": "63f40fe8-d4ce-4e42-9415-e4f8896eb002",
+      "seconds_through_download": 2.541,
+      "under_29_seconds": true,
+      "png_bytes": 736753,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\six_detail_final.png",
+      "comfy_output": {
+        "filename": "six_detail_final_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "rice_single_final",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102114,
+      "ingredients": [
+        "Rice"
+      ],
+      "prompt_id": "6c125fdc-8dc0-47bb-a9e9-66100d9cfdce",
+      "seconds_through_download": 2.361,
+      "under_29_seconds": true,
+      "png_bytes": 644689,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\rice_single_final.png",
+      "comfy_output": {
+        "filename": "rice_single_final_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "coconut_single_final",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102115,
+      "ingredients": [
+        "Coconut milk"
+      ],
+      "prompt_id": "5657cb1e-8187-42b0-9de7-c32b5cd68b0f",
+      "seconds_through_download": 2.328,
+      "under_29_seconds": true,
+      "png_bytes": 653123,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\coconut_single_final.png",
+      "comfy_output": {
+        "filename": "coconut_single_final_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    }
+  ],
+  "note": "First case warms models. Resolution changes noise dimensions even with the same seed. Visual review is manual."
+}

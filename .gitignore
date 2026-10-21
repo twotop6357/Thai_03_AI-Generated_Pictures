@@ -121,6 +121,15 @@ InitTestScene*.unity*
 /Assets/StreamingAssets/build_info
 /Assets/StreamingAssets/build_info.meta
 
+# Local survey response aggregates (questions remain versioned).
+/Assets/StreamingAssets/Survey/statistics.json
+/Assets/StreamingAssets/Survey/statistics.json.meta
+/Assets/StreamingAssets/Survey/statistics.*.tmp.meta
+
+# Local generated food photos and their recognized ingredient records.
+/Assets/StreamingAssets/Thai03FoodHistory/
+/Assets/StreamingAssets/Thai03FoodHistory.meta
+
 # ShutdownScheduleEditor build output (exceeds GitHub's 100MB file limit; rebuild via Tools menu)
 /Assets/StreamingAssets/ShutdownScheduleEditor.exe
 /Assets/StreamingAssets/ShutdownScheduleEditor.exe.meta

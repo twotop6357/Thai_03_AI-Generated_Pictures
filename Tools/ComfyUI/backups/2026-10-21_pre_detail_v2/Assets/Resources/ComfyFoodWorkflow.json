@@ -1,0 +1,204 @@
+{
+  "workflow": {
+    "1": {
+      "class_type": "UNETLoader",
+      "inputs": {
+        "unet_name": "flux-2-klein-4b-fp8.safetensors",
+        "weight_dtype": "default"
+      },
+      "_meta": {
+        "title": "Distilled 4B FP8 / do not use base"
+      }
+    },
+    "2": {
+      "class_type": "CLIPLoader",
+      "inputs": {
+        "clip_name": "qwen_3_4b.safetensors",
+        "type": "flux2",
+        "device": "default"
+      },
+      "_meta": {
+        "title": "Qwen 3 4B text encoder"
+      }
+    },
+    "3": {
+      "class_type": "VAELoader",
+      "inputs": {
+        "vae_name": "flux2-vae.safetensors"
+      },
+      "_meta": {
+        "title": "Flux 2 VAE"
+      }
+    },
+    "4": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "Photorealistic Thai food photography for a Bangkok restaurant menu: a Thai-style creamy coconut curry, glossy and appetizing, with large visible cooked ingredients on top, served over jasmine rice on the SAME plate with plenty of rice grains exposed along one edge. Overhead close-up of ONE coherent finished Thai-inspired dish in ONE shallow blue-and-white Thai ceramic plate, on a warm teak table with a subtle banana-leaf placemat underneath the plate. The dish contains 6 selected ingredient types: Rice, Egg, Shrimp, Garlic, Mushroom, Coconut milk. All selected ingredients are large, individually recognizable and fully visible INSIDE the same plated dish: Thai jasmine rice with clearly visible individual grains; large pieces of Thai-style crispy fried egg with visible yellow yolk and white egg white; whole peeled cooked pink curled shrimp with recognizable tails; several peeled ivory garlic cloves with golden seared patches, each a plump curved pointed clove, no papery skins and no round bulbs; glossy pan-fried brown mushroom halves with dark seared surfaces, recognizable caps and stems; a visible glossy creamy coconut-milk sauce coating the dish, with pale ivory coconut-cream swirls clearly visible between the other ingredients. Distribute all selected ingredients visibly across the surface of this ONE cooked dish, integrated naturally with the Thai preparation while keeping every ingredient easy to recognize and uncovered. No isolated piles of ingredient samples, no compartment tray, no Western steak-and-sides plating. Every selected ingredient must be visible, not minced, pureed, buried or dissolved. Use only the selected visible food ingredients; do not add unselected rice, chili, basil, lime or other food garnishes. No separate ingredient bowls, raw ingredient display, collage, grid, labels, writing or hands. The food fills most of the frame. Warm natural daylight, realistic moist food textures, rich natural colors, sharp focus across the entire dish.",
+        "clip": [
+          "2",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "1-6 detected ingredients: Rice, Egg, Shrimp, Garlic, Mushroom, Coconut milk"
+      }
+    },
+    "5": {
+      "class_type": "ConditioningZeroOut",
+      "inputs": {
+        "conditioning": [
+          "4",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Unused negative at CFG 1"
+      }
+    },
+    "6": {
+      "class_type": "EmptyFlux2LatentImage",
+      "inputs": {
+        "width": 512,
+        "height": 512,
+        "batch_size": 1
+      },
+      "_meta": {
+        "title": "Size / batch 1 / match scheduler size"
+      }
+    },
+    "7": {
+      "class_type": "RandomNoise",
+      "inputs": {
+        "noise_seed": 6357201
+      },
+      "_meta": {
+        "title": "Seed / increment per photo"
+      }
+    },
+    "8": {
+      "class_type": "KSamplerSelect",
+      "inputs": {
+        "sampler_name": "euler"
+      },
+      "_meta": {
+        "title": "Euler (4 evaluations)"
+      }
+    },
+    "9": {
+      "class_type": "Flux2Scheduler",
+      "inputs": {
+        "steps": 4,
+        "width": 512,
+        "height": 512
+      },
+      "_meta": {
+        "title": "4 steps / match latent size"
+      }
+    },
+    "10": {
+      "class_type": "CFGGuider",
+      "inputs": {
+        "cfg": 1.0,
+        "model": [
+          "1",
+          0
+        ],
+        "positive": [
+          "4",
+          0
+        ],
+        "negative": [
+          "5",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "CFG 1 / single conditioning pass"
+      }
+    },
+    "11": {
+      "class_type": "SamplerCustomAdvanced",
+      "inputs": {
+        "noise": [
+          "7",
+          0
+        ],
+        "guider": [
+          "10",
+          0
+        ],
+        "sampler": [
+          "8",
+          0
+        ],
+        "sigmas": [
+          "9",
+          0
+        ],
+        "latent_image": [
+          "6",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Single-pass generation"
+      }
+    },
+    "12": {
+      "class_type": "VAEDecode",
+      "inputs": {
+        "samples": [
+          "11",
+          0
+        ],
+        "vae": [
+          "3",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Decode once"
+      }
+    },
+    "13": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "Thai03/Food",
+        "images": [
+          "12",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Finished dish / local PNG"
+      }
+    }
+  },
+  "ingredients": {
+    "Rice": "Thai jasmine rice with clearly visible individual grains",
+    "Egg": "large pieces of Thai-style crispy fried egg with visible yellow yolk and white egg white",
+    "Chicken": "wok-seared chicken slices with golden edges and white fibrous interiors",
+    "Beef": "thin wok-fried beef strips with browned edges and recognizable meat fibers",
+    "Fish": "a cooked fish fillet with visible silvery skin and flaky white flesh",
+    "Shrimp": "whole peeled cooked pink curled shrimp with recognizable tails",
+    "Onion": "caramelized golden-brown onion petals, visibly cooked and glossy, with curved onion layers",
+    "Garlic": "several peeled ivory garlic cloves with golden seared patches, each a plump curved pointed clove, no papery skins and no round bulbs",
+    "Carrot": "glossy roasted bright orange carrot rounds with lightly browned edges and circular centers",
+    "Potato": "large cooked golden potato chunks with recognizable pale yellow interiors",
+    "Cucumber": "fresh green cucumber rounds with dark green peel and pale seeded centers",
+    "Cabbage": "wilted sauteed cabbage leaf pieces with seared edges and pale green veins",
+    "Chili pepper": "small thin red bird's-eye chili rings with tiny white seeds, not large bell peppers",
+    "Mushroom": "glossy pan-fried brown mushroom halves with dark seared surfaces, recognizable caps and stems",
+    "Coconut milk": "a visible glossy creamy coconut-milk sauce coating the dish, with pale ivory coconut-cream swirls clearly visible between the other ingredients"
+  },
+  "dishes": {
+    "rice_only": "a simple serving of freshly steamed Thai jasmine rice",
+    "coconut_only": "a Thai-inspired warm coconut-cream dessert with a glossy silky surface",
+    "curry": "a Thai-style creamy coconut curry, glossy and appetizing, with large visible cooked ingredients on top",
+    "curry_rice_suffix": ", served over jasmine rice on the SAME plate with plenty of rice grains exposed along one edge",
+    "fried_rice": "Thai khao pad style wok-fried jasmine rice with large recognizable pieces of the selected ingredients on top",
+    "salad": "a Thai yam-inspired composed salad, with crisp cucumber and other ingredients cooked where appropriate",
+    "stir_fry": "a Thai-style glossy wok stir-fry with large recognizable pieces, lightly caramelized and ready to eat"
+  },
+  "prompt_template": "Photorealistic Thai food photography for a Bangkok restaurant menu: {0}. Overhead close-up of ONE coherent finished Thai-inspired dish in ONE shallow blue-and-white Thai ceramic plate, on a warm teak table with a subtle banana-leaf placemat underneath the plate. The dish contains {1} selected ingredient types: {2}. All selected ingredients are large, individually recognizable and fully visible INSIDE the same plated dish: {3}. Distribute all selected ingredients visibly across the surface of this ONE cooked dish, integrated naturally with the Thai preparation while keeping every ingredient easy to recognize and uncovered. No isolated piles of ingredient samples, no compartment tray, no Western steak-and-sides plating. Every selected ingredient must be visible, not minced, pureed, buried or dissolved. Use only the selected visible food ingredients; do not add unselected rice, chili, basil, lime or other food garnishes. No separate ingredient bowls, raw ingredient display, collage, grid, labels, writing or hands. The food fills most of the frame. Warm natural daylight, realistic moist food textures, rich natural colors, sharp focus across the entire dish."
+}

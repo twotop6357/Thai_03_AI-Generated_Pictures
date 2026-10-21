@@ -1,0 +1,70 @@
+{
+  "runs": [
+    {
+      "case": "rice_detail_640_plain_final",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102108,
+      "ingredients": [
+        "Rice"
+      ],
+      "prompt_id": "d0ebd49c-87c8-4b36-bc9a-b1c88fa2604d",
+      "seconds_through_download": 3.071,
+      "under_29_seconds": true,
+      "png_bytes": 562334,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\rice_detail_640_plain_final.png",
+      "comfy_output": {
+        "filename": "rice_detail_640_plain_final_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "coconut_detail_640_plain_final",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102109,
+      "ingredients": [
+        "Coconut milk"
+      ],
+      "prompt_id": "0419198f-8c7b-4249-a76a-8289eb7e3828",
+      "seconds_through_download": 2.539,
+      "under_29_seconds": true,
+      "png_bytes": 592863,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\coconut_detail_640_plain_final.png",
+      "comfy_output": {
+        "filename": "coconut_detail_640_plain_final_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "six_detail_640_final",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102101,
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Shrimp",
+        "Garlic",
+        "Mushroom",
+        "Coconut milk"
+      ],
+      "prompt_id": "2f8e8830-afe3-4ec3-bc40-5592059f0395",
+      "seconds_through_download": 2.813,
+      "under_29_seconds": true,
+      "png_bytes": 702783,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\six_detail_640_final.png",
+      "comfy_output": {
+        "filename": "six_detail_640_final_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    }
+  ],
+  "target_rtx3060_verified": false
+}

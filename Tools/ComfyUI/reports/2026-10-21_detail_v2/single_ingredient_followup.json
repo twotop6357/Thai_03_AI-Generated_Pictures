@@ -1,0 +1,85 @@
+{
+  "runs": [
+    {
+      "case": "egg_detail_640_final",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102104,
+      "ingredients": [
+        "Egg"
+      ],
+      "prompt_id": "850e59c2-980c-4955-ae7d-b2b43193fd94",
+      "seconds_through_download": 2.506,
+      "under_29_seconds": true,
+      "png_bytes": 735582,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\egg_detail_640_final.png",
+      "comfy_output": {
+        "filename": "egg_detail_640_final_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "shrimp_detail_640_single",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102107,
+      "ingredients": [
+        "Shrimp"
+      ],
+      "prompt_id": "1bdf3ca9-42d8-49a4-ab79-29fb583705dd",
+      "seconds_through_download": 2.269,
+      "under_29_seconds": true,
+      "png_bytes": 736284,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\shrimp_detail_640_single.png",
+      "comfy_output": {
+        "filename": "shrimp_detail_640_single_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "rice_detail_640_single",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102108,
+      "ingredients": [
+        "Rice"
+      ],
+      "prompt_id": "235bdfc4-e904-47ef-ba3e-28fcfce53a90",
+      "seconds_through_download": 2.506,
+      "under_29_seconds": true,
+      "png_bytes": 696527,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\rice_detail_640_single.png",
+      "comfy_output": {
+        "filename": "rice_detail_640_single_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "coconut_detail_640_single",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102109,
+      "ingredients": [
+        "Coconut milk"
+      ],
+      "prompt_id": "9d4dd605-786f-4626-a36e-6715656104fb",
+      "seconds_through_download": 2.522,
+      "under_29_seconds": true,
+      "png_bytes": 671581,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\coconut_detail_640_single.png",
+      "comfy_output": {
+        "filename": "coconut_detail_640_single_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    }
+  ],
+  "target_rtx3060_verified": false
+}

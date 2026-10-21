@@ -10,6 +10,9 @@
 
 ## 할 일
 
+- [ ] ComfyUI 음식 워크플로를 RTX 3060 12GB에서 서로 다른 재료/seed로 첫·반복 생성하여 30초 미만 여부 판정(현 PC는 5070 Ti Laptop) — FEAT-003 / 대상 PC 검증 담당 미정 / Tools/ComfyUI/README.md 및 verification.json 기준
+- [ ] 완성 음식 안에서 선택 재료 전부 식별 조건의 운영 승인 기준 확정(코코넛 밀크 성분 확인·고기 종류·생성 누락 보장 불가) — FEAT-003 / 사용자 / 대표 조합 실사진 검수, 승인 이미지 활용 여부 결정
+
 - [ ] 전시명·설치 장소·씬 흐름·외부 연동(API, 장비)을 확정해 AGENTS.md "0. 프로젝트 개요"에 기록 — 미배정 / 사용자 / 사용자 확인
 - [ ] Player Settings의 companyName·productName·applicationIdentifier·bundleVersion을 이 프로젝트 값으로 변경(현재 템플릿 기본값) — 미배정 / 담당 미정 / 에디터에서 값 확인, Windows 빌드 후 로그 폴더 경로 확인
 - [ ] `.vscode/`를 `.gitignore`에 추가할지 결정 — 미배정 / 사용자 / `git status`로 확인

@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-21",
+  "base_commit": "3ca9a6d",
+  "files": [
+    {
+      "source": "Tools\\ComfyUI\\food_workflow.py",
+      "backup": "Tools\\ComfyUI\\food_workflow.py",
+      "sha256": "e1c0497ab7307b071dad419c101e73219f7b2485a6cc1ee0b47ab51a092bc5e6"
+    },
+    {
+      "source": "Tools\\ComfyUI\\Thai_03_Food_Ingredients.json",
+      "backup": "Tools\\ComfyUI\\Thai_03_Food_Ingredients.json",
+      "sha256": "b07543645e3b275d7aa742fe3e24bc208efb79e85ffa7b76b3e17eb7adc9ab4f"
+    },
+    {
+      "source": "Tools\\ComfyUI\\Thai_03_Food_Ingredients.api.json",
+      "backup": "Tools\\ComfyUI\\Thai_03_Food_Ingredients.api.json",
+      "sha256": "4a5a4c77c0f0c3c66521d344468c9b8aaac882e568c19b6718215e228a5bba91"
+    },
+    {
+      "source": "Tools\\ComfyUI\\Thai_03_Food_Ingredients_640.json",
+      "backup": "Tools\\ComfyUI\\Thai_03_Food_Ingredients_640.json",
+      "sha256": "9d354dcd9e5828dd16a0f7329f91f5011f501a8df609a4ec859fc34a0c4b9380"
+    },
+    {
+      "source": "Tools\\ComfyUI\\Thai_03_Food_Ingredients_640.api.json",
+      "backup": "Tools\\ComfyUI\\Thai_03_Food_Ingredients_640.api.json",
+      "sha256": "5452d179fb9d34f9317d3e0fca1e07e90b5bc7f226eedca7640ec3be5632c64c"
+    },
+    {
+      "source": "Tools\\ComfyUI\\README.md",
+      "backup": "Tools\\ComfyUI\\README.md",
+      "sha256": "81ba71bea2ac0a8e465c66112d49cdeed97f75242f23be27e1fa3d82928e88b6"
+    },
+    {
+      "source": "Tools\\ComfyUI\\verification.json",
+      "backup": "Tools\\ComfyUI\\verification.json",
+      "sha256": "abfde3bff29c6f3b010da4fff8d3ba09d48cbc9f9cfb9233375b716e4d13810b"
+    },
+    {
+      "source": "Assets\\Resources\\ComfyFoodWorkflow.json",
+      "backup": "Assets\\Resources\\ComfyFoodWorkflow.json",
+      "sha256": "6a101f02fbcdfa4c9185de5185bcf9bb8dc25664ae3e6565356a7db3b3e8a4f5"
+    },
+    {
+      "source": "Assets\\Resources\\ComfyFoodWorkflow.json.meta",
+      "backup": "Assets\\Resources\\ComfyFoodWorkflow.json.meta",
+      "sha256": "6d855f8403db8b3311d845d9cf1dcf6a2c6cca26e6d84ddad2d92851f83f27f2"
+    },
+    {
+      "source": "C:\\Users\\김성훈\\AppData\\Local\\Comfy-Desktop\\ComfyUI-Installs\\ComfyUI\\ComfyUI\\user\\default\\workflows\\Thai_03_Food_Ingredients.json",
+      "backup": "comfy_user\\Thai_03_Food_Ingredients.json",
+      "sha256": "7642a728803c744d45418be4d6027aa9116f85dcef251d9f41c036ffe1751e00"
+    },
+    {
+      "source": "C:\\Users\\김성훈\\AppData\\Local\\Comfy-Desktop\\ComfyUI-Installs\\ComfyUI\\ComfyUI\\user\\default\\workflows\\Thai_03_Food_Thai_Style.json",
+      "backup": "comfy_user\\Thai_03_Food_Thai_Style.json",
+      "sha256": "b07543645e3b275d7aa742fe3e24bc208efb79e85ffa7b76b3e17eb7adc9ab4f"
+    }
+  ],
+  "restore": "Copy project-relative backup files to their source paths. For comfy-user:// sources, import the backup JSON in ComfyUI or save it in the ComfyUI user workflows directory. Preserve the Unity TextAsset .meta GUID. Existing ComfyUI originals remain untouched."
+}

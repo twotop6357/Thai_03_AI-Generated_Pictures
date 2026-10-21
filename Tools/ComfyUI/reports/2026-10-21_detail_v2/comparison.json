@@ -1,0 +1,361 @@
+{
+  "date": "2026-10-21",
+  "system_stats": {
+    "system": {
+      "os": "win32",
+      "ram_total": 33752997888,
+      "ram_free": 5164675072,
+      "comfyui_version": "0.37.0",
+      "required_frontend_version": "1.52.7",
+      "installed_templates_version": "0.11.66",
+      "required_templates_version": "0.11.66",
+      "comfy_package_versions": [
+        {
+          "name": "comfyui-frontend-package",
+          "installed": "1.52.7",
+          "required": "1.52.7"
+        },
+        {
+          "name": "comfyui-workflow-templates",
+          "installed": "0.11.66",
+          "required": "0.11.66"
+        },
+        {
+          "name": "comfyui-embedded-docs",
+          "installed": "0.5.12",
+          "required": "0.5.12"
+        },
+        {
+          "name": "comfy-kitchen",
+          "installed": "0.2.35",
+          "required": "0.2.35"
+        },
+        {
+          "name": "comfy-aimdo",
+          "installed": "0.5.5",
+          "required": "0.5.5"
+        }
+      ],
+      "python_version": "3.13.12 (main, Feb 12 2026, 00:38:53) [MSC v.1944 64 bit (AMD64)]",
+      "pytorch_version": "2.12.1+cu130",
+      "embedded_python": false,
+      "deploy_environment": "local-desktop2-standalone"
+    },
+    "devices": [
+      {
+        "name": "cuda:0 NVIDIA GeForce RTX 5070 Ti Laptop GPU : cudaMallocAsync",
+        "type": "cuda",
+        "index": 0,
+        "vram_total": 12820480000,
+        "vram_free": 1150696936,
+        "torch_vram_total": 67108864,
+        "torch_vram_free": 32914920
+      }
+    ]
+  },
+  "deadline_seconds": 29,
+  "target_rtx3060_verified": false,
+  "runs": [
+    {
+      "case": "warmup",
+      "profile": "legacy",
+      "size": 512,
+      "steps": 4,
+      "seed": 6102100,
+      "ingredients": [
+        "Rice"
+      ],
+      "prompt_id": "59a9ab80-168b-4b3b-9830-65f3eff96acf",
+      "seconds_through_download": 2.207,
+      "under_29_seconds": true,
+      "png_bytes": 485104,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\warmup.png",
+      "comfy_output": {
+        "filename": "warmup_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "six_legacy_512",
+      "profile": "legacy",
+      "size": 512,
+      "steps": 4,
+      "seed": 6102101,
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Shrimp",
+        "Garlic",
+        "Mushroom",
+        "Coconut milk"
+      ],
+      "prompt_id": "e570317d-f35c-444b-a02b-039c6d66079e",
+      "seconds_through_download": 1.873,
+      "under_29_seconds": true,
+      "png_bytes": 518917,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\six_legacy_512.png",
+      "comfy_output": {
+        "filename": "six_legacy_512_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "six_detail_512",
+      "profile": "detail-v2",
+      "size": 512,
+      "steps": 4,
+      "seed": 6102101,
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Shrimp",
+        "Garlic",
+        "Mushroom",
+        "Coconut milk"
+      ],
+      "prompt_id": "2cfa0a42-af68-4ea3-b2ac-785637792a22",
+      "seconds_through_download": 2.035,
+      "under_29_seconds": true,
+      "png_bytes": 508384,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\six_detail_512.png",
+      "comfy_output": {
+        "filename": "six_detail_512_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "six_detail_640",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102101,
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Shrimp",
+        "Garlic",
+        "Mushroom",
+        "Coconut milk"
+      ],
+      "prompt_id": "e2538426-a90a-4ecf-bf4a-d0c1c055b0c0",
+      "seconds_through_download": 1.383,
+      "under_29_seconds": true,
+      "png_bytes": 705325,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\six_detail_640.png",
+      "comfy_output": {
+        "filename": "six_detail_640_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "six_detail_768",
+      "profile": "detail-v2",
+      "size": 768,
+      "steps": 4,
+      "seed": 6102101,
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Shrimp",
+        "Garlic",
+        "Mushroom",
+        "Coconut milk"
+      ],
+      "prompt_id": "015e7d24-02ef-4697-803a-6709e21dccbb",
+      "seconds_through_download": 2.078,
+      "under_29_seconds": true,
+      "png_bytes": 1005254,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\six_detail_768.png",
+      "comfy_output": {
+        "filename": "six_detail_768_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "chicken_legacy_512",
+      "profile": "legacy",
+      "size": 512,
+      "steps": 4,
+      "seed": 6102102,
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Chicken",
+        "Carrot",
+        "Onion",
+        "Chili pepper"
+      ],
+      "prompt_id": "17dcbeb2-4130-46b0-8573-97d5a2f98830",
+      "seconds_through_download": 2.225,
+      "under_29_seconds": true,
+      "png_bytes": 551526,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\chicken_legacy_512.png",
+      "comfy_output": {
+        "filename": "chicken_legacy_512_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "chicken_detail_640",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102102,
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Chicken",
+        "Carrot",
+        "Onion",
+        "Chili pepper"
+      ],
+      "prompt_id": "43e09e5e-c34f-4a4c-834a-439060d52dd5",
+      "seconds_through_download": 2.632,
+      "under_29_seconds": true,
+      "png_bytes": 763419,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\chicken_detail_640.png",
+      "comfy_output": {
+        "filename": "chicken_detail_640_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "seafood_legacy_512",
+      "profile": "legacy",
+      "size": 512,
+      "steps": 4,
+      "seed": 6102103,
+      "ingredients": [
+        "Fish",
+        "Shrimp",
+        "Cabbage",
+        "Chili pepper"
+      ],
+      "prompt_id": "61862c22-673c-46ef-a00a-41aabbb23a71",
+      "seconds_through_download": 1.999,
+      "under_29_seconds": true,
+      "png_bytes": 563536,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\seafood_legacy_512.png",
+      "comfy_output": {
+        "filename": "seafood_legacy_512_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "seafood_detail_640",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102103,
+      "ingredients": [
+        "Fish",
+        "Shrimp",
+        "Cabbage",
+        "Chili pepper"
+      ],
+      "prompt_id": "3d9332a9-5986-490d-9bde-1b1d8fe67572",
+      "seconds_through_download": 2.237,
+      "under_29_seconds": true,
+      "png_bytes": 802288,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\seafood_detail_640.png",
+      "comfy_output": {
+        "filename": "seafood_detail_640_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "egg_legacy_512",
+      "profile": "legacy",
+      "size": 512,
+      "steps": 4,
+      "seed": 6102104,
+      "ingredients": [
+        "Egg"
+      ],
+      "prompt_id": "84b5134f-99cc-4f8d-895b-ca1a9b037317",
+      "seconds_through_download": 1.876,
+      "under_29_seconds": true,
+      "png_bytes": 534006,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\egg_legacy_512.png",
+      "comfy_output": {
+        "filename": "egg_legacy_512_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "egg_detail_640",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102104,
+      "ingredients": [
+        "Egg"
+      ],
+      "prompt_id": "1c98ab9c-4c4c-479a-83e7-eb2cc91a9581",
+      "seconds_through_download": 2.336,
+      "under_29_seconds": true,
+      "png_bytes": 822616,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\egg_detail_640.png",
+      "comfy_output": {
+        "filename": "egg_detail_640_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "cucumber_coconut_detail_640",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102105,
+      "ingredients": [
+        "Cucumber",
+        "Coconut milk"
+      ],
+      "prompt_id": "7426e601-5477-4192-989f-44a482c6e377",
+      "seconds_through_download": 2.628,
+      "under_29_seconds": true,
+      "png_bytes": 769462,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\cucumber_coconut_detail_640.png",
+      "comfy_output": {
+        "filename": "cucumber_coconut_detail_640_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    },
+    {
+      "case": "beef_detail_640",
+      "profile": "detail-v2",
+      "size": 640,
+      "steps": 4,
+      "seed": 6102106,
+      "ingredients": [
+        "Beef",
+        "Potato",
+        "Mushroom",
+        "Onion"
+      ],
+      "prompt_id": "292dce15-bfd8-4905-b9b4-8c1bb5763ee3",
+      "seconds_through_download": 2.369,
+      "under_29_seconds": true,
+      "png_bytes": 830058,
+      "local_image": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\beef_detail_640.png",
+      "comfy_output": {
+        "filename": "beef_detail_640_00001_.png",
+        "subfolder": "Thai03\\DetailV2Tests",
+        "type": "output"
+      }
+    }
+  ],
+  "note": "First case warms models. Resolution changes noise dimensions even with the same seed. Visual review is manual."
+}

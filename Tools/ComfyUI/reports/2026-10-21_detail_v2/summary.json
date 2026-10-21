@@ -1,0 +1,83 @@
+{
+  "selected_profile": "detail-v2",
+  "width": 640,
+  "height": 640,
+  "steps": 4,
+  "batch": 1,
+  "sampler": "euler",
+  "cfg": 1,
+  "new_comfy_user_workflow": "Thai_03_Food_Detail_v2",
+  "backup": "Tools\\ComfyUI\\backups\\2026-10-21_pre_detail_v2",
+  "backup_files_verified": 11,
+  "old_graph_files_and_comfy_user_originals_unchanged": true,
+  "resource_guid_preserved": true,
+  "final_generation_count": 8,
+  "final_seconds_min": 2.237,
+  "final_seconds_max": 3.005,
+  "final_seconds_mean": 2.494,
+  "actual_gpu": "cuda:0 NVIDIA GeForce RTX 5070 Ti Laptop GPU : cudaMallocAsync",
+  "all_final_under_29_seconds": true,
+  "rtx3060_verified": false,
+  "windows_player_build_verified": false,
+  "prompt_parity": {
+    "matched": 19896,
+    "rejected": 4,
+    "width": 640,
+    "steps": 4,
+    "legacyCompatible": true
+  },
+  "unity_integration": {
+    "passed": true,
+    "LastPromptId": "9e424c29-2a45-4b52-a806-e0e69adc5131",
+    "LastGenerationSeconds": 3.23037529,
+    "width": 640,
+    "height": 640,
+    "words": [
+      "Rice",
+      "Egg",
+      "Shrimp",
+      "Garlic",
+      "Mushroom",
+      "Coconut milk"
+    ],
+    "liveProgress": true,
+    "progress": 1.0,
+    "historyRoot": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\UniqueUnityHistory",
+    "loadedScenes": 2
+  },
+  "visual_review": [
+    {
+      "comparison": "six ingredients 512 vs v2 512/640/768",
+      "finding": "640 shows distinct rice grains, shrimp segments, egg edge bubbles and mushroom gills. 768 did not show enough added benefit in this sample to justify its higher target-device cost."
+    },
+    {
+      "comparison": "chicken 512 vs v2 640",
+      "finding": "More visible moist cut fibers, irregular browned surface and carrot radial detail."
+    },
+    {
+      "comparison": "fish/shrimp 512 vs v2 640",
+      "finding": "Recognizable skin, exposed fish flakes and shrimp surface detail; all four requested forms visible."
+    },
+    {
+      "comparison": "initial single-ingredient tests",
+      "finding": "Extra food appeared with Egg, Rice and Coconut milk. Final single-food template removed extras in the reviewed followup seeds; no guarantee for all seeds."
+    },
+    {
+      "comparison": "final 1-6 counts plus Rice/Coconut singles",
+      "finding": "Requested forms visible across reviewed samples; white sauce identity cannot be proven. Cucumber/coconut sample still has ambiguous white solid forms; garlic can resemble whole bulbs."
+    }
+  ],
+  "comparison_caveats": [
+    "Resolution changes spatial noise even at the same seed.",
+    "Text encoding/model caches affect timing.",
+    "Not all 9948 combinations or all seeds were visually generated."
+  ],
+  "visitor_gallery_modified_by_tests": false,
+  "user_unsaved_finish_scene_preserved": true,
+  "queue_empty_at_end": true,
+  "example_files": [
+    "v1_six_512.png",
+    "v2_six_640.png",
+    "v2_egg_640.png"
+  ]
+}
