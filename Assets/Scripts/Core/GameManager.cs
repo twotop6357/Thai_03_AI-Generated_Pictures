@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using MessagePipe;
 using UnityEngine.SceneManagement;
 using VContainer;
@@ -46,9 +47,7 @@ namespace Core
         }
 
         /// <summary>
-        /// 최초 화면으로 되돌아갈 때 호출되는 훅. 화면/패널 전환 시스템이 아직 없어 기본
-        /// 구현은 현재 씬을 재로드하는 최소 동작만 수행하며, 전환 시스템이 생기면 프로젝트에서
-        /// override해 교체할 것.
+        /// 최초 화면 복귀 훅. 기존 흐름대로 현재 씬을 암전 뒤 비동기로 재로드한다.
         /// <para>
         /// 수동 복귀 경로(예: 콘텐츠 종료 버튼)를 추가할 때는 이 메서드를 호출하기 전후로
         /// IPublisher&lt;MoveIdleEvent&gt;.Publish(new MoveIdleEvent())를 직접 호출해 move_idle
@@ -60,7 +59,7 @@ namespace Core
         /// </summary>
         protected virtual void ReturnToFirstScreen()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            ScreenTransition.SceneAsync(SceneManager.GetActiveScene().path).Forget();
         }
     }
 }

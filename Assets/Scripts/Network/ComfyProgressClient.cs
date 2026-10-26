@@ -26,7 +26,11 @@ namespace Network
         public async Task ConnectAsync(Uri server, string clientId)
         {
             var address = new UriBuilder(server) { Scheme = "ws", Path = "/ws", Query = "clientId=" + Uri.EscapeDataString(clientId) };
-            await _socket.ConnectAsync(address.Uri, _lifetime.Token);
+            using (var connection = CancellationTokenSource.CreateLinkedTokenSource(_lifetime.Token))
+            {
+                connection.CancelAfter(TimeSpan.FromSeconds(5));
+                await _socket.ConnectAsync(address.Uri, connection.Token);
+            }
             _receiver = ReceiveAsync();
         }
 

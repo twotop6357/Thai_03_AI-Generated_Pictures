@@ -1,0 +1,1108 @@
+{
+  "date": "2026-10-20",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU, 12227 MiB",
+  "comfyui_version": "0.37.0",
+  "target": "RTX 3060 12GB",
+  "target_timing_verified": false,
+  "all_combinations_visual_guarantee": false,
+  "runs": [
+    {
+      "case": "six_cold",
+      "prompt_id": "2d7b881e-59c9-4464-b805-57b975ab7391",
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Shrimp",
+        "Garlic",
+        "Mushroom",
+        "Coconut milk"
+      ],
+      "size": [
+        640,
+        640
+      ],
+      "seed": 6357001,
+      "wall_seconds": 7.265,
+      "comfy_execution_seconds": 7.026,
+      "images": [
+        {
+          "filename": "Food_00001_.png",
+          "subfolder": "Thai03",
+          "type": "output"
+        }
+      ],
+      "cached_nodes": []
+    },
+    {
+      "case": "final_1",
+      "prompt_id": "bb13cbac-360f-41ee-b033-5d90f09dff07",
+      "ingredients": [
+        "Rice"
+      ],
+      "size": [
+        640,
+        640
+      ],
+      "seed": 6357101,
+      "wall_seconds": 2.523,
+      "comfy_execution_seconds": 2.303,
+      "images": [
+        {
+          "filename": "Food_00009_.png",
+          "subfolder": "Thai03",
+          "type": "output"
+        }
+      ],
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "6",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "case": "final_2",
+      "prompt_id": "80525156-53a4-4644-97e9-0b48ade25412",
+      "ingredients": [
+        "Rice",
+        "Egg"
+      ],
+      "size": [
+        640,
+        640
+      ],
+      "seed": 6357102,
+      "wall_seconds": 2.268,
+      "comfy_execution_seconds": 2.18,
+      "images": [
+        {
+          "filename": "Food_00010_.png",
+          "subfolder": "Thai03",
+          "type": "output"
+        }
+      ],
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "6",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "case": "final_3",
+      "prompt_id": "d91f3b29-52a4-4110-81d1-beaee788bae2",
+      "ingredients": [
+        "Carrot",
+        "Potato",
+        "Cucumber"
+      ],
+      "size": [
+        640,
+        640
+      ],
+      "seed": 6357103,
+      "wall_seconds": 2.293,
+      "comfy_execution_seconds": 2.273,
+      "images": [
+        {
+          "filename": "Food_00011_.png",
+          "subfolder": "Thai03",
+          "type": "output"
+        }
+      ],
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "6",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "case": "final_4",
+      "prompt_id": "4498ca23-8301-4970-b521-162e42a71857",
+      "ingredients": [
+        "Onion",
+        "Cabbage",
+        "Chili pepper",
+        "Mushroom"
+      ],
+      "size": [
+        640,
+        640
+      ],
+      "seed": 6357104,
+      "wall_seconds": 2.496,
+      "comfy_execution_seconds": 2.441,
+      "images": [
+        {
+          "filename": "Food_00012_.png",
+          "subfolder": "Thai03",
+          "type": "output"
+        }
+      ],
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "6",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "case": "final_5",
+      "prompt_id": "cf919e05-f4d5-4e94-abd6-d86532b63508",
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Chicken",
+        "Onion",
+        "Carrot"
+      ],
+      "size": [
+        640,
+        640
+      ],
+      "seed": 6357105,
+      "wall_seconds": 2.85,
+      "comfy_execution_seconds": 2.586,
+      "images": [
+        {
+          "filename": "Food_00013_.png",
+          "subfolder": "Thai03",
+          "type": "output"
+        }
+      ],
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "6",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "case": "final_6",
+      "prompt_id": "42de490f-96ca-4002-85bd-6de986491e07",
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Shrimp",
+        "Garlic",
+        "Mushroom",
+        "Coconut milk"
+      ],
+      "size": [
+        640,
+        640
+      ],
+      "seed": 6357106,
+      "wall_seconds": 2.301,
+      "comfy_execution_seconds": 2.164,
+      "images": [
+        {
+          "filename": "Food_00014_.png",
+          "subfolder": "Thai03",
+          "type": "output"
+        }
+      ],
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "6",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "case": "six_512",
+      "prompt_id": "2ca55c12-f544-4249-8fe0-0e3b37c31fe1",
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Shrimp",
+        "Garlic",
+        "Mushroom",
+        "Coconut milk"
+      ],
+      "size": [
+        512,
+        512
+      ],
+      "seed": 6357106,
+      "wall_seconds": 1.126,
+      "comfy_execution_seconds": 0.897,
+      "images": [
+        {
+          "filename": "Food_00015_.png",
+          "subfolder": "Thai03",
+          "type": "output"
+        }
+      ],
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "7",
+        "8",
+        "10"
+      ]
+    },
+    {
+      "case": "proteins_final",
+      "prompt_id": "d2cd1b15-9412-407a-8ec6-7277680ccd00",
+      "ingredients": [
+        "Chicken",
+        "Beef",
+        "Fish",
+        "Shrimp",
+        "Garlic",
+        "Coconut milk"
+      ],
+      "size": [
+        640,
+        640
+      ],
+      "seed": 6357108,
+      "wall_seconds": 2.769,
+      "comfy_execution_seconds": 2.496,
+      "images": [
+        {
+          "filename": "Food_00016_.png",
+          "subfolder": "Thai03",
+          "type": "output"
+        }
+      ],
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "8"
+      ]
+    }
+  ],
+  "guards": {
+    "prompt_combinations_checked": 9948,
+    "live_schema_graph_sizes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "invalid_selection_rejected": true,
+    "busy_queue_no_submission": true,
+    "remote_api_rejected": true,
+    "timeout_rejected_mock": true
+  },
+  "visual_review": {
+    "final_1": "Rice visible; unselected meat/vegetable garnishes also appeared.",
+    "final_2": "Rice and egg visible inside same plate.",
+    "final_3": "Roasted carrot, potato, cucumber visible inside same plate.",
+    "final_4": "Onion, cabbage, chili rings and mushrooms visible; cabbage identity not botanically provable.",
+    "final_5": "Rice, egg, chicken, onion and carrot visible.",
+    "final_6": "Rice, egg, shrimp, peeled garlic, mushroom and ivory sauce visible. Sauce composition not provable from image.",
+    "six_512": "All six visual forms present; garlic shape is less precise than the 640 example. Prompt encoding reused from final_6.",
+    "proteins_final": "Chicken-like breast, beef-like steak, skin-on fish, shrimp, cloves and white sauce visible. Fish still looks less cooked than requested; species/ingredients cannot be proven."
+  },
+  "first_observed_run": "six_cold had no cached graph nodes, but process was already running; not a fresh PC/Comfy restart benchmark.",
+  "limitations": [
+    "No RTX 3060 test or long-duration soak test.",
+    "No automated visual verifier.",
+    "All 9948 prompts checked; only listed image examples inspected.",
+    "No remote paid API, model downloads or package changes."
+  ],
+  "ui_run": {
+    "prompt_id": "b2ed1cd0-2ba9-4dc2-831c-4cd0d91b419a",
+    "success": true,
+    "output": {
+      "13": {
+        "images": [
+          {
+            "filename": "Food_00017_.png",
+            "subfolder": "Thai03",
+            "type": "output"
+          }
+        ]
+      }
+    },
+    "execution_seconds": 2.075,
+    "gui_saved_workflow_loaded": true,
+    "previous_unsaved_workflow_preserved": true
+  },
+  "thai_style_update": {
+    "date": "2026-10-20",
+    "prompt_combinations_checked": 9948,
+    "schema_sizes_checked": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "dish_branches_checked": [
+      "rice_only",
+      "coconut_only",
+      "curry",
+      "fried_rice",
+      "salad",
+      "stir_fry"
+    ],
+    "runs": [
+      {
+        "case": "thai_curry",
+        "prompt_id": "ce6ffad4-d0e1-439d-a02b-3eec3a51c9e5",
+        "ingredients": [
+          "Rice",
+          "Egg",
+          "Shrimp",
+          "Garlic",
+          "Mushroom",
+          "Coconut milk"
+        ],
+        "size": [
+          512,
+          512
+        ],
+        "seed": 6357201,
+        "wall_seconds": 1.996,
+        "outputs": {
+          "13": {
+            "images": [
+              {
+                "filename": "Food_00018_.png",
+                "subfolder": "Thai03",
+                "type": "output"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "case": "thai_fried_rice",
+        "prompt_id": "b02b6bd6-c920-4026-95c9-98846ccfc862",
+        "ingredients": [
+          "Rice",
+          "Egg",
+          "Chicken",
+          "Garlic",
+          "Carrot"
+        ],
+        "size": [
+          512,
+          512
+        ],
+        "seed": 6357202,
+        "wall_seconds": 1.829,
+        "outputs": {
+          "13": {
+            "images": [
+              {
+                "filename": "Food_00019_.png",
+                "subfolder": "Thai03",
+                "type": "output"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "case": "thai_stir_fry",
+        "prompt_id": "2a6d5888-b2bd-4e8c-a3cc-922a2bf1b4a8",
+        "ingredients": [
+          "Beef",
+          "Onion",
+          "Chili pepper"
+        ],
+        "size": [
+          512,
+          512
+        ],
+        "seed": 6357203,
+        "wall_seconds": 1.86,
+        "outputs": {
+          "13": {
+            "images": [
+              {
+                "filename": "Food_00020_.png",
+                "subfolder": "Thai03",
+                "type": "output"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "visual_review": {
+      "thai_curry": "Six ingredient forms visible in one coconut curry rice dish; Thai ceramic plate and banana-leaf setting. Sauce identity remains unverified.",
+      "thai_fried_rice": "Rice, egg, chicken, garlic and carrot visible; extra green garnish appeared despite prompt.",
+      "thai_stir_fry": "Beef-like strips, cooked onion and seeded red chili rings visible in one glossy stir-fry."
+    },
+    "target_3060_verified": false
+  },
+  "unity_integration": {
+    "date": "2026-10-20",
+    "unity_version": "2022.3.62f3",
+    "gpu": "RTX 5070 Ti Laptop 12GB",
+    "python_csharp_prompt_parity_combinations": 9948,
+    "invalid_builder_inputs_rejected": 4,
+    "empty_selection_keyboard_and_function_rejected": true,
+    "button_duplicate_calls_ignored": 20,
+    "selection_snapshot_survives_current_blocks_change": true,
+    "replaced_texture_destroyed": true,
+    "failure_paths": [
+      {
+        "case": "busy",
+        "passed": true,
+        "prompt_id": null
+      },
+      {
+        "case": "post_error",
+        "passed": true,
+        "prompt_id": null
+      },
+      {
+        "case": "history_error",
+        "passed": true,
+        "prompt_id": "0a83493b-ae00-4397-b169-e99cd0fdf6f4"
+      },
+      {
+        "case": "missing_image",
+        "passed": true,
+        "prompt_id": "f95a8a71-a4ea-40ea-bfd2-1b6e4caedd07"
+      },
+      {
+        "case": "download_error",
+        "passed": true,
+        "prompt_id": "15e56ab8-0a4a-4ab9-b4f0-a4f818ed6f63"
+      },
+      {
+        "case": "disable_reenable_10_times_then_replace_cancelled_request",
+        "passed": true
+      },
+      {
+        "case": "server_disconnected",
+        "passed": true
+      },
+      {
+        "case": "real_29_second_deadline",
+        "passed": true,
+        "seconds": 29.018777
+      }
+    ],
+    "live_runs": [
+      {
+        "trigger": "Input System Digit1 keyboard event",
+        "ingredients": [
+          "Rice"
+        ],
+        "prompt_id": "712f3445-d4d4-4416-90b6-30fb8fc62063",
+        "unity_end_to_end_seconds": 2.44415855,
+        "output": "Thai03/UnityFood_00001_.png"
+      },
+      {
+        "trigger": "Scene GenerateFoodButton persistent onClick",
+        "ingredients": [
+          "Rice",
+          "Egg",
+          "Shrimp",
+          "Garlic",
+          "Mushroom",
+          "Coconut milk"
+        ],
+        "prompt_id": "1d28f91b-0e15-4e72-a58a-2909b605fa23",
+        "unity_end_to_end_seconds": 2.52767944,
+        "output": "Thai03/UnityFood_00002_.png"
+      },
+      {
+        "trigger": "Input System Numpad1 keyboard event",
+        "ingredients": [
+          "Egg"
+        ],
+        "prompt_id": "2e7766ff-d9ae-4e88-8cc0-2598b848572b",
+        "unity_end_to_end_seconds": 3.52404785,
+        "output": {
+          "filename": "UnityFood_00003_.png",
+          "subfolder": "Thai03",
+          "type": "output"
+        }
+      }
+    ],
+    "visual_evidence": "Temp/ComfyFoodVerification/unity-six.png",
+    "arduino_connected": false,
+    "target_3060_verified": false,
+    "windows_player_build_verified": false,
+    "result_close_keeps_selection": true,
+    "temporary_mock_server_stopped": true,
+    "edit_mode_restored": true
+  },
+  "unity_panel_flow": {
+    "date": "2026-10-20",
+    "verifier": "Codex (single agent)",
+    "environment": "Unity 2022.3.62f3 Editor Play Mode, local ComfyUI 0.37.0, RTX 5070 Ti Laptop 12GB",
+    "compile_errors": 0,
+    "workflow_progress_is_elapsed_time_prediction": false,
+    "gauge_normal_seconds": 1.2,
+    "gauge_catch_up_seconds": 0.22,
+    "live_six": {
+      "prompt_id": "9ee4d987-8039-412b-9806-da04153e407f",
+      "seconds": 4.80735,
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Chicken",
+        "Onion",
+        "Chili pepper",
+        "Coconut milk"
+      ],
+      "result_image_and_words_verified": true
+    },
+    "live_one_digit1": {
+      "LastPromptId": "83ca8702-a296-415a-8338-bba77e8b5747",
+      "LastGenerationSeconds": 3.58708954,
+      "samples": [
+        {
+          "time": 0.03155899,
+          "target": 0.0,
+          "displayed": 0.0
+        },
+        {
+          "time": 0.07304764,
+          "target": 0.15,
+          "displayed": 0.0112282149
+        },
+        {
+          "time": 1.24803162,
+          "target": 0.3125,
+          "displayed": 0.15241912
+        },
+        {
+          "time": 1.49539948,
+          "target": 0.6375,
+          "displayed": 0.218168989
+        },
+        {
+          "time": 1.69629288,
+          "target": 0.799999952,
+          "displayed": 0.6121723
+        },
+        {
+          "time": 1.91254807,
+          "target": 0.8,
+          "displayed": 0.7972715
+        },
+        {
+          "time": 2.11208725,
+          "target": 0.900000036,
+          "displayed": 0.8072432
+        },
+        {
+          "time": 2.13067245,
+          "target": 0.96,
+          "displayed": 0.819422066
+        },
+        {
+          "time": 2.39683533,
+          "target": 1.0,
+          "displayed": 0.9605909
+        }
+      ],
+      "loadingActive": false,
+      "result": true,
+      "words": [
+        {
+          "text": "Shrimp",
+          "active": true
+        },
+        {
+          "text": "",
+          "active": false
+        },
+        {
+          "text": "",
+          "active": false
+        },
+        {
+          "text": "",
+          "active": false
+        },
+        {
+          "text": "",
+          "active": false
+        },
+        {
+          "text": "",
+          "active": false
+        }
+      ]
+    },
+    "final_two_numpad1_and_navigation": {
+      "run": {
+        "LastPromptId": "f28498ff-e752-4702-9708-cc1ecd64a17c",
+        "LastGenerationSeconds": 4.65485764,
+        "ingredients": [
+          "Garlic",
+          "CoconutMilk"
+        ],
+        "progress": 1.0
+      },
+      "back": true,
+      "cancel": true
+    },
+    "mock_tests": [
+      {
+        "test": "gauge_acceleration",
+        "normal": 1.2,
+        "fast": 0.22
+      },
+      {
+        "test": "mock_success",
+        "live": true,
+        "waitedDownload": true,
+        "sequential": true,
+        "duplicateBlocked": true
+      },
+      {
+        "test": "busy",
+        "passed": true
+      },
+      {
+        "test": "post_error",
+        "passed": true
+      },
+      {
+        "test": "history_error",
+        "passed": true
+      },
+      {
+        "test": "missing_image",
+        "passed": true
+      },
+      {
+        "test": "download_error",
+        "passed": true
+      },
+      {
+        "test": "ws_disconnect",
+        "passed": true
+      },
+      {
+        "test": "cancel_10_and_disable",
+        "passed": true
+      }
+    ],
+    "deadline_and_cancel_tests": [
+      {
+        "test": "actual_29_second_deadline",
+        "elapsed": 29.0109711,
+        "passed": true
+      },
+      {
+        "test": "cancel_during_100_percent_tween",
+        "passed": true
+      }
+    ],
+    "visual_evidence": [
+      "Temp/ComfyFoodVerification/final-loading.png",
+      "Temp/ComfyFoodVerification/final-result.png",
+      "Temp/ComfyFoodVerification/panels-one.png",
+      "Temp/ComfyFoodVerification/panels-six.png",
+      "Temp/ComfyFoodVerification/loading-pop.png",
+      "Temp/ComfyFoodVerification/loading-gauge.png"
+    ],
+    "snapshot_shared_across_panels": true,
+    "unused_word_boxes_disabled": true,
+    "foreign_prompt_events_ignored": true,
+    "monotonic_gauge_and_no_result_before_image_and_100_percent": true,
+    "sprite_and_texture_released_on_back": true,
+    "temporary_mock_port": 8189,
+    "mock_sockets_after_tests": 0,
+    "temporary_mock_stopped_by_interrupt": true,
+    "edit_mode_restored": true,
+    "scene_saved": true,
+    "missing_scripts": 0,
+    "arduino_connected": false,
+    "target_3060_verified": false,
+    "windows_player_build_verified": false
+  },
+  "unity_finish_gallery": {
+    "date": "2026-10-20",
+    "verifier": "Codex (single agent)",
+    "environment": "Unity 2022.3.62f3 Editor, Windows, local ComfyUI 0.37.0 / RTX 5070 Ti Laptop 12GB",
+    "capacity": 12,
+    "order": "oldest to newest, newest at last; thirteenth save evicts oldest PNG and metadata",
+    "compile_errors": 0,
+    "storage_tests": [
+      {
+        "test": "13_saves_capacity_order_pairing_idempotence",
+        "passed": true
+      },
+      {
+        "test": "cancelled_save_no_extra_record_or_temporary_file",
+        "passed": true
+      },
+      {
+        "test": "invalid_ingredients_and_disk_failure",
+        "passed": true
+      },
+      {
+        "test": "invalid_record_and_missing_png",
+        "passed": true
+      },
+      {
+        "test": "new_store_instance_preserves_history",
+        "passed": true
+      }
+    ],
+    "ui_tests": [
+      {
+        "test": "actual_left_right_digit1_numpad1_back_and_snapshot_pairing",
+        "passed": true
+      },
+      {
+        "test": "resource_release_and_10_cancelled_reentries",
+        "passed": true
+      }
+    ],
+    "edge_tests": [
+      {
+        "test": "empty_gallery_inputs",
+        "passed": true
+      },
+      {
+        "test": "single_photo_wrap_and_one_word",
+        "passed": true
+      },
+      {
+        "test": "corrupt_png_skipped_without_wrong_pairing",
+        "passed": true
+      },
+      {
+        "test": "locked_index_preserves_12_records_and_no_orphan_png",
+        "passed": true
+      }
+    ],
+    "live_generation": {
+      "LastPromptId": "720c7c3d-db6c-44f0-bfa0-1dc432468ab3",
+      "LastGenerationSeconds": 4.69220161,
+      "evicted": "fdde5cf4-5479-5108-8b91-c5231fbf1c7e",
+      "first": "e442e6eb-7218-5717-8c7c-ef12f8c2df1f",
+      "last": "720c7c3d-db6c-44f0-bfa0-1dc432468ab3",
+      "count": 12,
+      "pngCount": 12,
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Garlic"
+      ]
+    },
+    "fresh_scene_reload": {
+      "passed": true,
+      "VisibleCount": 12,
+      "SelectedIndex": 11,
+      "SelectedRecordId": "720c7c3d-db6c-44f0-bfa0-1dc432468ab3",
+      "words": [
+        "Rice",
+        "Egg",
+        "Garlic"
+      ]
+    },
+    "prior_unity_photos_with_verified_metadata": 20,
+    "initial_import_count": 12,
+    "legacy_source_files_deleted": false,
+    "persistent_archive_png_count_after_live_save": 12,
+    "atomic_replace_retry": "up to three retries, 40 ms apart, keeping existing index on failure",
+    "initial_storage_failure": "File.Replace IOException in isolated rapid-save test; bounded retry added, retention and locked-index preservation retested successfully; root cause not confirmed",
+    "initial_reload_fixture_failure": "Relative navigation assumed initial selection; fixture corrected to verify absolute slot 12; persisted entry order and matching words confirmed",
+    "image_and_ingredient_snapshot_pairing_verified": true,
+    "actual_keyboard_left_right_digit1_numpad1_verified": true,
+    "image_sprite_texture_release_verified": true,
+    "visual_evidence": [
+      "Temp/FinishGalleryVerification/final-gallery.png",
+      "Temp/FinishGalleryVerification/final-detail.png"
+    ],
+    "windows_player_build_verified": false,
+    "arduino_connected": false,
+    "automatic_game_to_finish_scene_transition_added": false,
+    "build_settings_changed": false
+  },
+  "unity_finish_newest_first": {
+    "date": "2026-10-20",
+    "compile_errors": 0,
+    "verification": {
+      "passed": true,
+      "VisibleCount": 12,
+      "newestId": "b49768a4-8048-4bf0-8ac3-22612928bc86",
+      "oldestId": "409dce34-d246-53b9-a5f5-c8747f58a1ef",
+      "detailsPaired": true,
+      "wrap": true,
+      "storageUnchanged": true
+    },
+    "display_order": "newest first",
+    "retention_policy": "latest twelve, evict oldest; unchanged",
+    "windows_build_verified": false
+  },
+  "unity_streaming_assets_history": {
+    "date": "2026-10-20",
+    "compile_errors": 0,
+    "storage": "Application.streamingAssetsPath/Thai03FoodHistory",
+    "block_names_field": "index.jsonl ingredientNames",
+    "migration_count": 12,
+    "migration_image_hashes_match": true,
+    "previous_archive_preserved": true,
+    "gallery": {
+      "passed": true,
+      "actual": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Assets\\StreamingAssets\\Thai03FoodHistory",
+      "VisibleCount": 12,
+      "newest": "b49768a4-8048-4bf0-8ac3-22612928bc86",
+      "names": [
+        "Egg",
+        "Shrimp",
+        "Cabbage",
+        "Coconut milk"
+      ]
+    },
+    "live_generation": {
+      "passed": true,
+      "root": "C:/UnityProjects/Thai_03_AI-Generated_Pictures/Assets/StreamingAssets\\Thai03FoodHistory",
+      "LastPromptId": "9fd24be5-ca2a-4e31-a802-e319c218afad",
+      "LastGenerationSeconds": 4.675852,
+      "count": 12,
+      "pngCount": 12,
+      "names": [
+        "Garlic",
+        "Coconut milk"
+      ],
+      "oldArchiveUnchanged": true
+    },
+    "reload": {
+      "passed": true,
+      "VisibleCount": 12,
+      "SelectedRecordId": "9fd24be5-ca2a-4e31-a802-e319c218afad",
+      "words": [
+        "Garlic",
+        "Coconut milk"
+      ]
+    },
+    "generated_history_git_ignored": true,
+    "windows_player_build_verified": false
+  },
+  "food_detail_v2_20261021": {
+    "selected_profile": "detail-v2",
+    "width": 640,
+    "height": 640,
+    "steps": 4,
+    "batch": 1,
+    "sampler": "euler",
+    "cfg": 1,
+    "new_comfy_user_workflow": "Thai_03_Food_Detail_v2",
+    "backup": "Tools\\ComfyUI\\backups\\2026-10-21_pre_detail_v2",
+    "backup_files_verified": 11,
+    "old_graph_files_and_comfy_user_originals_unchanged": true,
+    "resource_guid_preserved": true,
+    "final_generation_count": 8,
+    "final_seconds_min": 2.237,
+    "final_seconds_max": 3.005,
+    "final_seconds_mean": 2.494,
+    "actual_gpu": "cuda:0 NVIDIA GeForce RTX 5070 Ti Laptop GPU : cudaMallocAsync",
+    "all_final_under_29_seconds": true,
+    "rtx3060_verified": false,
+    "windows_player_build_verified": false,
+    "prompt_parity": {
+      "matched": 19896,
+      "rejected": 4,
+      "width": 640,
+      "steps": 4,
+      "legacyCompatible": true
+    },
+    "unity_integration": {
+      "passed": true,
+      "LastPromptId": "9e424c29-2a45-4b52-a806-e0e69adc5131",
+      "LastGenerationSeconds": 3.23037529,
+      "width": 640,
+      "height": 640,
+      "words": [
+        "Rice",
+        "Egg",
+        "Shrimp",
+        "Garlic",
+        "Mushroom",
+        "Coconut milk"
+      ],
+      "liveProgress": true,
+      "progress": 1.0,
+      "historyRoot": "C:\\UnityProjects\\Thai_03_AI-Generated_Pictures\\Temp\\ComfyFoodDetailV2\\UniqueUnityHistory",
+      "loadedScenes": 2
+    },
+    "visual_review": [
+      {
+        "comparison": "six ingredients 512 vs v2 512/640/768",
+        "finding": "640 shows distinct rice grains, shrimp segments, egg edge bubbles and mushroom gills. 768 did not show enough added benefit in this sample to justify its higher target-device cost."
+      },
+      {
+        "comparison": "chicken 512 vs v2 640",
+        "finding": "More visible moist cut fibers, irregular browned surface and carrot radial detail."
+      },
+      {
+        "comparison": "fish/shrimp 512 vs v2 640",
+        "finding": "Recognizable skin, exposed fish flakes and shrimp surface detail; all four requested forms visible."
+      },
+      {
+        "comparison": "initial single-ingredient tests",
+        "finding": "Extra food appeared with Egg, Rice and Coconut milk. Final single-food template removed extras in the reviewed followup seeds; no guarantee for all seeds."
+      },
+      {
+        "comparison": "final 1-6 counts plus Rice/Coconut singles",
+        "finding": "Requested forms visible across reviewed samples; white sauce identity cannot be proven. Cucumber/coconut sample still has ambiguous white solid forms; garlic can resemble whole bulbs."
+      }
+    ],
+    "comparison_caveats": [
+      "Resolution changes spatial noise even at the same seed.",
+      "Text encoding/model caches affect timing.",
+      "Not all 9948 combinations or all seeds were visually generated."
+    ],
+    "visitor_gallery_modified_by_tests": false,
+    "user_unsaved_finish_scene_preserved": true,
+    "queue_empty_at_end": true,
+    "example_files": [
+      "v1_six_512.png",
+      "v2_six_640.png",
+      "v2_egg_640.png"
+    ]
+  },
+  "thai_prepared_v3_20261022": {
+    "date": "2026-10-22",
+    "default_workflow_unchanged": true,
+    "default_isTest": false,
+    "backup_files_verified": 13,
+    "python_unity_prompt_parity": [
+      {
+        "name": "ComfyFoodWorkflow",
+        "combinations": 9948,
+        "prompt_sha256": "afb4a4c9de1d18069a556900592862659f66edbf8dcb66fd87271abd551e819b"
+      },
+      {
+        "name": "ComfyFoodWorkflowTest",
+        "combinations": 9948,
+        "prompt_sha256": "77cda52b959b273d7f18f61f52d4ac0b4b35d151223d59b54bc75630a0371bf9"
+      }
+    ],
+    "legacy_and_v2_prompts_unchanged_each_9948": true,
+    "local_comfy_workflow": "workflows/Thai_03_Food_Thai_Prepared_v3.json",
+    "models_unchanged": true,
+    "size": [
+      640,
+      640
+    ],
+    "steps": 4,
+    "final_requests": 8,
+    "seconds_through_download_min": 2.775,
+    "seconds_through_download_max": 4.318,
+    "final_all_under_29": true,
+    "target_rtx3060_verified": false,
+    "all_ingredients_guaranteed": false,
+    "visual_review": {
+      "reviewer": "Codex",
+      "improvements": [
+        "Garlic appears as slices rather than whole cloves",
+        "Carrot matchsticks and sliced onion in fried rice",
+        "Cut omelet strips instead of intact fried egg",
+        "Fish pieces and cleaned shrimp in Thai-style wok dishes"
+      ],
+      "limitations": [
+        "Unselected red chili or garlic-like garnish still appears in some 2-4 ingredient samples",
+        "Rice-only sample includes extra golden strips; single-ingredient guarantees are not met",
+        "Some chicken/beef pieces remain larger than requested; omelet can look uniformly cut",
+        "Thai style and curry appearance are subjective; coconut identity cannot be proved visually",
+        "Test-only profile, not promoted to default"
+      ]
+    },
+    "unity_integration": {
+      "checks_passed": 11,
+      "runs": [
+        {
+          "profile": "detail-v2",
+          "prompt_id": "58547e28-4b93-4de9-b428-1a764ba0dfee",
+          "seconds": 6.691818
+        },
+        {
+          "profile": "thai-prepared-v3",
+          "prompt_id": "e86a9e48-5a13-4f96-a46d-4de876bbf174",
+          "seconds": 5.60930634
+        }
+      ],
+      "expected_error": "Missing test definition was intentionally injected; no request submitted.",
+      "visitor_history_untouched": true
+    }
+  },
+  "thai_focus_v4_20261022": {
+    "date": "2026-10-22",
+    "revision": "Thai Focus v4 / garlic germ",
+    "default_v2_unchanged": true,
+    "test_resource_guid_unchanged": true,
+    "models_unchanged": true,
+    "size": [
+      640,
+      640
+    ],
+    "steps": 4,
+    "backup_files_verified": 11,
+    "food_only_background": true,
+    "market_scenery_removed": true,
+    "garlic_description": "paper-thin knife slices of GARLIC CLOVES, real longitudinal garlic cross-sections, asymmetric pointed ivory wafers with a faint narrow pale-green central germ line inside the solid cut face, 0.5 mm thin translucent edges lightly toasted golden, naturally varying small clove-shaped slices without holes",
+    "final_requests": 6,
+    "seconds_through_download_min": 2.521,
+    "seconds_through_download_max": 2.99,
+    "python_unity_parity": [
+      {
+        "name": "ComfyFoodWorkflow",
+        "combinations": 9948,
+        "prompt_sha256": "afb4a4c9de1d18069a556900592862659f66edbf8dcb66fd87271abd551e819b"
+      },
+      {
+        "name": "ComfyFoodWorkflowTest",
+        "combinations": 9948,
+        "prompt_sha256": "458fea035959635454f92d4b078393a1c5d96023fc62a9fc4b0d930ca8dbcc2c"
+      }
+    ],
+    "previous_legacy_v2_v3_prompts_unchanged_each_9948": true,
+    "unity_runs": [
+      {
+        "profile": "detail-v2",
+        "prompt_id": "1a6b0ec9-13a4-4ea3-939b-e708cd329899",
+        "seconds": 5.7363615
+      },
+      {
+        "profile": "thai-focus-v4",
+        "prompt_id": "20d750ae-0819-4b7d-80ce-895a21e43e94",
+        "seconds": 4.999749
+      }
+    ],
+    "unity_checks_passed": 11,
+    "target_rtx3060_verified": false,
+    "all_ingredients_guaranteed": false,
+    "comfy_workflow": "workflows/Thai_03_Food_Thai_Focus_v4.json",
+    "visual_review": {
+      "reviewer": "Codex",
+      "selected": "Thin solid ivory garlic slices with a pale central germ; airy Thai omelet; glistening coconut sauce and selected-chili red curry; close food-only framing.",
+      "limitations": [
+        "Some garlic slices are still thicker or more uniform than requested; exact anatomy and identity are not guaranteed.",
+        "Occasional serving spoon/pan and unselected food-like pieces remain despite prompt constraints.",
+        "Thai style is improved through cooking texture and sauce; limited selected ingredients constrain recipe fidelity."
+      ]
+    },
+    "tests": "Initial market candidate rejected by user; 3 garlic wording A/B trials, then 2 germ refinements; final 1-6 ingredients and Unity A/B in isolated history."
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "flux-2-klein-4b-fp8.safetensors",
+      "weight_dtype": "default"
+    },
+    "_meta": {
+      "title": "Distilled 4B FP8 / do not use base"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen_3_4b.safetensors",
+      "type": "flux2",
+      "device": "default"
+    },
+    "_meta": {
+      "title": "Qwen 3 4B text encoder"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "flux2-vae.safetensors"
+    },
+    "_meta": {
+      "title": "Flux 2 VAE"
+    }
+  },
+  "4": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "Thai gaeng kati, a homestyle coconut-milk curry with tender bite-size pieces simmered together in a cohesive creamy sauce, spooned over loose jasmine rice in this SAME dish, with the cut curry ingredients interspersed and rice grains visible between them. Authentic-looking Thai homestyle food photograph, Bangkok neighborhood kitchen. ONE finished shared dish in a shallow blue-and-white Thai ceramic serving dish on a warm teak table. Use exactly these 6 selected visible food ingredients: Rice, Egg, Shrimp, Garlic, Mushroom, Coconut milk. Their ready-to-eat preparation: loose separate elongated Thai jasmine rice grains, lightly golden and glossy where wok-fried, naturally mixed with the selected cut pieces; many SHORT golden Thai omelet ribbons already chopped into bite-size strips and mixed between the other pieces, tender yellow cut interiors and crisp lacy edges, not an intact omelet or fried egg; cleaned peeled deveined shrimp, heads and shells removed, butterfly-cut curved pink shrimp meat with visible segmented flesh; thin golden fried garlic slices scattered through the food, small flat oval ivory-gold cut faces, no whole cloves or garlic bulbs; trimmed brown mushrooms cut into bite-size quarters and thick slices, cooked glossy caps and visible pale cut faces with gills; silky cooked coconut milk, a smooth glossy ivory creamy sauce that coats cut ingredients when present, no solid coconut pieces or decorative raw cream puddles. The cook has already peeled, trimmed, sliced and cooked the ingredients as appropriate. Cut pieces are approximately spoon-size, 1-3 cm. Toss and intermingle them naturally into ONE cohesive Thai meal, not a display of whole raw ingredients and not separate organized piles. Keep recognizable cut faces of EVERY selected ingredient exposed within the dish; small garlic slices and chili slices remain visible on the surface when selected. Appetizing wok-cooked textures, tender moist interiors, irregular delicate browning, restrained sauce sheen. Thai everyday serving style with relaxed natural portions, not Western steak-and-sides or a tasting platter. Only selected ingredients may appear as visible food; no unselected basil, lime, cilantro, chili, rice or decorative toppings. Sauce color comes from the selected ingredients. No separate ingredient bowls, whole garlic heads, uncut vegetables, raw meat, shrimp heads, side dishes, raw ingredient arrangements, text or hands. Slightly angled overhead close-up, the entire serving and all ingredient types are clearly in focus and inside the frame. Natural soft window light, believable warm colors, fine realistic food texture, no plastic smoothness.",
+      "clip": [
+        "2",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "1-6 detected ingredients: Rice, Egg, Shrimp, Garlic, Mushroom, Coconut milk"
+    }
+  },
+  "5": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "4",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Unused negative at CFG 1"
+    }
+  },
+  "6": {
+    "class_type": "EmptyFlux2LatentImage",
+    "inputs": {
+      "width": 640,
+      "height": 640,
+      "batch_size": 1
+    },
+    "_meta": {
+      "title": "Size / batch 1 / match scheduler size"
+    }
+  },
+  "7": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 6102201
+    },
+    "_meta": {
+      "title": "Seed / increment per photo"
+    }
+  },
+  "8": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "_meta": {
+      "title": "Euler (4 evaluations)"
+    }
+  },
+  "9": {
+    "class_type": "Flux2Scheduler",
+    "inputs": {
+      "steps": 4,
+      "width": 640,
+      "height": 640
+    },
+    "_meta": {
+      "title": "4 steps / match latent size"
+    }
+  },
+  "10": {
+    "class_type": "CFGGuider",
+    "inputs": {
+      "cfg": 1.0,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "4",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "CFG 1 / single conditioning pass"
+    }
+  },
+  "11": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "7",
+        0
+      ],
+      "guider": [
+        "10",
+        0
+      ],
+      "sampler": [
+        "8",
+        0
+      ],
+      "sigmas": [
+        "9",
+        0
+      ],
+      "latent_image": [
+        "6",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Single-pass generation"
+    }
+  },
+  "12": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "11",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Decode once"
+    }
+  },
+  "13": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "filename_prefix": "Thai03/FoodThaiPreparedV3",
+      "images": [
+        "12",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Finished dish / local PNG"
+    }
+  }
+}

@@ -8,7 +8,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-import food_workflow as detail
+import historical_food_workflow as detail
 
 
 ROOT = Path(__file__).resolve().parent

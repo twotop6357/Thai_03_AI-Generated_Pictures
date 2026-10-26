@@ -33,14 +33,14 @@
     "4": {
       "class_type": "CLIPTextEncode",
       "inputs": {
-        "text": "Photorealistic Thai food photography for a Bangkok restaurant menu: a Thai-style creamy coconut curry, glossy and appetizing, with large visible cooked ingredients on top, served over jasmine rice on the SAME plate with plenty of rice grains exposed along one edge. Overhead close-up of ONE coherent finished Thai-inspired dish in ONE shallow blue-and-white Thai ceramic plate, on a warm teak table with a subtle banana-leaf placemat underneath the plate. The dish contains 6 selected ingredient types: Rice, Egg, Shrimp, Garlic, Mushroom, Coconut milk. All selected ingredients are large, individually recognizable and fully visible INSIDE the same plated dish: Thai jasmine rice with separate elongated grains, delicate grain edges and a light moist sheen; a Thai crispy fried egg with fine lacy golden edges, gently blistered opaque egg white and a rich glossy yellow yolk; cooked pink-orange curled shrimp with distinct segmented flesh, gently seared edges and recognizable tails; small separate peeled garlic cloves, smooth ivory teardrop shapes with pointed tips and subtle golden sear spots, each a single clove rather than a whole garlic head; pan-fried brown mushroom halves with irregular caramelized caps, recognizable stems and fine visible gills on cut sides; smooth silky ivory coconut milk with fine glossy highlights and delicate pale cream swirls. Distribute all selected ingredients visibly across the surface of this ONE cooked dish, integrated naturally with the Thai preparation while keeping every ingredient easy to recognize and uncovered. No isolated piles of ingredient samples, no compartment tray, no Western steak-and-sides plating. Every selected ingredient must be visible, not minced, pureed, buried or dissolved. Use only the selected visible food ingredients; do not add unselected rice, chili, basil, lime or other food garnishes. No separate ingredient bowls, raw ingredient display, collage, grid, labels, writing or hands. The food fills most of the frame. Soft directional window daylight skims across the food, revealing fine natural surface texture and gentle contact shadows. Appetizing realistic cooking detail: subtle irregular browning, moist cut surfaces, delicate crisp edges where appropriate, and small controlled highlights on juices and sauce. Natural variations in size and shape, never identical repeated pieces. Professional close food photograph with rich but believable colors, balanced exposure and clean fine detail. The entire serving and every selected ingredient remain sharply focused and fully inside the frame. Food texture is the main subject; the ceramic rim and background are secondary. Natural photographic texture rather than waxy smooth plastic, illustration or aggressive sharpening.",
+        "text": "Photorealistic Thai food photograph: Thai PAD SEE EW inspired wok-fried flat rice noodles, long glossy noodle ribbons tossed with the selected bite-size pieces, a light amber seasoning glaze and delicate charred noodle edges. Exactly 6 selected food ingredients: Rice noodle, Egg, Shrimp, Tofu, Carrot, Chili pepper. The visible prepared ingredients are: Thai sen yai flat RICE NOODLE ribbons, soft long translucent ivory strands with light wok-browned edges, loose glossy folds visibly interwoven through the dish; irregular bite-size torn pieces of Thai khai jiao, a fluffy deeply golden fried omelet with airy bubbles, blistered craggy crisp edges and soft egg interior; cleaned peeled deveined shrimp, heads and shells removed, butterfly-cut curved pink shrimp meat with visible segmented flesh; bite-size firm TOFU cubes with lightly blistered golden pan-seared surfaces and finely porous WHITE cut faces, angular cubes remain clearly recognizable; short matchsticks and thin diagonal slices of orange carrot, lightly cooked with moist recognizable orange cut faces; thin diagonal slices of small red Thai bird's-eye chili with glossy red skin and a few tiny pale seeds. One coherent finished Thai dish, with ALL selected ingredients recognizable inside the SAME serving. Naturally intermix the cut pieces while keeping their recognizable surfaces exposed. Use only the selected visible foods, without unselected garnishes or side dishes. No separate ingredient bowls, raw ingredient displays, text or hands. Focus on the FOOD itself on one plain pale mint-green low-rim plate. Authentic Thai cooking textures and naturally overlapping prepared pieces. The serving fills 90 percent of the frame, all foods visible and in sharp focus. A narrow plain neutral matte background only. Soft diffuse light reveals sauce and cut surfaces. No market, scenery, restaurant interior, people, utensils or cooking pans.",
         "clip": [
           "2",
           0
         ]
       },
       "_meta": {
-        "title": "1-6 detected ingredients: Rice, Egg, Shrimp, Garlic, Mushroom, Coconut milk"
+        "title": "1-6 detected ingredients: Rice noodle, Egg, Shrimp, Tofu, Carrot, Chili pepper"
       }
     },
     "5": {
@@ -58,8 +58,8 @@
     "6": {
       "class_type": "EmptyFlux2LatentImage",
       "inputs": {
-        "width": 640,
-        "height": 640,
+        "width": 768,
+        "height": 576,
         "batch_size": 1
       },
       "_meta": {
@@ -69,7 +69,7 @@
     "7": {
       "class_type": "RandomNoise",
       "inputs": {
-        "noise_seed": 6102113
+        "noise_seed": 6102301
       },
       "_meta": {
         "title": "Seed / increment per photo"
@@ -88,8 +88,8 @@
       "class_type": "Flux2Scheduler",
       "inputs": {
         "steps": 4,
-        "width": 640,
-        "height": 640
+        "width": 768,
+        "height": 576
       },
       "_meta": {
         "title": "4 steps / match latent size"
@@ -163,7 +163,7 @@
     "13": {
       "class_type": "SaveImage",
       "inputs": {
-        "filename_prefix": "Thai03/FoodDetailV2",
+        "filename_prefix": "Thai03/FoodNoodleTofuTest",
         "images": [
           "12",
           0
@@ -175,33 +175,34 @@
     }
   },
   "ingredients": {
-    "Rice": "Thai jasmine rice with separate elongated grains, delicate grain edges and a light moist sheen",
-    "Egg": "a Thai crispy fried egg with fine lacy golden edges, gently blistered opaque egg white and a rich glossy yellow yolk",
-    "Chicken": "cooked chicken slices with small caramelized sear patches, moist white fibrous interiors and natural irregular cut edges",
-    "Beef": "cooked thin beef strips with fine visible meat fibers, browned seared edges and a light natural juice sheen",
-    "Fish": "a cooked fish fillet with fine silvery skin texture, delicate white flakes separating along natural muscle layers and moist flesh",
-    "Shrimp": "cooked pink-orange curled shrimp with distinct segmented flesh, gently seared edges and recognizable tails",
-    "Onion": "soft glossy caramelized onion petals with translucent curved layers and irregular golden-brown seared edges",
-    "Garlic": "small separate peeled garlic cloves, smooth ivory teardrop shapes with pointed tips and subtle golden sear spots, each a single clove rather than a whole garlic head",
-    "Carrot": "bright orange cooked carrot rounds with fine radial centers, moist cut surfaces and lightly caramelized edges",
-    "Potato": "golden cooked potato chunks with fine crisp browned edges and soft slightly crumbly pale yellow cut interiors",
-    "Cucumber": "crisp cucumber rounds with finely textured dark green peel, translucent pale flesh and distinct wet seed cavities",
-    "Cabbage": "soft sauteed cabbage pieces with thin folded pale green leaves, visible branching veins and gently seared edges",
-    "Chili pepper": "small thin red bird's-eye chili rings with delicate glossy red skin, hollow centers and tiny visible white seeds",
-    "Mushroom": "pan-fried brown mushroom halves with irregular caramelized caps, recognizable stems and fine visible gills on cut sides",
-    "Coconut milk": "smooth silky ivory coconut milk with fine glossy highlights and delicate pale cream swirls"
+    "Rice": "loose separate elongated Thai jasmine rice grains, lightly toasted by a hot wok when fried, interspersed with the selected pieces",
+    "Egg": "irregular bite-size torn pieces of Thai khai jiao, a fluffy deeply golden fried omelet with airy bubbles, blistered craggy crisp edges and soft egg interior",
+    "Chicken": "small thin irregular 2 cm boneless chicken slices cut across the grain, cooked opaque white with lightly browned wok-seared edges, not large grilled breast strips",
+    "Beef": "thin bite-size beef slices cut across the grain, tender browned surfaces and visible fine meat fibers, no whole steak",
+    "Fish": "deboned fish cut into small cooked fillet chunks, flaky white cut faces and occasional slender silvery skin edges, no whole fish",
+    "Shrimp": "cleaned peeled deveined shrimp, heads and shells removed, butterfly-cut curved pink shrimp meat with visible segmented flesh",
+    "Onion": "thin curved onion slices with translucent cooked layers, softened and lightly browned in the wok",
+    "Rice noodle": "Thai sen yai flat RICE NOODLE ribbons, soft long translucent ivory strands with light wok-browned edges, loose glossy folds visibly interwoven through the dish",
+    "Carrot": "short matchsticks and thin diagonal slices of orange carrot, lightly cooked with moist recognizable orange cut faces",
+    "Potato": "peeled potato cut into small spoon-size cubes, cooked golden outside with soft pale yellow cut faces",
+    "Cucumber": "fresh cucumber cut into thin diagonal half-moons with dark green peel and visible pale seeded centers, mixed into the salad",
+    "Cabbage": "cabbage cut into short bite-size leaf ribbons, wok-wilted pale green folds with visible veins and lightly seared edges",
+    "Chili pepper": "thin diagonal slices of small red Thai bird's-eye chili with glossy red skin and a few tiny pale seeds",
+    "Mushroom": "trimmed brown mushrooms cut into bite-size quarters and thick slices, cooked glossy caps and visible pale cut faces with gills",
+    "Tofu": "bite-size firm TOFU cubes with lightly blistered golden pan-seared surfaces and finely porous WHITE cut faces, angular cubes remain clearly recognizable"
   },
   "dishes": {
-    "rice_only": "ONLY plain freshly steamed Thai jasmine rice on its own; a simple serving made entirely of rice grains with bare ceramic visible around it, no other edible items",
-    "coconut_only": "ONLY plain warm coconut milk on its own; a smooth continuous pool of silky ivory coconut milk filling the shallow dish, completely free of solid food pieces or toppings",
-    "curry": "a Thai-style creamy coconut curry, glossy and appetizing, with large visible cooked ingredients on top",
-    "curry_rice_suffix": ", served over jasmine rice on the SAME plate with plenty of rice grains exposed along one edge",
-    "fried_rice": "Thai khao pad style wok-fried jasmine rice with large recognizable pieces of the selected ingredients on top",
-    "salad": "a Thai yam-inspired composed salad, with crisp cucumber and other ingredients cooked where appropriate",
-    "stir_fry": "a Thai-style glossy wok stir-fry with large recognizable pieces, lightly caramelized and ready to eat",
-    "single_ingredient": "a minimal Thai-style preparation of {0} ONLY, served on its own without any other food, vegetable base or garnish"
+    "rice_only": "ONLY plain freshly steamed Thai jasmine rice, a simple serving of rice grains with no toppings or other food",
+    "noodles_only": "ONLY cooked Thai flat rice noodles, a loose serving of soft ivory noodle ribbons with bare plate around them, no toppings or other food",
+    "tofu_only": "ONLY golden pan-seared firm tofu cubes with visible white porous cut faces, no other food, vegetable base or sauce pool",
+    "noodle_stir_fry": "Thai PAD SEE EW inspired wok-fried flat rice noodles, long glossy noodle ribbons tossed with the selected bite-size pieces, a light amber seasoning glaze and delicate charred noodle edges",
+    "noodles_rice_suffix": ", with the selected jasmine rice grains also visibly incorporated at one edge of this SAME plate without hiding the noodles",
+    "fried_rice": "Thai KHAO PAD, loose wok-fried jasmine rice with the selected bite-size ingredients tossed through the grains, lightly toasted and glossy",
+    "salad": "Thai YAM inspired salad, selected fresh cucumber and the other prepared ingredients tossed together with a light glossy dressing, all selected proteins cooked",
+    "stir_fry": "Thai PAD style wok stir-fry of the selected bite-size ingredients, lightly seared and tossed in a thin glossy seasoning glaze",
+    "single_ingredient": "a simple Thai-style preparation of {0} alone, without any other food ingredient"
   },
-  "prompt_template": "Photorealistic Thai food photography for a Bangkok restaurant menu: {0}. Overhead close-up of ONE coherent finished Thai-inspired dish in ONE shallow blue-and-white Thai ceramic plate, on a warm teak table with a subtle banana-leaf placemat underneath the plate. The dish contains {1} selected ingredient types: {2}. All selected ingredients are large, individually recognizable and fully visible INSIDE the same plated dish: {3}. Distribute all selected ingredients visibly across the surface of this ONE cooked dish, integrated naturally with the Thai preparation while keeping every ingredient easy to recognize and uncovered. No isolated piles of ingredient samples, no compartment tray, no Western steak-and-sides plating. Every selected ingredient must be visible, not minced, pureed, buried or dissolved. Use only the selected visible food ingredients; do not add unselected rice, chili, basil, lime or other food garnishes. No separate ingredient bowls, raw ingredient display, collage, grid, labels, writing or hands. The food fills most of the frame. Soft directional window daylight skims across the food, revealing fine natural surface texture and gentle contact shadows. Appetizing realistic cooking detail: subtle irregular browning, moist cut surfaces, delicate crisp edges where appropriate, and small controlled highlights on juices and sauce. Natural variations in size and shape, never identical repeated pieces. Professional close food photograph with rich but believable colors, balanced exposure and clean fine detail. The entire serving and every selected ingredient remain sharply focused and fully inside the frame. Food texture is the main subject; the ceramic rim and background are secondary. Natural photographic texture rather than waxy smooth plastic, illustration or aggressive sharpening.",
-  "profile": "detail-v2",
-  "single_ingredient_prompt_template": "Professional Thai restaurant food photograph of {0}. Exactly ONE selected food ingredient: {2}. The food is {3}. This one ingredient is served alone on a blue-and-white Thai ceramic plate. The plate contains only this food; the rest of the plate is bare ceramic. Overhead close-up, the full serving is visible, filling most of the frame. Soft natural side daylight reveals fine true-to-life surface texture, gentle shadows and subtle moist highlights. Sharp focus over the entire food, natural color, realistic photographic detail. Warm teak table and a banana-leaf placemat underneath the plate. No added toppings, garnishes, side dishes, labels, text, hands or separate ingredient bowls."
+  "prompt_template": "Photorealistic Thai food photograph: {0}. Exactly {1} selected food ingredients: {2}. The visible prepared ingredients are: {3}. One coherent finished Thai dish, with ALL selected ingredients recognizable inside the SAME serving. Naturally intermix the cut pieces while keeping their recognizable surfaces exposed. Use only the selected visible foods, without unselected garnishes or side dishes. No separate ingredient bowls, raw ingredient displays, text or hands. Focus on the FOOD itself on one plain pale mint-green low-rim plate. Authentic Thai cooking textures and naturally overlapping prepared pieces. The serving fills 90 percent of the frame, all foods visible and in sharp focus. A narrow plain neutral matte background only. Soft diffuse light reveals sauce and cut surfaces. No market, scenery, restaurant interior, people, utensils or cooking pans.",
+  "profile": "thai-focus-v4",
+  "single_ingredient_prompt_template": "Close-up Thai food photograph of {0}. Exactly ONE selected food ingredient: {2}. Actual food appearance: {3}. Only this food is served, with bare plate around it. No additional food ingredients, garnishes or side dishes. The entire serving is visible, sharp natural cut surfaces, realistic texture, soft diffuse light. One plain pale mint-green low-rim plate. Food fills almost the entire frame; only a narrow plain neutral matte background. No market, scenery, people, utensils or cooking pans."
 }

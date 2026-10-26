@@ -8,9 +8,9 @@ namespace Core
     {
         [SerializeField] private BlockDetectionController detection;
 
-        private static readonly IngredientBlock[] Blocks = (IngredientBlock[])Enum.GetValues(typeof(IngredientBlock));
-        private readonly string[] _addLabels = new string[Blocks.Length];
-        private readonly string[] _removeLabels = new string[Blocks.Length];
+        private static readonly System.Collections.Generic.IReadOnlyList<IngredientBlock> Blocks = IngredientBlockNames.ActiveBlocks;
+        private readonly string[] _addLabels = new string[Blocks.Count];
+        private readonly string[] _removeLabels = new string[Blocks.Count];
 
         private void Awake()
         {
@@ -21,7 +21,7 @@ namespace Core
                 return;
             }
 
-            for (int i = 0; i < Blocks.Length; i++)
+            for (int i = 0; i < Blocks.Count; i++)
             {
                 string name = IngredientBlockNames.GetDisplayName(Blocks[i]);
                 _addLabels[i] = "+ " + name;
@@ -31,6 +31,7 @@ namespace Core
 
         private void OnGUI()
         {
+            if (ScreenTransition.IsBusy) return;
             Matrix4x4 previousMatrix = GUI.matrix;
             bool previousEnabled = GUI.enabled;
             float scale = Mathf.Min(Screen.width / 1280f, Screen.height / 720f);
@@ -42,7 +43,7 @@ namespace Core
             if (GUI.Button(new Rect(365f, top + 25f, 150f, 27f), "Clear all"))
                 detection.ClearBlocks();
 
-            for (int i = 0; i < Blocks.Length; i++)
+            for (int i = 0; i < Blocks.Count; i++)
             {
                 bool selected = detection.IsDetected(Blocks[i]);
                 GUI.enabled = previousEnabled && detection.isActiveAndEnabled &&

@@ -13,7 +13,7 @@ using UnityEngine.InputSystem;
 namespace Core
 {
     /// <summary>패널 활성화마다 새 설문. 질문별 확정·저장을 소유하고 그래프용 통계/완료 이벤트를 제공한다.</summary>
-    public sealed class SurveyPanelController : MonoBehaviour
+    public sealed class SurveyPanelController : MonoBehaviour, ISceneDisplayReady
     {
         [SerializeField] private TMP_Text questionText;
         [SerializeField] private TMP_Text statusText;
@@ -28,6 +28,7 @@ namespace Core
         private bool _busy;
         private bool _loadFailed;
         public bool IsReady { get; private set; }
+        public bool IsDisplayReady => IsReady || _loadFailed || !_configured;
         public bool IsSaving => _busy && IsReady;
         public bool IsCompleted { get; private set; }
         public int SelectedIndex { get; private set; } = 2;
@@ -128,7 +129,7 @@ namespace Core
         public void SelectNext() => MoveSelection(1);
         private void MoveSelection(int step)
         {
-            if (!isActiveAndEnabled || !IsReady || _busy || IsCompleted) return;
+            if (ScreenTransition.IsBusy || !isActiveAndEnabled || !IsReady || _busy || IsCompleted) return;
             SelectedIndex = (SelectedIndex + step + SurveyStore.OptionCount) % SurveyStore.OptionCount;
             RenderSelection();
         }
@@ -136,7 +137,7 @@ namespace Core
         // 키보드와 향후 아두이노 버튼이 공유하는 메인 스레드 진입점.
         public void ConfirmSelection()
         {
-            if (!isActiveAndEnabled || !_configured || _busy || IsCompleted) return;
+            if (ScreenTransition.IsBusy || !isActiveAndEnabled || !_configured || _busy || IsCompleted) return;
             if (_loadFailed) { StartSession(); return; }
             if (!IsReady) return;
             _busy = true;

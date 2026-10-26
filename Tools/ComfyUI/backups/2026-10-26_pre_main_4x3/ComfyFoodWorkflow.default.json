@@ -1,0 +1,208 @@
+{
+  "workflow": {
+    "1": {
+      "class_type": "UNETLoader",
+      "inputs": {
+        "unet_name": "flux-2-klein-4b-fp8.safetensors",
+        "weight_dtype": "default"
+      },
+      "_meta": {
+        "title": "Distilled 4B FP8 / do not use base"
+      }
+    },
+    "2": {
+      "class_type": "CLIPLoader",
+      "inputs": {
+        "clip_name": "qwen_3_4b.safetensors",
+        "type": "flux2",
+        "device": "default"
+      },
+      "_meta": {
+        "title": "Qwen 3 4B text encoder"
+      }
+    },
+    "3": {
+      "class_type": "VAELoader",
+      "inputs": {
+        "vae_name": "flux2-vae.safetensors"
+      },
+      "_meta": {
+        "title": "Flux 2 VAE"
+      }
+    },
+    "4": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "Photorealistic Thai food photograph: Thai PAD SEE EW inspired wok-fried flat rice noodles, long glossy noodle ribbons tossed with the selected bite-size pieces, a light amber seasoning glaze and delicate charred noodle edges. Exactly 6 selected food ingredients: Rice noodle, Egg, Shrimp, Tofu, Carrot, Chili pepper. The visible prepared ingredients are: cooked flat rice noodle ribbons, long glossy ivory strands with slightly translucent edges, naturally folded and individually visible; a Thai crispy fried egg with fine lacy golden edges, gently blistered opaque egg white and a rich glossy yellow yolk; cooked pink-orange curled shrimp with distinct segmented flesh, gently seared edges and recognizable tails; pan-seared firm tofu cubes with delicate irregular golden crust, fine porous pale white cut faces and straight cubed edges; bright orange cooked carrot rounds with fine radial centers, moist cut surfaces and lightly caramelized edges; small thin red bird's-eye chili rings with delicate glossy red skin, hollow centers and tiny visible white seeds. One coherent finished Thai dish, with ALL selected ingredients recognizable inside the SAME serving. Naturally intermix the cut pieces while keeping their recognizable surfaces exposed. Use only the selected visible foods, without unselected garnishes or side dishes. No separate ingredient bowls, raw ingredient displays, text or hands. One shallow blue-and-white Thai ceramic plate. Soft directional light shows delicate sear marks, moist cut faces and realistic fine food texture. All selected ingredients are sharply focused inside the frame.",
+        "clip": [
+          "2",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "1-6 detected ingredients: Rice noodle, Egg, Shrimp, Tofu, Carrot, Chili pepper"
+      }
+    },
+    "5": {
+      "class_type": "ConditioningZeroOut",
+      "inputs": {
+        "conditioning": [
+          "4",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Unused negative at CFG 1"
+      }
+    },
+    "6": {
+      "class_type": "EmptyFlux2LatentImage",
+      "inputs": {
+        "width": 640,
+        "height": 640,
+        "batch_size": 1
+      },
+      "_meta": {
+        "title": "Size / batch 1 / match scheduler size"
+      }
+    },
+    "7": {
+      "class_type": "RandomNoise",
+      "inputs": {
+        "noise_seed": 6102301
+      },
+      "_meta": {
+        "title": "Seed / increment per photo"
+      }
+    },
+    "8": {
+      "class_type": "KSamplerSelect",
+      "inputs": {
+        "sampler_name": "euler"
+      },
+      "_meta": {
+        "title": "Euler (4 evaluations)"
+      }
+    },
+    "9": {
+      "class_type": "Flux2Scheduler",
+      "inputs": {
+        "steps": 4,
+        "width": 640,
+        "height": 640
+      },
+      "_meta": {
+        "title": "4 steps / match latent size"
+      }
+    },
+    "10": {
+      "class_type": "CFGGuider",
+      "inputs": {
+        "cfg": 1.0,
+        "model": [
+          "1",
+          0
+        ],
+        "positive": [
+          "4",
+          0
+        ],
+        "negative": [
+          "5",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "CFG 1 / single conditioning pass"
+      }
+    },
+    "11": {
+      "class_type": "SamplerCustomAdvanced",
+      "inputs": {
+        "noise": [
+          "7",
+          0
+        ],
+        "guider": [
+          "10",
+          0
+        ],
+        "sampler": [
+          "8",
+          0
+        ],
+        "sigmas": [
+          "9",
+          0
+        ],
+        "latent_image": [
+          "6",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Single-pass generation"
+      }
+    },
+    "12": {
+      "class_type": "VAEDecode",
+      "inputs": {
+        "samples": [
+          "11",
+          0
+        ],
+        "vae": [
+          "3",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Decode once"
+      }
+    },
+    "13": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "Thai03/FoodNoodleTofuDefault",
+        "images": [
+          "12",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Finished dish / local PNG"
+      }
+    }
+  },
+  "ingredients": {
+    "Rice": "Thai jasmine rice with separate elongated grains, delicate grain edges and a light moist sheen",
+    "Egg": "a Thai crispy fried egg with fine lacy golden edges, gently blistered opaque egg white and a rich glossy yellow yolk",
+    "Chicken": "cooked chicken slices with small caramelized sear patches, moist white fibrous interiors and natural irregular cut edges",
+    "Beef": "cooked thin beef strips with fine visible meat fibers, browned seared edges and a light natural juice sheen",
+    "Fish": "a cooked fish fillet with fine silvery skin texture, delicate white flakes separating along natural muscle layers and moist flesh",
+    "Shrimp": "cooked pink-orange curled shrimp with distinct segmented flesh, gently seared edges and recognizable tails",
+    "Onion": "soft glossy caramelized onion petals with translucent curved layers and irregular golden-brown seared edges",
+    "Rice noodle": "cooked flat rice noodle ribbons, long glossy ivory strands with slightly translucent edges, naturally folded and individually visible",
+    "Carrot": "bright orange cooked carrot rounds with fine radial centers, moist cut surfaces and lightly caramelized edges",
+    "Potato": "golden cooked potato chunks with fine crisp browned edges and soft slightly crumbly pale yellow cut interiors",
+    "Cucumber": "crisp cucumber rounds with finely textured dark green peel, translucent pale flesh and distinct wet seed cavities",
+    "Cabbage": "soft sauteed cabbage pieces with thin folded pale green leaves, visible branching veins and gently seared edges",
+    "Chili pepper": "small thin red bird's-eye chili rings with delicate glossy red skin, hollow centers and tiny visible white seeds",
+    "Mushroom": "pan-fried brown mushroom halves with irregular caramelized caps, recognizable stems and fine visible gills on cut sides",
+    "Tofu": "pan-seared firm tofu cubes with delicate irregular golden crust, fine porous pale white cut faces and straight cubed edges"
+  },
+  "dishes": {
+    "rice_only": "ONLY plain freshly steamed Thai jasmine rice, a simple serving of rice grains with no toppings or other food",
+    "noodles_only": "ONLY cooked Thai flat rice noodles, a loose serving of soft ivory noodle ribbons with bare plate around them, no toppings or other food",
+    "tofu_only": "ONLY golden pan-seared firm tofu cubes with visible white porous cut faces, no other food, vegetable base or sauce pool",
+    "noodle_stir_fry": "Thai PAD SEE EW inspired wok-fried flat rice noodles, long glossy noodle ribbons tossed with the selected bite-size pieces, a light amber seasoning glaze and delicate charred noodle edges",
+    "noodles_rice_suffix": ", with the selected jasmine rice grains also visibly incorporated at one edge of this SAME plate without hiding the noodles",
+    "fried_rice": "Thai KHAO PAD, loose wok-fried jasmine rice with the selected bite-size ingredients tossed through the grains, lightly toasted and glossy",
+    "salad": "Thai YAM inspired salad, selected fresh cucumber and the other prepared ingredients tossed together with a light glossy dressing, all selected proteins cooked",
+    "stir_fry": "Thai PAD style wok stir-fry of the selected bite-size ingredients, lightly seared and tossed in a thin glossy seasoning glaze",
+    "single_ingredient": "a simple Thai-style preparation of {0} alone, without any other food ingredient"
+  },
+  "prompt_template": "Photorealistic Thai food photograph: {0}. Exactly {1} selected food ingredients: {2}. The visible prepared ingredients are: {3}. One coherent finished Thai dish, with ALL selected ingredients recognizable inside the SAME serving. Naturally intermix the cut pieces while keeping their recognizable surfaces exposed. Use only the selected visible foods, without unselected garnishes or side dishes. No separate ingredient bowls, raw ingredient displays, text or hands. One shallow blue-and-white Thai ceramic plate. Soft directional light shows delicate sear marks, moist cut faces and realistic fine food texture. All selected ingredients are sharply focused inside the frame.",
+  "profile": "detail-v2",
+  "single_ingredient_prompt_template": "Close-up Thai food photograph of {0}. Exactly ONE selected food ingredient: {2}. Actual food appearance: {3}. Only this food is served, with bare plate around it. No additional food ingredients, garnishes or side dishes. The entire serving is visible, sharp natural cut surfaces, realistic texture, soft diffuse light. One blue-and-white Thai ceramic plate, tight overhead composition."
+}

@@ -1,0 +1,130 @@
+{
+  "date": "2026-10-22",
+  "catalog": [
+    "Rice",
+    "Egg",
+    "Chicken",
+    "Beef",
+    "Fish",
+    "Shrimp",
+    "Onion",
+    "Rice noodle",
+    "Carrot",
+    "Potato",
+    "Cucumber",
+    "Cabbage",
+    "Chili pepper",
+    "Mushroom",
+    "Tofu"
+  ],
+  "active_count": 15,
+  "max_detected": 6,
+  "retired": [
+    "Garlic",
+    "Coconut milk"
+  ],
+  "added": [
+    "Rice noodle",
+    "Tofu"
+  ],
+  "legacy_ids_preserved": [
+    7,
+    14
+  ],
+  "new_ids": {
+    "Rice noodle": 15,
+    "Tofu": 16
+  },
+  "history_label_compatibility_checks": [
+    {
+      "name": "old IDs remain historical ingredients",
+      "pass": true
+    },
+    {
+      "name": "old gallery labels remain correct",
+      "pass": true
+    },
+    {
+      "name": "new numeric IDs cannot alias old history",
+      "pass": true
+    },
+    {
+      "name": "new records coexist with old records",
+      "pass": true
+    },
+    {
+      "name": "old stored labels not renamed during append",
+      "pass": true
+    },
+    {
+      "name": "new stored labels use Rice noodle and Tofu",
+      "pass": true
+    },
+    {
+      "name": "new photo rejects retired ingredients",
+      "pass": true
+    },
+    {
+      "name": "only 15 active choices",
+      "pass": true
+    },
+    {
+      "name": "new choices are recognizable and unknown IDs rejected",
+      "pass": true
+    },
+    {
+      "name": "prompt rejects retired ID 7",
+      "pass": true
+    },
+    {
+      "name": "prompt rejects retired ID 14",
+      "pass": true
+    }
+  ],
+  "prompt_parity": [
+    {
+      "name": "ComfyFoodWorkflow",
+      "combinations": 9948,
+      "prompt_sha256": "350282707f43ea47827f1247377854a785d07bdd57df2c4090a8cef1bfe6fb1c"
+    },
+    {
+      "name": "ComfyFoodWorkflowTest",
+      "combinations": 9948,
+      "prompt_sha256": "8e8529056e629ee0ba758caf44b094a8e2780efba33671075e81155a918a7931"
+    }
+  ],
+  "all_four_profiles_9948_inputs_checked": true,
+  "no_retired_ingredient_or_curry_text_in_active_prompts": true,
+  "unity_runs": [
+    {
+      "profile": "detail-v2",
+      "prompt_id": "8ddbbc57-25db-43ed-ab75-a08e20fae863",
+      "seconds": 3.55758381
+    },
+    {
+      "profile": "thai-focus-v4",
+      "prompt_id": "e9047d3f-f43a-4f5a-a122-eff628fc9de0",
+      "seconds": 3.28167725
+    }
+  ],
+  "unity_checks_passed": 15,
+  "generated_samples": 9,
+  "seconds_through_download_min": 2.53,
+  "seconds_through_download_max": 2.995,
+  "weights_and_graph_nodes_unchanged": true,
+  "size": [
+    640,
+    640
+  ],
+  "steps": 4,
+  "target_rtx3060_verified": false,
+  "all_ingredients_guaranteed": false,
+  "visual_review": {
+    "reviewer": "Codex",
+    "notes": [
+      "Long flat rice noodle ribbons and golden tofu cubes with white cut faces are visible in tested samples.",
+      "Tofu-only sample has exaggerated pores; some pieces can resemble bread or egg.",
+      "Six-ingredient sample has visible noodle/egg/shrimp/tofu/carrot/chili, but arbitrary combinations and seeds are not guaranteed."
+    ]
+  }
+}

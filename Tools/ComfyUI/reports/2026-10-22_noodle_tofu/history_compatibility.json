@@ -1,0 +1,46 @@
+[
+  {
+    "name": "old IDs remain historical ingredients",
+    "pass": true
+  },
+  {
+    "name": "old gallery labels remain correct",
+    "pass": true
+  },
+  {
+    "name": "new numeric IDs cannot alias old history",
+    "pass": true
+  },
+  {
+    "name": "new records coexist with old records",
+    "pass": true
+  },
+  {
+    "name": "old stored labels not renamed during append",
+    "pass": true
+  },
+  {
+    "name": "new stored labels use Rice noodle and Tofu",
+    "pass": true
+  },
+  {
+    "name": "new photo rejects retired ingredients",
+    "pass": true
+  },
+  {
+    "name": "only 15 active choices",
+    "pass": true
+  },
+  {
+    "name": "new choices are recognizable and unknown IDs rejected",
+    "pass": true
+  },
+  {
+    "name": "prompt rejects retired ID 7",
+    "pass": true
+  },
+  {
+    "name": "prompt rejects retired ID 14",
+    "pass": true
+  }
+]

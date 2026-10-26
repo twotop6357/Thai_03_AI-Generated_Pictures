@@ -2,11 +2,18 @@
 
 15종 중 인식된 **1~6개**를 입력해 한 접시의 **태국 음식 느낌** 사진을 생성한다. 재료별 큰 형태를 요리 표면에 보이게 지정해 가려짐과 누락을 줄인다. 별도 재료 그릇이나 재료 사진 합성은 사용하지 않는다.
 
-코코넛 밀크가 있으면 태국식 코코넛 커리(쌀도 있으면 같은 접시의 커리밥), 쌀을 포함한 다른 조합은 카오팟 스타일 볶음밥, 오이를 포함하면 얌 스타일 샐러드, 나머지는 태국식 볶음 방향을 선택한다. v2는 재료 하나일 때 단일 재료 전용 문구를 사용한다. 쌀만 선택하면 자스민 쌀밥, 코코넛 밀크만 선택하면 고형 토핑 없는 크림을 표현한다. 전통 레시피의 정확한 재현을 보장하는 분류가 아니라, 선택 재료를 살리는 생성 프롬프트 방향이다. 청화 도자기·티크 테이블·접시 아래 바나나 잎으로 분위기를 보강하며, 선택하지 않은 바질·라임·고추를 스타일 때문에 강제 추가하지 않는다.
+**현재 재료(2026-10-22 교체):** Rice, Egg, Chicken, Beef, Fish, Shrimp, Onion, **Rice noodle**, Carrot, Potato, Cucumber, Cabbage, Chili pepper, Mushroom, **Tofu**. Garlic·Coconut milk는 새 입력/생성에서 제외했다. 쌀국수가 있으면 팟시유 스타일 볶음면, 쌀은 카오팟 볶음밥, 오이는 얌 샐러드, 나머지는 태국식 볶음 방향이다. 두부를 코코넛 커리로 취급하지 않는다. 단독 입력이면 해당 재료만 요청한다. 배경 없이 음식에 집중하는 테스트 스타일과 기본 스타일 모두 새 재료를 사용한다.
+
+쌀국수는 길고 납작한 면발, 두부는 구운 겉면과 흰 다공성 단면이 보이는 각진 조각으로 요청한다. 전통 레시피/실제 성분/모든 seed의 재료 식별을 보장하는 기능은 아니며, 시각 확인이 필요하다.
 
 ## 워크플로 파일
 
-- `Thai_03_Food_Detail_v2.json` / `.api.json`: 새 기본 UI/API 워크플로. **640×640**, 4단계, 배치 1. 조리 표면·단면·수분·빛 표현 강화.
+- `Thai_03_Food_Main_4x3.json` / `.api.json`: **현재 프로그램 메인**, 사용 중이던 Thai Focus v4·새15재료·음식 중심 배경을 유지하고 **768×576(4:3)**/4단계로 변경. Unity의 `Assets/Resources/ComfyFoodWorkflow.json`과 동일한 구성이다.
+- `Thai_03_Food_Noodle_Tofu_Default.json` / `.api.json`: 보존한 이전 기본 스타일, 새 15재료·쌀국수/두부 분기, 640×640/4단계.
+- `Thai_03_Food_Noodle_Tofu_Test.json` / `.api.json`: 메인으로 승격하기 전 테스트 스타일, 음식 중심 단색 배경·새 15재료·쌀국수/두부 분기, 640×640/4단계.
+- `Thai_03_Food_Thai_Focus_v4.json` / `.api.json`: 교체 전 Garlic/Coconut milk를 사용하는 이전 테스트 스냅샷.
+- `Thai_03_Food_Thai_Prepared_v3.json` / `.api.json`: 보존한 이전 테스트 버전. 마늘 슬라이스·자른 달걀·손질한 고기/해산물·채소와 태국식 조리 표현.
+- `Thai_03_Food_Detail_v2.json` / `.api.json`: 보존한 이전 기본 UI/API 워크플로. **640×640**, 4단계, 배치 1. 조리 표면·단면·수분·빛 표현 강화.
 - `Thai_03_Food_Ingredients.json` / `.api.json`: 보존한 이전 **512×512** 버전.
 - `Thai_03_Food_Ingredients_640.json` / `.api.json`: 보존한 이전 **640×640** 비교 버전(v2와 프롬프트가 다름).
 - `backups/2026-10-21_pre_detail_v2/`: 변경 전 Python·4개 워크플로·Unity JSON/meta·이전 ComfyUI 사용자 워크플로의 체크섬 백업.
@@ -15,9 +22,9 @@
 - `food_workflow.py`: 인식 재료에 맞는 프롬프트와 UI/API 워크플로를 만드는 Python 표준 라이브러리 도구.
 - `verification.json`: 현 PC의 생성 시간, 입력 검증 및 시각 검토 기록.
 
-기본 JSON에는 예시로 Rice, Egg, Shrimp, Garlic, Mushroom, Coconut milk 6개가 들어 있다. **6개가 필수라는 뜻이 아니다.** 1~5개 입력이면 그 재료만 프롬프트에 넣고, 나머지 슬롯을 임의 재료로 채우지 않는다. Unity의 ChiliPepper/CoconutMilk 이름도 입력할 수 있다.
+현재 JSON 예시는 Rice noodle, Egg, Shrimp, Tofu, Carrot, Chili pepper 6개다. **6개가 필수라는 뜻이 아니다.** 1~5개 입력이면 그 재료만 프롬프트에 넣고 나머지는 채우지 않는다. CLI는 `RiceNoodle`/`ChiliPepper`도 지원하며 Garlic/CoconutMilk는 거절한다.
 
-현재 PC ComfyUI 사용자 목록에서 새 **`Thai_03_Food_Detail_v2`**를 연다. 이전 `Thai_03_Food_Thai_Style`도 그대로 남아 있다. 이전 `Thai_03_Food_Ingredients` 사본과 미저장 탭은 보존했다. 이전 기본/640 JSON은 보존하고 새 파일명으로 v2를 추가했다. JSON을 직접 끌어다 열어도 된다. `CLIPTextEncode`의 텍스트를 바꿀 수 있지만, 실제 블록 목록에 맞추려면 아래 도구로 다시 생성한다.
+ComfyUI에서 `Thai_03_Food_Main_4x3.json`을 열면 현재 프로그램과 같은4:3 구성을 확인할 수 있다. 기존 사용자 폴더 사본·과거 JSON은 보존했다. Unity는 사용자 폴더 사본과 무관하게 아래 메인 리소스를 직접 사용한다.
 
 ## 설정과 필요한 모델
 
@@ -29,7 +36,7 @@
 | 텍스트 인코더 | `text_encoders/qwen_3_4b.safetensors`, type `flux2` |
 | VAE | `vae/flux2-vae.safetensors` |
 | 샘플링 | Euler, Flux2Scheduler, 4 steps, CFG 1 |
-| 크기/배치 | v2 기본 640×640 / 1 (legacy 512×512) |
+| 크기/배치 | 프로그램 메인 768×576(4:3) / 1 (보존한 v2 640×640) |
 | 후처리 | refiner·업스케일·추가 생성 없음 |
 | 저장 | v2 도구: `Thai03/FoodDetailV2_*.png`, Unity: `Thai03/UnityFood_*.png` |
 
@@ -46,10 +53,10 @@
 python Tools/ComfyUI/food_workflow.py Rice
 
 # 파일 생성만: 식재료 3개 (C# enum 이름도 지원)
-python Tools/ComfyUI/food_workflow.py Shrimp Garlic CoconutMilk
+python Tools/ComfyUI/food_workflow.py Shrimp RiceNoodle Tofu
 
 # 로컬 ComfyUI에서 사진 1장 생성, 결과와 시간 기록
-python Tools/ComfyUI/food_workflow.py Rice Egg Shrimp Garlic Mushroom "Coconut milk" --run
+python Tools/ComfyUI/food_workflow.py RiceNoodle Egg Shrimp Tofu Carrot ChiliPepper --run
 
 # 이전 문구/512 설정으로 비교. 별도 출력 경로를 사용
 python Tools/ComfyUI/food_workflow.py Rice Egg --profile legacy --output Temp/food_two_legacy --run
@@ -61,13 +68,17 @@ python Tools/ComfyUI/food_workflow.py Rice Egg --profile legacy --output Temp/fo
 
 ## Unity 연결
 
-`Assets/Scenes/1_Game.unity`를 실행하고 왼쪽 RFID 테스트 패널에서 재료를 선택한 뒤 **숫자키 1(상단 또는 숫자패드)** 또는 빨간 생성 버튼을 누른다. 최소 1개가 있어야 동작한다. 즉시 LoadingPanel로 전환하고 선택한 1~6개의 WordBox만 순서대로 팝업한다. 생성 중에는 버튼/키 연타를 무시한다. 사진 수신과 게이지 100%·단어 팝이 끝나면 ResultPanel의 GeneratedImage와 WordBox에 결과를 표시한다. Cancel/Back으로 GamePanel에 복귀하면 새 선택을 시작한다.
+프로그램은 항상 `Assets/Resources/ComfyFoodWorkflow.json`을 사용한다. 사용 중이던 `isTest=true`의 Thai Focus v4를 이 메인 리소스로 승격했다. 프롬프트·모델·15재료·요리 분기는 그대로이며 latent/scheduler 두 노드 크기만768×576으로 맞췄다. 기존 메인 GUID를 유지하고 씬의 FoodWorkflowSettings 테스트 선택기를 제거했다. 과거 Test JSON/스크립트는 기록용으로 남지만 프로그램에서는 참조하지 않는다.
+
+`Assets/Scenes/1_Game.unity`에서 재료를 선택한 뒤 **숫자키1(상단 또는 숫자패드)**로 생성한다. 최소1개가 필요하다. Food→ArrowMark 순차 팝과 병행 생성을 유지하고, 연출 종료 후 게이지가 진행률을 따라간다. 유효한4:3 이미지 수신·소개 연출·게이지100% 후 ResultPanel에 표시한다. 결과 사진0.25초 페이드→선택한 음식카드0.2초 간격 팝→버튼 안내0.25초 페이드가 끝나면 입력을 허용한다. 첫1은 BlackBox0.25초 페이드 후 다른 이미지 안내를 팝업하고, 완료 후 다음1은 `2_Finish` 갤러리로 암전 전환한다. 각 연출/이동 중 연타는 무시하며 씬 이동 실패는 현재 안내에서1로 재시도한다.
 
 `Canvas`의 `FoodGenerationController.GenerateFromDetectedBlocks()`가 공통 버튼 진입점이다. 화면 표시·DOTween·Sprite는 같은 Canvas의 `FoodGenerationPresentation`이 관리한다. 향후 아두이노 수신 콜백은 메인 스레드로 전달한 다음 생성 함수를 호출한다. 실제 아두이노/시리얼 연결은 아직 없다.
 
-현재 재료 1~6개의 스냅샷 → localhost `/queue` 확인 → 요청 전용 `clientId`로 `/ws` 연결 → 같은 ID로 `/prompt` 1회 제출 → 해당 `prompt_id`의 진행 이벤트와 `/history` 확인 → `/view` 이미지 수신 순서다. Loading·Result는 같은 스냅샷을 사용한다. GamePanel 비활성화는 인식 상태를 초기화하지만 공통 Canvas의 요청은 유지된다. 취소·Canvas 비활성화 시 HTTP/소켓 대기와 늦은 결과 적용을 취소하고 소유 Sprite·Texture를 해제한다. 실패 시 GamePanel로 복귀해 상태를 표시한다. 총 29초 제한은 연결·다운로드·완료 애니메이션까지 포함한다. 취소·시간 초과 시 ComfyUI 서버의 기제출 GPU 작업을 전역 interrupt로 중지하지 않는다.
+최초 재료1~6개·seed·워크플로·client_id·요청 식별자를 고정한다. `/ws` 연결 후 `/queue` 확인→`/prompt`→해당 `prompt_id`의 진행/기록→`/view` 순서다. 실패 즉시 자동1회 재시도(총2회)하며 화면·진행률·음식 연출·표시 텍스트를 초기화하지 않는다. 반복 실패 시 같은 로딩 화면에서 숫자1을 누르면 같은 본문으로 다시 시도한다. 재인식 재료는 재시도 본문을 바꾸지 않는다. 이미 접수된 요청은 기록 조회/다운로드만 재시도하고, 서버가 생성 실패를 명시한 경우에만 같은 값으로 다시 제출한다. 제출 응답이 유실되면 큐/최근64개 기록의 식별자를 대조해 기존 요청을 복구하며 확인 전 중복 제출을 보류한다.
 
-게이지는 **경과 시간의 정확한 비율이 아니라 고정 워크플로의 단계 진행률**이다. 다른 요청의 이벤트는 무시하고 `progress_state`/`progress`/`executing`/캐시·완료 이벤트를 사용한다. 준비 0~15%, 4단계 샘플링 15~80%(value/max 반영), VAE 디코드 80~90%, 저장 90~95%, 서버 완료 96%, 유효한 이미지 수신 후에만 100%가 된다. 서버 이벤트가 없으면 임의로 다음 단계로 진행하지 않는다. 연결 도중 소켓이 끊기면 진단 경고를 남기고 HTTP 완료·이미지 수신으로 마무리한다. 최초 소켓 연결 실패는 생성 요청을 제출하지 않고 복귀한다.
+HTTP/소켓 연결 대기는 각각5초, 기록 관찰은 시도당29초이며 초과해도 접수된 GPU 작업을 새로 제출하지 않는다. 생성 취소 진입점 `CancelAndReturnToGame`은 삭제했다. Canvas 비활성화/앱 종료에서는 로컬 대기·소켓·텍스처와 늦은 콜백만 정리하며 `/interrupt`·큐삭제 요청은 보내지 않는다. `Time.timeScale=0`에서도 대기/연출/재시도가 진행된다.
+
+게이지는 **경과 시간의 정확한 비율이 아니라 고정 워크플로의 단계 진행률**이다. 다른 요청의 이벤트는 무시하고 `progress_state`/`progress`/`executing`/캐시·완료 이벤트를 사용한다. 준비0~15%, 샘플링15~80%, VAE80~90%, 저장90~95%, 서버완료96%, 유효한4:3 수신 후100%다. 서버 이벤트가 없으면 임의 진행하지 않는다. 소켓 연결 실패/단절은 경고 후 HTTP 기록 확인을 계속한다. 재시도에서 이전 진행률을 뒤로 돌리지 않는다.
 
 각 새 목표까지 DOTween 선형 보간(기본 1.2초). 이전 목표에 도착하기 전에 다음 목표가 오면 현재 표시값에서 새 목표까지 0.22초로 가속한다. 이전 트윈을 강제 완료하거나 게이지를 뒤로 돌리지 않는다. Canvas의 Presentation Inspector에서 팝 길이·단어 간격·보간/추격 시간을 조절한다. 이 단계 가중치는 위 노드 ID 1~13 구성 전용이므로 워크플로 구조를 바꾸면 `ComfyProgressClient` 매핑도 함께 갱신해야 한다.
 
@@ -76,12 +87,30 @@ python Tools/ComfyUI/food_workflow.py Rice Egg --profile legacy --output Temp/fo
 Unity는 Python 프로세스를 실행하지 않고, 씬에 참조된 `Assets/Resources/ComfyFoodWorkflow.json`을 사용한다. 이 파일은 워크플로·15종 설명·요리 분기 문구·프롬프트 템플릿을 함께 담는다. Python 도구와 문구를 바꿨다면 아래처럼 내보낸 뒤 Unity 에셋을 갱신한다. 기본 워크플로를 바꾸지 않으려면 `--output`도 별도 경로로 지정한다.
 
 ```powershell
-python Tools/ComfyUI/food_workflow.py Rice Egg --output Temp/food_export --export-unity Assets/Resources/ComfyFoodWorkflow.json
+python Tools/ComfyUI/food_workflow.py RiceNoodle Egg Shrimp Tofu Carrot ChiliPepper --profile thai-focus-v4 --width 768 --height 576 --seed 6102301 --output Tools/ComfyUI/Thai_03_Food_Main_4x3 --export-unity Assets/Resources/ComfyFoodWorkflow.json
 ```
 
-예시 재료는 내보낼 때 JSON 기본 프롬프트에만 들어가며 Unity는 생성 버튼을 누를 때 실제 인식 재료로 교체한다. v2와 백업 legacy 각각 9,948개 조합(총 19,896건)의 Python/Unity 프롬프트 일치를 확인했다. 단일 재료 옵션이 없는 기존 공유 JSON도 호환된다. Unity 요청 seed는 매 요청 바뀌고, 저장 경로는 ComfyUI output의 `Thai03/UnityFood_*.png`다.
+예시 재료는 내보내기 기본 프롬프트용이며 Unity는 최초 생성 시 실제 인식 재료와 새 seed를 넣는다. 재시도에서는 모두 고정한다. CLI 자체의 기본 프로필/detail-v2와640 설정은 과거 비교용으로 유지되므로 메인 재내보내기에는 반드시 위 옵션을 쓴다. 기존 기본/선택테스트 원본은 `backups/2026-10-26_pre_main_4x3/`에 보존했다. 저장 경로는 ComfyUI output의 `Thai03/UnityFood_*.png`다.
 
-## v2 비교와 복구
+## 쌀국수·두부 생성/기록 호환 (2026-10-22 검증 기록)
+
+```powershell
+python Tools/ComfyUI/food_workflow.py RiceNoodle Tofu --profile detail-v2 --output Temp/noodle_tofu_default --run
+python Tools/ComfyUI/food_workflow.py RiceNoodle Egg Shrimp Tofu Carrot ChiliPepper --profile thai-focus-v4 --seed 6102301 --export-unity Assets/Resources/ComfyFoodWorkflowTest.json
+python Tools/ComfyUI/compare_noodle_tofu.py
+```
+
+당시에는 테스트/기본 리소스와 Game 스위치를 사용했다. 현재 메인 재내보내기/연결은 위 Unity 연결 절을 따른다. 모든 현재 프로필은 새 재료 목록을 사용하며 기존 커리·크림 분기는 제거했다. 쌀국수+쌀이 함께 선택되면 한 접시에 면발과 밥알을 모두 노출하도록 요청한다.
+
+기록 호환을 위해 `IngredientBlock.Garlic=7`, `CoconutMilk=14`는 과거 기록 읽기 전용으로 남긴다. 새 `RiceNoodle=15`, `Tofu=16`, 활성 목록은 `IngredientBlockNames.ActiveBlocks`(15개)다. `Enum.GetValues`는 과거 값도 포함하므로 새 장치 매핑/인식 목록에 사용하지 않는다. 과거 사진의 이름/재료를 새 재료로 바꾸거나 이관하지 않는다. 새 입력/프롬프트/저장은 은퇴한 ID를 거절하며 새 사진은 Rice noodle/Tofu 이름과 새ID를 함께 저장한다.
+
+수정 전 상태는 `backups/2026-10-22_pre_noodle_tofu/manifest.json` 12파일 체크섬 백업. 검사 결과는 `reports/2026-10-22_noodle_tofu`와 verification.json의 noodle_tofu_20261022. 현5070Ti Laptop에서 기본/테스트 포함9개 샘플(1~6재료)은 다운로드까지2.530~2.995초, Unity 실제 기본/테스트는3.558/3.282초였다. 모든 현재4프로필 각9948개에서 교체 전 재료/커리 문구 없음 확인, 기본/테스트 각9948개의 Python/C# 프롬프트 SHA256 일치. 역사ID/이름 유지와 신기록 공존11검사·Play 인식/테스터/생성/기록15검사 통과. 관람객12장/설문에 테스트 쓰기 없음. 3060 실측/Windows빌드 미수행. 두부 단독의 기공 과장·모든 조합의 시각 식별 보장 불가 제약 유지.
+
+## 이전 재료의 v2/v3/v4 비교 기록
+
+이 절 이후 이전 작업의 Garlic/Coconut milk·커리 설명과 예시는 교체 전 기록이다. 과거 비교 도구(compare_detail_v2.py / compare_prepared_v3.py / compare_thai_focus_v4.py)는 historical_food_workflow.py를 통해 교체 전 스냅샷을 재생한다. **현재 생성은 이 문서 상단과 아래 새 재료 절을 따른다.**
+
+### v2 비교와 복구
 
 기존 512, 새 문구 512/640/768을 같은 시드로 비교했다. 640에서 새우 마디·닭고기 단면·당근 단면·버섯 결·달걀 가장자리의 미세 질감을 확인했고, 768은 비용 증가에 비해 이 표본에서 뚜렷한 추가 이점이 적어 640을 선택했다. 해상도가 달라지면 같은 시드라도 노이즈 배치·구도가 달라지므로 완전히 같은 사진의 단순 확대 비교는 아니다. 텍스트 인코딩 캐시도 시간에 영향을 준다.
 
@@ -90,6 +119,42 @@ python Tools/ComfyUI/food_workflow.py Rice Egg --output Temp/food_export --expor
 재실행: `python Tools/ComfyUI/compare_detail_v2.py`(A/B), `python Tools/ComfyUI/compare_detail_v2.py --final`(최종 조합). 큐가 비었을 때 한 번씩 로컬 제출하며 29초를 넘으면 중단한다. 비교 출력은 별도 ComfyUI `Thai03/DetailV2Tests`와 프로젝트 `Temp/ComfyFoodDetailV2`에 저장해 관람객의 12장 기록을 교체하지 않는다. Unity 연결 검사도 격리된 임시 기록을 사용했다. 노드 1~13·4단계 구조를 유지해 기존 진행 게이지와 호환된다.
 
 복구하려면 `backups/2026-10-21_pre_detail_v2/manifest.json`의 source/backup 대응대로 복사한다. 특히 `Assets/Resources/ComfyFoodWorkflow.json`을 이전 파일로 복원하면 Unity도 512 이전 문구로 돌아간다. 기존 `.meta` GUID는 유지한다. 새 C#의 단일 재료 옵션은 이전 JSON에 없으면 사용하지 않으므로 추가 코드 복구 없이 이전 데이터가 동작한다. ComfyUI의 이전 사용자 워크플로 원본은 덮어쓰지 않았다.
+
+## 손질·태국식 v3 테스트
+
+2026-10-22 작업 전 상태는 `backups/2026-10-22_pre_thai_prepared_v3/manifest.json`에 13개 파일 SHA256과 복구 경로를 기록했다. v2 UI/API·Unity 기본 JSON/meta·현재 생성 코드/Game 씬·Python·기존 ComfyUI 사용자 워크플로 사본을 보관한다. v2 기본 데이터와 기존 ComfyUI 사용자 파일은 바꾸지 않았다. ComfyUI 목록에는 **Thai_03_Food_Thai_Prepared_v3**를 별도로 저장했다.
+
+재료 1~6개는 그대로 지원한다. 카오팟 볶음밥·gaeng kati 커리·얌 샐러드·태국식 볶음을 선택하고, 통마늘 대신 슬라이스, 달걀 대신 자른 오믈렛, 손질한 새우·한입 크기 고기·채 썬 당근/양파를 요청한다. 별도 모델 학습/추가 weights 다운로드는 없으며 Klein4B FP8·Qwen3 4B·Flux2 VAE·640·4단계·CFG1·노드1~13 그대로다. 진행률 게이지와 호환된다. CLI 기본 프로필도 여전히 detail-v2다.
+
+```powershell
+# 테스트용 데이터 내보내기: 기본 리소스를 덮어쓰지 않는다.
+python Tools/ComfyUI/food_workflow.py Rice Egg Shrimp Garlic Mushroom "Coconut milk" --profile thai-prepared-v3 --seed 6102201 --export-unity Temp/ComfyFoodWorkflowPreparedV3.json
+
+# v2/v3 동일 크기·seed 비교 및 v3 1~6재료 검사
+python Tools/ComfyUI/compare_prepared_v3.py
+python Tools/ComfyUI/compare_prepared_v3.py --final
+```
+
+현 ComfyUI0.42.0/RTX5070Ti Laptop12GB 최종8회는 PNG 다운로드까지 **2.775~4.318초**, Unity의 실제 false/true 생성은 각각 **6.692/5.609초**(UI·다운로드·격리 저장 포함)였다. 3060에서의 30초 조건은 여전히 미검증이다. 기본·테스트 각각9948조합 Python/C# 프롬프트 SHA256 일치, 기존 legacy/v2 각9948개와 대표 그래프가 백업과 동일함을 검사했다. 생성 도중 토글 변경·연타·0재료·누락 테스트 에셋·반복 복귀도 Unity에서 확인했다.
+
+`reports/2026-10-22_thai_prepared_v3`에 비교/최종 JSON·예시 PNG·summary, `Temp/ComfyThaiPreparedV3`에 요청 그래프·전체 사진·Unity 실행 기록을 둔다. 초기 결과의 intact omelet/큰 고기 조각을 보고 짧은 달걀 스트립·작은 조각 표현으로 조정 후 최종8회 검사를 했다. 마늘/달걀/당근 손질 표현은 개선됐으나 일부 사진에 선택하지 않은 고추·마늘 같은 장식이 여전히 추가되고, 쌀 단독에 황금색 스트립도 보인다. 모든 재료 식별·정확한 성분·태국식 재현을 보장하는 버전이 아니므로 **실험용으로 유지**하며 기본값으로 승격하지 않았다. 관람객 사진12장과 설문 데이터는 시험 응답/생성에 사용하지 않았다.
+
+원상태로 비교하려면 `isTest=false`만 선택하면 된다. 전체 코드/씬 복구가 필요할 때만 2026-10-22 백업 manifest의 source/backup 대응대로 복사한다. 2026-10-21 백업은 v2 이전 버전이므로 혼동하지 않는다.
+
+## 음식 집중·편마늘 v4 수정
+
+현재 `isTest=true`는 **Thai Focus v4**다. 사용자가 시장 배경을 원하지 않아 최종 버전에서 시장/식당/인물/소품 배경을 제거하고, 단색 배경에 음식이 화면의 대부분을 채우게 요청한다. 청화 접시·반듯한 지단 대신 단순한 접시, 부풀고 바삭한 Thai khai jiao 달걀, 카오팟 볶음밥·윤기 있는 태국식 볶음·코코넛 커리를 강조한다. 고추와 코코넛 밀크가 모두 선택될 때만 선택적 `curry_with_chili` 문구로 붉은 gaeng phet 커리를 요청하며, 기존 JSON은 이 키가 없으면 이전 문구를 그대로 사용한다.
+
+마늘은 구멍 난 고리/두꺼운 반쪽/균일한 원판을 줄이기 위해 5개 문구를 단독·새우 혼합으로 비교했다. 최종 문구는 **0.5mm 얇은 세로 편, 속이 찬 아이보리 단면, 희미한 연녹색 중심 싹 선, 비대칭으로 뾰족한 가장자리**다. 일부 조합에서는 여전히 두껍거나 균일하게 표현되며, 사진만으로 실제 식재료 단면/성분의 정확성을 보장하지 않는다. 지시와 달리 숟가락·팬이나 미선택 음식 유사 조각이 간혹 남는 제약도 기록했다.
+
+```powershell
+python Tools/ComfyUI/food_workflow.py Rice Egg Shrimp Garlic Mushroom "Coconut milk" --profile thai-focus-v4 --seed 6102201 --export-unity Assets/Resources/ComfyFoodWorkflowTest.json
+python Tools/ComfyUI/compare_thai_focus_v4.py --final --revision garlic-germ
+```
+
+`backups/2026-10-22_pre_thai_street_v4/manifest.json`은 수정 전 v3·현재 기본 JSON·기존 C# 등 11파일 체크섬 백업이다(폴더명은 사용자가 시장 배경 제외를 요청하기 전 초기 후보명). 이전 v3 UI/API와 Comfy 사용자 워크플로는 그대로 보존하고, 새 **Thai_03_Food_Thai_Focus_v4**를 Comfy 목록에 추가했다. 테스트 리소스의 파일명과 GUID를 유지했으므로 씬 연결은 그대로다. 기존 v2 데이터·모델·640/4단계·진행률 구조 유지.
+
+최종 1~6재료 6회는 현5070Ti Laptop에서 다운로드까지 **2.521~2.990초**, Unity v4 실제 생성은 **5.000초**였다. 기본/테스트 각9948조합 Python/C# 일치, 이전 legacy/v2/v3 각9948문구 불변 확인. 3060 실측은 미수행이다. 최종 보고/예시 PNG는 `reports/2026-10-22_thai_focus_v4`, 전체 로컬 후보/실행 자료는 `Temp/ComfyThaiStreetV4`(거절된 배경 후보 포함)·`Temp/ComfyThaiFocusV4`에 있다. 초기 후보를 다시 생성하지 않고 현재 음식 전용 버전만 테스트하려면 위 `--final` 명령을 사용한다.
 
 ## Finish 사진 기록
 

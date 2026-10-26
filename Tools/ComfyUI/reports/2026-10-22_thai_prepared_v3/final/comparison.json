@@ -1,0 +1,274 @@
+{
+  "date": "2026-10-22",
+  "deadline_seconds": 29,
+  "target_rtx3060_verified": false,
+  "system_stats": {
+    "system": {
+      "os": "win32",
+      "ram_total": 33752997888,
+      "ram_free": 5081174016,
+      "comfyui_version": "0.42.0",
+      "required_frontend_version": "1.57.1",
+      "installed_templates_version": "0.11.93",
+      "required_templates_version": "0.11.93",
+      "comfy_package_versions": [
+        {
+          "name": "comfyui-frontend-package",
+          "installed": "1.57.1",
+          "required": "1.57.1"
+        },
+        {
+          "name": "comfyui-workflow-templates",
+          "installed": "0.11.93",
+          "required": "0.11.93"
+        },
+        {
+          "name": "comfyui-embedded-docs",
+          "installed": "0.5.14",
+          "required": "0.5.14"
+        },
+        {
+          "name": "comfy-kitchen",
+          "installed": "0.2.39",
+          "required": "0.2.39"
+        },
+        {
+          "name": "comfy-aimdo",
+          "installed": "0.5.6",
+          "required": "0.5.6"
+        }
+      ],
+      "python_version": "3.13.12 (main, Feb 12 2026, 00:38:53) [MSC v.1944 64 bit (AMD64)]",
+      "pytorch_version": "2.11.0+cu128",
+      "embedded_python": false,
+      "deploy_environment": "local-desktop2-standalone"
+    },
+    "devices": [
+      {
+        "name": "cuda:0 NVIDIA GeForce RTX 5070 Ti Laptop GPU : cudaMallocAsync",
+        "type": "cuda",
+        "index": 0,
+        "vram_total": 12820480000,
+        "vram_free": 1810120168,
+        "torch_vram_total": 67108864,
+        "torch_vram_free": 56901096
+      }
+    ]
+  },
+  "prompt_parity": {
+    "legacy": {
+      "combinations": 9948,
+      "prompt_sha256": "da897ee66ed29c4fa65e22680193925c4ccdec389d8912265a633a3d3202c611"
+    },
+    "detail-v2": {
+      "combinations": 9948,
+      "prompt_sha256": "afb4a4c9de1d18069a556900592862659f66edbf8dcb66fd87271abd551e819b"
+    },
+    "thai-prepared-v3": {
+      "combinations": 9948,
+      "prompt_sha256": "77cda52b959b273d7f18f61f52d4ac0b4b35d151223d59b54bc75630a0371bf9"
+    }
+  },
+  "runs": [
+    {
+      "case": "six_final",
+      "profile": "thai-prepared-v3",
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Shrimp",
+        "Garlic",
+        "Mushroom",
+        "Coconut milk"
+      ],
+      "seed": 6102201,
+      "prompt_id": "61239aa9-b842-4dc8-92fa-f0cfae79e6bf",
+      "seconds_through_download": 3.554,
+      "under_29_seconds": true,
+      "comfy_output": {
+        "filename": "six_final_00001_.png",
+        "subfolder": "Thai03\\PreparedV3Tests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "ede6f334-4b91-4bdb-a856-20339c22b9bf"
+      },
+      "local_image": "Temp/ComfyThaiPreparedV3/final/six_final.png"
+    },
+    {
+      "case": "fried_rice_final",
+      "profile": "thai-prepared-v3",
+      "ingredients": [
+        "Rice",
+        "Chicken",
+        "Onion",
+        "Carrot",
+        "Garlic"
+      ],
+      "seed": 6102202,
+      "prompt_id": "bd991207-7728-46c8-82dd-608cc1bc365f",
+      "seconds_through_download": 2.893,
+      "under_29_seconds": true,
+      "comfy_output": {
+        "filename": "fried_rice_final_00001_.png",
+        "subfolder": "Thai03\\PreparedV3Tests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "63a0acb3-7b72-44f0-a439-59994756f1ff"
+      },
+      "local_image": "Temp/ComfyThaiPreparedV3/final/fried_rice_final.png"
+    },
+    {
+      "case": "seafood_final",
+      "profile": "thai-prepared-v3",
+      "ingredients": [
+        "Fish",
+        "Shrimp",
+        "Cabbage",
+        "Chili pepper"
+      ],
+      "seed": 6102203,
+      "prompt_id": "d744c361-c7eb-4cf0-8c43-aa64d5be58a1",
+      "seconds_through_download": 2.775,
+      "under_29_seconds": true,
+      "comfy_output": {
+        "filename": "seafood_final_00001_.png",
+        "subfolder": "Thai03\\PreparedV3Tests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "5c62b6a6-929c-45b4-a548-a96a82559beb"
+      },
+      "local_image": "Temp/ComfyThaiPreparedV3/final/seafood_final.png"
+    },
+    {
+      "case": "single_egg_final",
+      "profile": "thai-prepared-v3",
+      "ingredients": [
+        "Egg"
+      ],
+      "seed": 6102204,
+      "prompt_id": "32d714c5-0bc1-4459-81f2-2a5fd789a3c4",
+      "seconds_through_download": 3.144,
+      "under_29_seconds": true,
+      "comfy_output": {
+        "filename": "single_egg_final_00001_.png",
+        "subfolder": "Thai03\\PreparedV3Tests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "4d4ecc31-092e-4db0-8b5a-b2779e724227"
+      },
+      "local_image": "Temp/ComfyThaiPreparedV3/final/single_egg_final.png"
+    },
+    {
+      "case": "two_final",
+      "profile": "thai-prepared-v3",
+      "ingredients": [
+        "Cucumber",
+        "Garlic"
+      ],
+      "seed": 6102205,
+      "prompt_id": "fa1b8347-cbc0-4fdb-b131-661e7994d496",
+      "seconds_through_download": 3.354,
+      "under_29_seconds": true,
+      "comfy_output": {
+        "filename": "two_final_00001_.png",
+        "subfolder": "Thai03\\PreparedV3Tests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "a64427a5-810f-4653-9ab0-fb54236027e1"
+      },
+      "local_image": "Temp/ComfyThaiPreparedV3/final/two_final.png"
+    },
+    {
+      "case": "three_final",
+      "profile": "thai-prepared-v3",
+      "ingredients": [
+        "Beef",
+        "Potato",
+        "Onion"
+      ],
+      "seed": 6102206,
+      "prompt_id": "8c3ad7dd-5d28-4aa2-906f-3f06513642f0",
+      "seconds_through_download": 3.519,
+      "under_29_seconds": true,
+      "comfy_output": {
+        "filename": "three_final_00001_.png",
+        "subfolder": "Thai03\\PreparedV3Tests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "831a6482-fa41-4663-8a8e-6fb77492b047"
+      },
+      "local_image": "Temp/ComfyThaiPreparedV3/final/three_final.png"
+    },
+    {
+      "case": "single_rice_final",
+      "profile": "thai-prepared-v3",
+      "ingredients": [
+        "Rice"
+      ],
+      "seed": 6102207,
+      "prompt_id": "a8632ab6-8c9d-4bb2-83bc-3379616e776b",
+      "seconds_through_download": 4.318,
+      "under_29_seconds": true,
+      "comfy_output": {
+        "filename": "single_rice_final_00001_.png",
+        "subfolder": "Thai03\\PreparedV3Tests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "67fb4403-9716-4bb0-8229-56ad65cd20ae"
+      },
+      "local_image": "Temp/ComfyThaiPreparedV3/final/single_rice_final.png"
+    },
+    {
+      "case": "single_coconut_final",
+      "profile": "thai-prepared-v3",
+      "ingredients": [
+        "Coconut milk"
+      ],
+      "seed": 6102208,
+      "prompt_id": "beed1995-5000-43c9-a299-a897c81224b7",
+      "seconds_through_download": 3.715,
+      "under_29_seconds": true,
+      "comfy_output": {
+        "filename": "single_coconut_final_00001_.png",
+        "subfolder": "Thai03\\PreparedV3Tests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "17c1120f-d44e-4212-84b3-4004fd939c6b"
+      },
+      "local_image": "Temp/ComfyThaiPreparedV3/final/single_coconut_final.png"
+    }
+  ],
+  "note": "Same seed and size for A/B. No extra weights, refiner, upscale or visitor history writes. Visual inspection required."
+}

@@ -9,7 +9,7 @@ using UnityEngine;
 namespace Core
 {
     /// <summary>패널 활성화마다 저장된 설문 집계를 읽어 5개 막대를 0에서 실제 비율까지 올린다. 저장소는 읽기만 한다.</summary>
-    public sealed class SurveyResultGraphController : MonoBehaviour
+    public sealed class SurveyResultGraphController : MonoBehaviour, ISceneDisplayReady
     {
         // 막대는 anchorMin.y=0인 채움 영역의 anchorMax.y(0~1)로 높이를 표현하므로 Sprite 없이도 동작한다.
         [SerializeField] private RectTransform[] barFills;
@@ -29,6 +29,7 @@ namespace Core
         private bool _configured;
 
         public bool IsReady { get; private set; }
+        public bool IsDisplayReady { get; private set; }
         public SurveyQuestionStatistics DisplayedStatistics { get; private set; }
 
         private void Awake()
@@ -63,6 +64,7 @@ namespace Core
         {
             if (!isActiveAndEnabled || !_configured) return;
             IsReady = false;
+            IsDisplayReady = false;
             DisplayedStatistics = null;
             StopAnimation();
             for (int i = 0; i < SurveyStore.OptionCount; i++) SetBar(i, 0);
@@ -95,6 +97,7 @@ namespace Core
                 SetStatus("Results unavailable.");
                 Debug.LogError("[SurveyResultGraphController] Failed to load survey results. " + ex, this);
             }
+            finally { if (IsCurrent(version)) IsDisplayReady = true; }
         }
 
         private void Animate(SurveyQuestionStatistics statistics)

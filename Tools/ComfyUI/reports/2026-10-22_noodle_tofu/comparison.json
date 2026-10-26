@@ -1,0 +1,296 @@
+{
+  "date": "2026-10-22",
+  "prompt_parity": {
+    "legacy": {
+      "combinations": 9948,
+      "prompt_sha256": "c456589e9f19c9d00040389aef8258cab61c53728e150417312bbda2768c1894"
+    },
+    "detail-v2": {
+      "combinations": 9948,
+      "prompt_sha256": "350282707f43ea47827f1247377854a785d07bdd57df2c4090a8cef1bfe6fb1c"
+    },
+    "thai-prepared-v3": {
+      "combinations": 9948,
+      "prompt_sha256": "de91f3d72f98bb976acb445869447d226231aa2c2dc20638c5d0d93b3fc0cbfc"
+    },
+    "thai-focus-v4": {
+      "combinations": 9948,
+      "prompt_sha256": "8e8529056e629ee0ba758caf44b094a8e2780efba33671075e81155a918a7931"
+    }
+  },
+  "system_stats": {
+    "system": {
+      "os": "win32",
+      "ram_total": 33752997888,
+      "ram_free": 5758791680,
+      "comfyui_version": "0.42.0",
+      "required_frontend_version": "1.57.1",
+      "installed_templates_version": "0.11.93",
+      "required_templates_version": "0.11.93",
+      "comfy_package_versions": [
+        {
+          "name": "comfyui-frontend-package",
+          "installed": "1.57.1",
+          "required": "1.57.1"
+        },
+        {
+          "name": "comfyui-workflow-templates",
+          "installed": "0.11.93",
+          "required": "0.11.93"
+        },
+        {
+          "name": "comfyui-embedded-docs",
+          "installed": "0.5.14",
+          "required": "0.5.14"
+        },
+        {
+          "name": "comfy-kitchen",
+          "installed": "0.2.39",
+          "required": "0.2.39"
+        },
+        {
+          "name": "comfy-aimdo",
+          "installed": "0.5.6",
+          "required": "0.5.6"
+        }
+      ],
+      "python_version": "3.13.12 (main, Feb 12 2026, 00:38:53) [MSC v.1944 64 bit (AMD64)]",
+      "pytorch_version": "2.11.0+cu128",
+      "embedded_python": false,
+      "deploy_environment": "local-desktop2-standalone"
+    },
+    "devices": [
+      {
+        "name": "cuda:0 NVIDIA GeForce RTX 5070 Ti Laptop GPU : cudaMallocAsync",
+        "type": "cuda",
+        "index": 0,
+        "vram_total": 12820480000,
+        "vram_free": 1541684712,
+        "torch_vram_total": 67108864,
+        "torch_vram_free": 56901096
+      }
+    ]
+  },
+  "target_rtx3060_verified": false,
+  "runs": [
+    {
+      "case": "noodle_only",
+      "profile": "thai-focus-v4",
+      "ingredients": [
+        "Rice noodle"
+      ],
+      "seed": 6102231,
+      "prompt_id": "57fcc028-8295-42c6-bef3-c7572eb7d42d",
+      "seconds_through_download": 2.995,
+      "comfy_output": {
+        "filename": "noodle_only_00001_.png",
+        "subfolder": "Thai03\\NoodleTofuTests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "f5512b5e-6cfc-41fb-885f-21d0838ef793"
+      },
+      "local_image": "Temp/ComfyNoodleTofu/noodle_only.png"
+    },
+    {
+      "case": "tofu_only",
+      "profile": "thai-focus-v4",
+      "ingredients": [
+        "Tofu"
+      ],
+      "seed": 6102232,
+      "prompt_id": "9c4dd436-3697-4c8f-8edb-fc75e9476fa3",
+      "seconds_through_download": 2.633,
+      "comfy_output": {
+        "filename": "tofu_only_00001_.png",
+        "subfolder": "Thai03\\NoodleTofuTests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "8e508e91-e531-40d5-8137-356c33eff86f"
+      },
+      "local_image": "Temp/ComfyNoodleTofu/tofu_only.png"
+    },
+    {
+      "case": "noodle_tofu",
+      "profile": "thai-focus-v4",
+      "ingredients": [
+        "Rice noodle",
+        "Tofu"
+      ],
+      "seed": 6102233,
+      "prompt_id": "a2cbb1de-516d-40b9-8a1d-da9ea48a52c0",
+      "seconds_through_download": 2.641,
+      "comfy_output": {
+        "filename": "noodle_tofu_00001_.png",
+        "subfolder": "Thai03\\NoodleTofuTests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "6593e084-1d33-4b28-bd14-0bd7683419ad"
+      },
+      "local_image": "Temp/ComfyNoodleTofu/noodle_tofu.png"
+    },
+    {
+      "case": "three",
+      "profile": "thai-focus-v4",
+      "ingredients": [
+        "Shrimp",
+        "Onion",
+        "Tofu"
+      ],
+      "seed": 6102234,
+      "prompt_id": "caab1e05-f7e5-45fa-afe4-b6571f30d81c",
+      "seconds_through_download": 2.53,
+      "comfy_output": {
+        "filename": "three_00001_.png",
+        "subfolder": "Thai03\\NoodleTofuTests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "91ff4f1c-b9e0-40b3-8932-0df4373f996e"
+      },
+      "local_image": "Temp/ComfyNoodleTofu/three.png"
+    },
+    {
+      "case": "four",
+      "profile": "thai-focus-v4",
+      "ingredients": [
+        "Rice noodle",
+        "Egg",
+        "Tofu",
+        "Carrot"
+      ],
+      "seed": 6102235,
+      "prompt_id": "e2d185a9-3a5f-4bdb-ab86-8c91b03f8705",
+      "seconds_through_download": 2.758,
+      "comfy_output": {
+        "filename": "four_00001_.png",
+        "subfolder": "Thai03\\NoodleTofuTests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "a7e867ba-6549-4daf-a526-60e829a87a43"
+      },
+      "local_image": "Temp/ComfyNoodleTofu/four.png"
+    },
+    {
+      "case": "five",
+      "profile": "thai-focus-v4",
+      "ingredients": [
+        "Rice",
+        "Chicken",
+        "Onion",
+        "Carrot",
+        "Tofu"
+      ],
+      "seed": 6102236,
+      "prompt_id": "e7761975-8468-464b-a2e2-57842800572a",
+      "seconds_through_download": 2.549,
+      "comfy_output": {
+        "filename": "five_00001_.png",
+        "subfolder": "Thai03\\NoodleTofuTests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "b7feecdd-45ad-4895-b47c-40e654dcd79a"
+      },
+      "local_image": "Temp/ComfyNoodleTofu/five.png"
+    },
+    {
+      "case": "six",
+      "profile": "thai-focus-v4",
+      "ingredients": [
+        "Rice noodle",
+        "Egg",
+        "Shrimp",
+        "Tofu",
+        "Carrot",
+        "Chili pepper"
+      ],
+      "seed": 6102237,
+      "prompt_id": "a6e79a45-55bf-4d70-a02d-1a6fe41b6653",
+      "seconds_through_download": 2.538,
+      "comfy_output": {
+        "filename": "six_00001_.png",
+        "subfolder": "Thai03\\NoodleTofuTests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "89396cbb-1211-4ceb-a92f-ac56ae8ada41"
+      },
+      "local_image": "Temp/ComfyNoodleTofu/six.png"
+    },
+    {
+      "case": "default_two",
+      "profile": "detail-v2",
+      "ingredients": [
+        "Rice noodle",
+        "Tofu"
+      ],
+      "seed": 6102233,
+      "prompt_id": "325fa439-2ae9-41b7-83ad-6a7e756e4c3b",
+      "seconds_through_download": 2.58,
+      "comfy_output": {
+        "filename": "default_two_00001_.png",
+        "subfolder": "Thai03\\NoodleTofuTests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "babe07dc-dcaa-4272-b556-545327141255"
+      },
+      "local_image": "Temp/ComfyNoodleTofu/default_two.png"
+    },
+    {
+      "case": "default_six",
+      "profile": "detail-v2",
+      "ingredients": [
+        "Rice noodle",
+        "Egg",
+        "Shrimp",
+        "Tofu",
+        "Carrot",
+        "Chili pepper"
+      ],
+      "seed": 6102237,
+      "prompt_id": "9b2661bc-d87c-4af0-8234-9af5c3f9f39f",
+      "seconds_through_download": 2.696,
+      "comfy_output": {
+        "filename": "default_six_00001_.png",
+        "subfolder": "Thai03\\NoodleTofuTests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "f18e1df3-097f-4d63-864b-84a61ec20648"
+      },
+      "local_image": "Temp/ComfyNoodleTofu/default_six.png"
+    }
+  ]
+}

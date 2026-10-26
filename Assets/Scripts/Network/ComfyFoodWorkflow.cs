@@ -39,7 +39,7 @@ namespace Network
 
             var names = new string[blocks.Count];
             var descriptions = new string[blocks.Count];
-            bool rice = false, coconut = false, cucumber = false;
+            bool rice = false, noodle = false, tofu = false, cucumber = false;
             for (int i = 0; i < blocks.Count; i++)
             {
                 for (int j = 0; j < i; j++)
@@ -48,24 +48,29 @@ namespace Network
                         throw new ArgumentException("Ingredient blocks must be unique.", nameof(blocks));
                 }
 
+                if (!IngredientBlockNames.IsRecognizable(blocks[i]))
+                    throw new ArgumentException("Ingredient block is retired or unknown.", nameof(blocks));
                 names[i] = IngredientBlockNames.GetDisplayName(blocks[i]);
                 descriptions[i] = (string)_definition["ingredients"][names[i]];
                 if (string.IsNullOrEmpty(descriptions[i]))
                     throw new ArgumentException("Unknown ingredient block: " + names[i], nameof(blocks));
                 rice |= blocks[i] == IngredientBlock.Rice;
-                coconut |= blocks[i] == IngredientBlock.CoconutMilk;
+                noodle |= blocks[i] == IngredientBlock.RiceNoodle;
+                tofu |= blocks[i] == IngredientBlock.Tofu;
                 cucumber |= blocks[i] == IngredientBlock.Cucumber;
             }
 
             string dishKey = blocks.Count == 1 && rice ? "rice_only" :
-                blocks.Count == 1 && coconut ? "coconut_only" : coconut ? "curry" :
-                rice ? "fried_rice" : cucumber ? "salad" : "stir_fry";
+                blocks.Count == 1 && noodle ? "noodles_only" : blocks.Count == 1 && tofu ? "tofu_only" :
+                noodle ? "noodle_stir_fry" : rice ? "fried_rice" : cucumber ? "salad" : "stir_fry";
             string dish = (string)_definition["dishes"][dishKey];
-            if (blocks.Count == 1 && !rice && !coconut &&
+            if (blocks.Count == 1 && !rice && !noodle && !tofu &&
                 _definition["dishes"]["single_ingredient"] is JValue singleDish)
                 dish = string.Format(CultureInfo.InvariantCulture, (string)singleDish, names[0]);
-            if (coconut && rice)
-                dish += (string)_definition["dishes"]["curry_rice_suffix"];
+            if (noodle && rice)
+                dish += (string)_definition["dishes"]["noodles_rice_suffix"];
+            if (string.IsNullOrWhiteSpace(dish))
+                throw new ArgumentException("The selected dish definition is missing.");
 
             string template = blocks.Count == 1 ? (string)_definition["single_ingredient_prompt_template"] : null;
             return string.Format(CultureInfo.InvariantCulture, template ?? (string)_definition["prompt_template"],

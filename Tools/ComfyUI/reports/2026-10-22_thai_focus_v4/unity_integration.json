@@ -1,0 +1,56 @@
+[
+  {
+    "name": "zero ingredients do not submit",
+    "pass": true
+  },
+  {
+    "name": "missing test workflow fails before loading/submission",
+    "pass": true
+  },
+  {
+    "name": "false uses default and starts loading",
+    "pass": true
+  },
+  {
+    "name": "default generation succeeds / completes gauge",
+    "pass": true
+  },
+  {
+    "name": "changing switch mid-request preserves standard snapshot",
+    "pass": true
+  },
+  {
+    "profile": "detail-v2",
+    "prompt_id": "1a6b0ec9-13a4-4ea3-939b-e708cd329899",
+    "seconds": 5.7363615
+  },
+  {
+    "name": "true uses test and starts loading",
+    "pass": true
+  },
+  {
+    "name": "test generation succeeds / request ID differs",
+    "pass": true
+  },
+  {
+    "name": "true submitted prepared prompt / ignores mid-request false",
+    "pass": true
+  },
+  {
+    "name": "640 image and six matching result words",
+    "pass": true
+  },
+  {
+    "profile": "thai-focus-v4",
+    "prompt_id": "20d750ae-0819-4b7d-80ce-895a21e43e94",
+    "seconds": 4.999749
+  },
+  {
+    "name": "two successes saved only to isolated history",
+    "pass": true
+  },
+  {
+    "name": "repeat return cancels safely",
+    "pass": true
+  }
+]

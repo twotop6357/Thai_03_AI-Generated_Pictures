@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-22",
+  "base_commit": "d3b478c",
+  "files": [
+    {
+      "source": "Tools/ComfyUI/food_workflow.py",
+      "backup": "Tools/ComfyUI/food_workflow.py",
+      "sha256": "f2f650738150eb38e98f6207c27248a408ffdb2ca41948d7d23d32493b3dcfc1"
+    },
+    {
+      "source": "Tools/ComfyUI/Thai_03_Food_Thai_Prepared_v3.json",
+      "backup": "Tools/ComfyUI/Thai_03_Food_Thai_Prepared_v3.json",
+      "sha256": "dfae24473c772a65332926ef6c4654d25d1d03ada3d699e37db4fea297148933"
+    },
+    {
+      "source": "Tools/ComfyUI/Thai_03_Food_Thai_Prepared_v3.api.json",
+      "backup": "Tools/ComfyUI/Thai_03_Food_Thai_Prepared_v3.api.json",
+      "sha256": "961515a91158da9499ebbd91c62f1f85b045662b328d6435b3491ff6813bd2e8"
+    },
+    {
+      "source": "Tools/ComfyUI/README.md",
+      "backup": "Tools/ComfyUI/README.md",
+      "sha256": "ce3161de7400728c7107b188638c4df5eabe960641f3e35be445b9051d754b7d"
+    },
+    {
+      "source": "Tools/ComfyUI/verification.json",
+      "backup": "Tools/ComfyUI/verification.json",
+      "sha256": "5b73e8cb1d46b584d6dc6b9a42feb4726c732c448bed977dbabcadf65a178c29"
+    },
+    {
+      "source": "Assets/Resources/ComfyFoodWorkflowTest.json",
+      "backup": "Assets/Resources/ComfyFoodWorkflowTest.json",
+      "sha256": "17616f619f2076d640881ad062edda4f998d56593ab68e2d23c215876db5b188"
+    },
+    {
+      "source": "Assets/Resources/ComfyFoodWorkflowTest.json.meta",
+      "backup": "Assets/Resources/ComfyFoodWorkflowTest.json.meta",
+      "sha256": "aaaa64612c630d13b203b121263333e24571b679bde9d2caddc57df1fc27fb3a"
+    },
+    {
+      "source": "Assets/Resources/ComfyFoodWorkflow.json",
+      "backup": "Assets/Resources/ComfyFoodWorkflow.json",
+      "sha256": "956a270d633c57f494dd7a5a91ced3f6d2da38c0f7faf6f68011909f2c29b745"
+    },
+    {
+      "source": "Assets/Resources/ComfyFoodWorkflow.json.meta",
+      "backup": "Assets/Resources/ComfyFoodWorkflow.json.meta",
+      "sha256": "6d855f8403db8b3311d845d9cf1dcf6a2c6cca26e6d84ddad2d92851f83f27f2"
+    },
+    {
+      "source": "Assets/Scripts/Network/ComfyFoodWorkflow.cs",
+      "backup": "Assets/Scripts/Network/ComfyFoodWorkflow.cs",
+      "sha256": "9eec77097f083739f7dbedc4cd7e2d041fb51567cf9afac73a8edb6f1ee1ab6c"
+    },
+    {
+      "source": "comfy-user://workflows/Thai_03_Food_Thai_Prepared_v3.json",
+      "backup": "comfy_user/Thai_03_Food_Thai_Prepared_v3.json",
+      "sha256": "dfae24473c772a65332926ef6c4654d25d1d03ada3d699e37db4fea297148933"
+    }
+  ],
+  "restore": "Copy project-relative backups preserving existing .meta GUIDs. v2 standard data remains unchanged."
+}

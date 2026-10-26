@@ -1,0 +1,230 @@
+{
+  "date": "2026-10-22",
+  "system_stats": {
+    "system": {
+      "os": "win32",
+      "ram_total": 33752997888,
+      "ram_free": 6945869824,
+      "comfyui_version": "0.42.0",
+      "required_frontend_version": "1.57.1",
+      "installed_templates_version": "0.11.93",
+      "required_templates_version": "0.11.93",
+      "comfy_package_versions": [
+        {
+          "name": "comfyui-frontend-package",
+          "installed": "1.57.1",
+          "required": "1.57.1"
+        },
+        {
+          "name": "comfyui-workflow-templates",
+          "installed": "0.11.93",
+          "required": "0.11.93"
+        },
+        {
+          "name": "comfyui-embedded-docs",
+          "installed": "0.5.14",
+          "required": "0.5.14"
+        },
+        {
+          "name": "comfy-kitchen",
+          "installed": "0.2.39",
+          "required": "0.2.39"
+        },
+        {
+          "name": "comfy-aimdo",
+          "installed": "0.5.6",
+          "required": "0.5.6"
+        }
+      ],
+      "python_version": "3.13.12 (main, Feb 12 2026, 00:38:53) [MSC v.1944 64 bit (AMD64)]",
+      "pytorch_version": "2.11.0+cu128",
+      "embedded_python": false,
+      "deploy_environment": "local-desktop2-standalone"
+    },
+    "devices": [
+      {
+        "name": "cuda:0 NVIDIA GeForce RTX 5070 Ti Laptop GPU : cudaMallocAsync",
+        "type": "cuda",
+        "index": 0,
+        "vram_total": 12820480000,
+        "vram_free": 1575239144,
+        "torch_vram_total": 67108864,
+        "torch_vram_free": 56901096
+      }
+    ]
+  },
+  "prompt_parity": {
+    "legacy": {
+      "combinations": 9948,
+      "prompt_sha256": "da897ee66ed29c4fa65e22680193925c4ccdec389d8912265a633a3d3202c611"
+    },
+    "detail-v2": {
+      "combinations": 9948,
+      "prompt_sha256": "afb4a4c9de1d18069a556900592862659f66edbf8dcb66fd87271abd551e819b"
+    },
+    "thai-prepared-v3": {
+      "combinations": 9948,
+      "prompt_sha256": "77cda52b959b273d7f18f61f52d4ac0b4b35d151223d59b54bc75630a0371bf9"
+    },
+    "thai-focus-v4": {
+      "combinations": 9948,
+      "prompt_sha256": "458fea035959635454f92d4b078393a1c5d96023fc62a9fc4b0d930ca8dbcc2c"
+    }
+  },
+  "runs": [
+    {
+      "case": "six_focus",
+      "profile": "thai-focus-v4",
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Shrimp",
+        "Garlic",
+        "Mushroom",
+        "Coconut milk"
+      ],
+      "seed": 6102201,
+      "prompt_id": "cc3d02a1-02f5-4176-b85c-10c1cffc51c8",
+      "seconds_through_download": 2.942,
+      "under_29_seconds": true,
+      "comfy_output": {
+        "filename": "six_focus_00001_.png",
+        "subfolder": "Thai03\\FocusV4Tests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "b0bf76ed-81ea-4868-a57d-b603c99b28b3"
+      },
+      "local_image": "Temp/ComfyThaiFocusV4/final/garlic-germ/six_focus.png"
+    },
+    {
+      "case": "garlic_focus",
+      "profile": "thai-focus-v4",
+      "ingredients": [
+        "Garlic"
+      ],
+      "seed": 6102221,
+      "prompt_id": "37728da6-f651-4a43-9ea2-a05ba5151a26",
+      "seconds_through_download": 2.521,
+      "under_29_seconds": true,
+      "comfy_output": {
+        "filename": "garlic_focus_00001_.png",
+        "subfolder": "Thai03\\FocusV4Tests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "b8a84fb8-32a8-4df0-a491-f541193bcbff"
+      },
+      "local_image": "Temp/ComfyThaiFocusV4/final/garlic-germ/garlic_focus.png"
+    },
+    {
+      "case": "two_focus",
+      "profile": "thai-focus-v4",
+      "ingredients": [
+        "Shrimp",
+        "Garlic"
+      ],
+      "seed": 6102222,
+      "prompt_id": "ead9a300-374d-4c36-9545-1f840e075521",
+      "seconds_through_download": 2.683,
+      "under_29_seconds": true,
+      "comfy_output": {
+        "filename": "two_focus_00001_.png",
+        "subfolder": "Thai03\\FocusV4Tests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "f9e7a661-f8a2-4b90-9326-4caa37553475"
+      },
+      "local_image": "Temp/ComfyThaiFocusV4/final/garlic-germ/two_focus.png"
+    },
+    {
+      "case": "three_focus",
+      "profile": "thai-focus-v4",
+      "ingredients": [
+        "Rice",
+        "Egg",
+        "Garlic"
+      ],
+      "seed": 6102223,
+      "prompt_id": "137b4400-0e64-420a-a55b-2821d85abcab",
+      "seconds_through_download": 2.672,
+      "under_29_seconds": true,
+      "comfy_output": {
+        "filename": "three_focus_00001_.png",
+        "subfolder": "Thai03\\FocusV4Tests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "94de82cc-a5e4-4da7-bb0a-53a4f545cdaf"
+      },
+      "local_image": "Temp/ComfyThaiFocusV4/final/garlic-germ/three_focus.png"
+    },
+    {
+      "case": "four_focus",
+      "profile": "thai-focus-v4",
+      "ingredients": [
+        "Shrimp",
+        "Onion",
+        "Chili pepper",
+        "Coconut milk"
+      ],
+      "seed": 6102224,
+      "prompt_id": "11564d66-5fc9-4faa-a67e-fdbd139c33b8",
+      "seconds_through_download": 2.99,
+      "under_29_seconds": true,
+      "comfy_output": {
+        "filename": "four_focus_00001_.png",
+        "subfolder": "Thai03\\FocusV4Tests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "6d6d99f0-60da-4174-8d5a-107d790b77c5"
+      },
+      "local_image": "Temp/ComfyThaiFocusV4/final/garlic-germ/four_focus.png"
+    },
+    {
+      "case": "five_focus",
+      "profile": "thai-focus-v4",
+      "ingredients": [
+        "Rice",
+        "Chicken",
+        "Onion",
+        "Carrot",
+        "Garlic"
+      ],
+      "seed": 6102202,
+      "prompt_id": "4ca94a38-abd8-4e71-9c6a-5b04a3d0a5f1",
+      "seconds_through_download": 2.848,
+      "under_29_seconds": true,
+      "comfy_output": {
+        "filename": "five_focus_00001_.png",
+        "subfolder": "Thai03\\FocusV4Tests",
+        "type": "output",
+        "metadata": {
+          "kind": "image",
+          "width": 640,
+          "height": 640
+        },
+        "id": "e4f72aef-4a6c-47d9-ba0e-95274a59625b"
+      },
+      "local_image": "Temp/ComfyThaiFocusV4/final/garlic-germ/five_focus.png"
+    }
+  ],
+  "target_rtx3060_verified": false
+}

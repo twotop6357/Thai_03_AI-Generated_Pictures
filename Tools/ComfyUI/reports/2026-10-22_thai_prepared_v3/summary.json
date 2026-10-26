@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-22",
+  "default_workflow_unchanged": true,
+  "default_isTest": false,
+  "backup_files_verified": 13,
+  "python_unity_prompt_parity": [
+    {
+      "name": "ComfyFoodWorkflow",
+      "combinations": 9948,
+      "prompt_sha256": "afb4a4c9de1d18069a556900592862659f66edbf8dcb66fd87271abd551e819b"
+    },
+    {
+      "name": "ComfyFoodWorkflowTest",
+      "combinations": 9948,
+      "prompt_sha256": "77cda52b959b273d7f18f61f52d4ac0b4b35d151223d59b54bc75630a0371bf9"
+    }
+  ],
+  "legacy_and_v2_prompts_unchanged_each_9948": true,
+  "local_comfy_workflow": "workflows/Thai_03_Food_Thai_Prepared_v3.json",
+  "models_unchanged": true,
+  "size": [
+    640,
+    640
+  ],
+  "steps": 4,
+  "final_requests": 8,
+  "seconds_through_download_min": 2.775,
+  "seconds_through_download_max": 4.318,
+  "final_all_under_29": true,
+  "target_rtx3060_verified": false,
+  "all_ingredients_guaranteed": false,
+  "visual_review": {
+    "reviewer": "Codex",
+    "improvements": [
+      "Garlic appears as slices rather than whole cloves",
+      "Carrot matchsticks and sliced onion in fried rice",
+      "Cut omelet strips instead of intact fried egg",
+      "Fish pieces and cleaned shrimp in Thai-style wok dishes"
+    ],
+    "limitations": [
+      "Unselected red chili or garlic-like garnish still appears in some 2-4 ingredient samples",
+      "Rice-only sample includes extra golden strips; single-ingredient guarantees are not met",
+      "Some chicken/beef pieces remain larger than requested; omelet can look uniformly cut",
+      "Thai style and curry appearance are subjective; coconut identity cannot be proved visually",
+      "Test-only profile, not promoted to default"
+    ]
+  },
+  "unity_integration": {
+    "checks_passed": 11,
+    "runs": [
+      {
+        "profile": "detail-v2",
+        "prompt_id": "58547e28-4b93-4de9-b428-1a764ba0dfee",
+        "seconds": 6.691818
+      },
+      {
+        "profile": "thai-prepared-v3",
+        "prompt_id": "e86a9e48-5a13-4f96-a46d-4de876bbf174",
+        "seconds": 5.60930634
+      }
+    ],
+    "expected_error": "Missing test definition was intentionally injected; no request submitted.",
+    "visitor_history_untouched": true
+  }
+}

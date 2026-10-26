@@ -1,0 +1,173 @@
+{
+  "task": "FEAT-023",
+  "date": "2026-10-26",
+  "base_commit": "d3b478c",
+  "environment": "Unity 2022.3.62f3 Editor / Windows / local mock HTTP+WebSocket server",
+  "main": {
+    "resource": "Assets/Resources/ComfyFoodWorkflow.json",
+    "profile": "thai-focus-v4",
+    "size": [
+      768,
+      576
+    ],
+    "changed_from_selected_test": "Only width/height of latent node6 and scheduler node9; all prompts/models/ingredients retained",
+    "guid_retained": "093d7ca2f64eea9408b4b4e743495ac3"
+  },
+  "compilation": "Unity script refresh completed; no C# compiler errors",
+  "checks": [
+    "PASS cancel entry point removed",
+    "PASS obsolete test selector removed from scene",
+    "PASS no repeated generation or return during fast",
+    "PASS successful 4:3 result at timeScale zero: fast",
+    "PASS fixed seed and main workflow: fast",
+    "PASS correct submission count: fast",
+    "PASS latent and scheduler both 768x576: fast",
+    "PASS bounded immediate retry: fast",
+    "PASS no repeated generation or return during post-once",
+    "PASS successful 4:3 result at timeScale zero: post-once",
+    "PASS fixed seed and main workflow: post-once",
+    "PASS correct submission count: post-once",
+    "PASS retry body identical: post-once",
+    "PASS latent and scheduler both 768x576: post-once",
+    "PASS latent and scheduler both 768x576: post-once",
+    "PASS bounded immediate retry: post-once",
+    "PASS no repeated generation or return during execution-once",
+    "PASS successful 4:3 result at timeScale zero: execution-once",
+    "PASS fixed seed and main workflow: execution-once",
+    "PASS correct submission count: execution-once",
+    "PASS retry body identical: execution-once",
+    "PASS latent and scheduler both 768x576: execution-once",
+    "PASS latent and scheduler both 768x576: execution-once",
+    "PASS bounded immediate retry: execution-once",
+    "PASS no repeated generation or return during history-once",
+    "PASS successful 4:3 result at timeScale zero: history-once",
+    "PASS fixed seed and main workflow: history-once",
+    "PASS correct submission count: history-once",
+    "PASS latent and scheduler both 768x576: history-once",
+    "PASS bounded immediate retry: history-once",
+    "PASS no repeated generation or return during download-once",
+    "PASS successful 4:3 result at timeScale zero: download-once",
+    "PASS fixed seed and main workflow: download-once",
+    "PASS correct submission count: download-once",
+    "PASS latent and scheduler both 768x576: download-once",
+    "PASS bounded immediate retry: download-once",
+    "PASS no repeated generation or return during lost-response",
+    "PASS successful 4:3 result at timeScale zero: lost-response",
+    "PASS fixed seed and main workflow: lost-response",
+    "PASS correct submission count: lost-response",
+    "PASS latent and scheduler both 768x576: lost-response",
+    "PASS bounded immediate retry: lost-response",
+    "PASS no repeated generation or return during square-once",
+    "PASS successful 4:3 result at timeScale zero: square-once",
+    "PASS fixed seed and main workflow: square-once",
+    "PASS correct submission count: square-once",
+    "PASS retry body identical: square-once",
+    "PASS latent and scheduler both 768x576: square-once",
+    "PASS latent and scheduler both 768x576: square-once",
+    "PASS bounded immediate retry: square-once",
+    "PASS persistent failure keeps loading with bounded retries",
+    "PASS manual retry has no intro, progress, seed or text reset",
+    "PASS repeated manual failure preserves exact request",
+    "PASS retry after ingredient removal retains loading presentation",
+    "PASS manual recovery uses original ingredients and seed",
+    "PASS recovery body identical to failed request",
+    "PASS lifecycle cleanup invalidates late completion",
+    "PASS no server cancel or queue deletion request",
+    "PASS presentation no longer provides loading cancel path",
+    "PASS 29 second observation timeout resumes accepted job without another POST",
+    "PASS timeout does not reset introduction or hide loading bar",
+    "PASS timed out observation recovers at timeScale zero",
+    "PASS websocket failure falls back to HTTP without duplicating generation",
+    "PASS uncertain submission not found in history is not blindly resubmitted",
+    "PASS manual retry also withholds unconfirmed duplicate submission",
+    "PASS late history recovery completes original job with no duplicate POST",
+    "PASS occupied queue sends no additional GPU job and preserves loading",
+    "PASS same pending request succeeds once queue becomes available",
+    "PASS completed result return works after cancel removal"
+  ],
+  "passed": 69,
+  "failed": 0,
+  "initial_verification_issue": "First mock run saw cached 640x640 TextAsset despite disk update. Stopped Play and forced AssetDatabase import; confirmed live TextAsset 768x576 and reran all main checks successfully.",
+  "scene_change": "Compared against pre-task scene snapshot: 48 deletions only (obsolete selector object and reference); no UI transforms or other serialized values changed.",
+  "live_comfy": {
+    "prompt_id": "9b80d90d-752b-4f14-b581-aace23ab0c1f",
+    "wall_seconds": 8.921,
+    "deadline_seconds": 29.0,
+    "under_deadline": true,
+    "gpu": [
+      "cuda:0 NVIDIA GeForce RTX 5070 Ti Laptop GPU : cudaMallocAsync"
+    ],
+    "comfyui_version": "0.42.0",
+    "ingredients": [
+      "Rice noodle",
+      "Egg",
+      "Shrimp",
+      "Tofu",
+      "Carrot",
+      "Chili pepper"
+    ],
+    "status": {
+      "status_str": "success",
+      "completed": true,
+      "messages": [
+        [
+          "execution_start",
+          {
+            "prompt_id": "9b80d90d-752b-4f14-b581-aace23ab0c1f",
+            "timestamp": 1792994994697
+          }
+        ],
+        [
+          "execution_cached",
+          {
+            "nodes": [],
+            "prompt_id": "9b80d90d-752b-4f14-b581-aace23ab0c1f",
+            "timestamp": 1792994994700
+          }
+        ],
+        [
+          "execution_success",
+          {
+            "prompt_id": "9b80d90d-752b-4f14-b581-aace23ab0c1f",
+            "timestamp": 1792995003342
+          }
+        ]
+      ]
+    },
+    "outputs": {
+      "13": {
+        "images": [
+          {
+            "filename": "FoodNoodleTofuTest_00002_.png",
+            "subfolder": "Thai03",
+            "type": "output",
+            "metadata": {
+              "kind": "image",
+              "width": 768,
+              "height": 576
+            },
+            "id": "b5b8e330-13a0-49a8-888f-745c9dc6a0c9"
+          }
+        ]
+      }
+    },
+    "acceptance": "Timing only; ingredient visibility requires image review. RTX 3060 unverified."
+  },
+  "live_download": {
+    "size": [
+      768,
+      576
+    ],
+    "bytes": 681597,
+    "download_seconds": 0.019
+  },
+  "visual_review": "Downloaded PNG viewed: landscape 4:3, food-only composition retained. This is one sample, not a guarantee of ingredient accuracy for all combinations.",
+  "unverified": [
+    "Windows standalone build",
+    "physical RFID",
+    "RTX 3060 performance",
+    "all ingredient combinations at new aspect ratio"
+  ],
+  "cleanup": "Play stopped; mock servers stopped; controller server/history and Time.timeScale restored; real gallery/survey files untouched; no interrupt/queue deletion or commit/push.",
+  "local_evidence": "Temp/MainWorkflowVerification (test source, mock request logs, scene before snapshot and actual PNG)."
+}

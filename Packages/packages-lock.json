@@ -88,6 +88,12 @@
       },
       "hash": "a03665700cd7db38a3c1d97aecf6c86e579f0a7b"
     },
+    "com.unity.2d.sprite": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
     "com.unity.addressables": {
       "version": "1.29.0",
       "depth": 0,

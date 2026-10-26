@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-22",
+  "base_commit": "d3b478c",
+  "files": [
+    {
+      "source": "Tools/ComfyUI/food_workflow.py",
+      "backup": "Tools/ComfyUI/food_workflow.py",
+      "sha256": "c02db78ca3c17b243d9d7f7b9b81afaf69a30ab9f8285837a04b3204aa10794b"
+    },
+    {
+      "source": "Tools/ComfyUI/README.md",
+      "backup": "Tools/ComfyUI/README.md",
+      "sha256": "8630c1aa078b0771ce11b73c6ff2b12a0368c4c8ae990f4fba8fb426ccf1d83f"
+    },
+    {
+      "source": "Tools/ComfyUI/verification.json",
+      "backup": "Tools/ComfyUI/verification.json",
+      "sha256": "5293e17e47b691b96bc441c83b75f80f19c985d07177a9f6c80b5605b8bf5d2f"
+    },
+    {
+      "source": "Tools/ComfyUI/Thai_03_Food_Detail_v2.json",
+      "backup": "Tools/ComfyUI/Thai_03_Food_Detail_v2.json",
+      "sha256": "a726c708c89443b64ebe087c34c59c29baba362b7239f23d1c9b033511760c4f"
+    },
+    {
+      "source": "Tools/ComfyUI/Thai_03_Food_Detail_v2.api.json",
+      "backup": "Tools/ComfyUI/Thai_03_Food_Detail_v2.api.json",
+      "sha256": "9c7b39f3ee323eef90130c6545ea780394e7152045199ac5d47f8bc30733c132"
+    },
+    {
+      "source": "Assets/Resources/ComfyFoodWorkflow.json",
+      "backup": "Assets/Resources/ComfyFoodWorkflow.json",
+      "sha256": "956a270d633c57f494dd7a5a91ced3f6d2da38c0f7faf6f68011909f2c29b745"
+    },
+    {
+      "source": "Assets/Resources/ComfyFoodWorkflow.json.meta",
+      "backup": "Assets/Resources/ComfyFoodWorkflow.json.meta",
+      "sha256": "6d855f8403db8b3311d845d9cf1dcf6a2c6cca26e6d84ddad2d92851f83f27f2"
+    },
+    {
+      "source": "Assets/Scripts/Core/FoodGenerationController.cs",
+      "backup": "Assets/Scripts/Core/FoodGenerationController.cs",
+      "sha256": "062d2a57343757516e1a25c4873a406505bfe2598cc7643ae4e81b9bd6dcc4b3"
+    },
+    {
+      "source": "Assets/Scenes/1_Game.unity",
+      "backup": "Assets/Scenes/1_Game.unity",
+      "sha256": "6ff4c1601a4f0342036605330bdeff07aea694a43873327fd546d3460ef45610"
+    },
+    {
+      "source": "Assets/Scenes/1_Game.unity.meta",
+      "backup": "Assets/Scenes/1_Game.unity.meta",
+      "sha256": "f22b19943ce6e7387054498bd6e1d5595889e80d23e6a7ffbb52a4f618d99663"
+    },
+    {
+      "source": "comfy-user://workflows/Thai_03_Food_Detail_v2.json",
+      "backup": "comfy_user/Thai_03_Food_Detail_v2.json",
+      "sha256": "a726c708c89443b64ebe087c34c59c29baba362b7239f23d1c9b033511760c4f"
+    },
+    {
+      "source": "comfy-user://workflows/Thai_03_Food_Ingredients.json",
+      "backup": "comfy_user/Thai_03_Food_Ingredients.json",
+      "sha256": "7642a728803c744d45418be4d6027aa9116f85dcef251d9f41c036ffe1751e00"
+    },
+    {
+      "source": "comfy-user://workflows/Thai_03_Food_Thai_Style.json",
+      "backup": "comfy_user/Thai_03_Food_Thai_Style.json",
+      "sha256": "b07543645e3b275d7aa742fe3e24bc208efb79e85ffa7b76b3e17eb7adc9ab4f"
+    }
+  ],
+  "restore": "Copy project-relative backups to source paths, preserving .meta GUIDs. Import comfy-user backups separately. Default runtime JSON is intentionally unchanged; isTest=false uses this version."
+}

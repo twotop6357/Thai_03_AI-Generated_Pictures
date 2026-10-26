@@ -13,97 +13,207 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 INGREDIENTS = {
-    "Rice": "Thai jasmine rice with clearly visible individual grains",
-    "Egg": "large pieces of Thai-style crispy fried egg with visible yellow yolk and white egg white",
-    "Chicken": "wok-seared chicken slices with golden edges and white fibrous interiors",
-    "Beef": "thin wok-fried beef strips with browned edges and recognizable meat fibers",
-    "Fish": "a cooked fish fillet with visible silvery skin and flaky white flesh",
-    "Shrimp": "whole peeled cooked pink curled shrimp with recognizable tails",
-    "Onion": "caramelized golden-brown onion petals, visibly cooked and glossy, with curved onion layers",
-    "Garlic": "several peeled ivory garlic cloves with golden seared patches, each a plump curved pointed clove, no papery skins and no round bulbs",
-    "Carrot": "glossy roasted bright orange carrot rounds with lightly browned edges and circular centers",
-    "Potato": "large cooked golden potato chunks with recognizable pale yellow interiors",
-    "Cucumber": "fresh green cucumber rounds with dark green peel and pale seeded centers",
-    "Cabbage": "wilted sauteed cabbage leaf pieces with seared edges and pale green veins",
-    "Chili pepper": "small thin red bird's-eye chili rings with tiny white seeds, not large bell peppers",
-    "Mushroom": "glossy pan-fried brown mushroom halves with dark seared surfaces, recognizable caps and stems",
-    "Coconut milk": "a visible glossy creamy coconut-milk sauce coating the dish, with pale ivory coconut-cream swirls clearly visible between the other ingredients",
+    'Rice': 'Thai jasmine rice with clearly visible individual grains',
+    'Egg': 'large pieces of Thai-style crispy fried egg with visible yellow yolk and white egg white',
+    'Chicken': 'wok-seared chicken slices with golden edges and white fibrous interiors',
+    'Beef': 'thin wok-fried beef strips with browned edges and recognizable meat fibers',
+    'Fish': 'a cooked fish fillet with visible silvery skin and flaky white flesh',
+    'Shrimp': 'whole peeled cooked pink curled shrimp with recognizable tails',
+    'Onion': 'caramelized golden-brown onion petals, visibly cooked and glossy, with curved onion layers',
+    'Rice noodle': 'soft cooked Thai flat rice noodles with long visible translucent ivory ribbons and distinct noodle strands',
+    'Carrot': 'glossy roasted bright orange carrot rounds with lightly browned edges and circular centers',
+    'Potato': 'large cooked golden potato chunks with recognizable pale yellow interiors',
+    'Cucumber': 'fresh green cucumber rounds with dark green peel and pale seeded centers',
+    'Cabbage': 'wilted sauteed cabbage leaf pieces with seared edges and pale green veins',
+    'Chili pepper': "small thin red bird's-eye chili rings with tiny white seeds, not large bell peppers",
+    'Mushroom': 'glossy pan-fried brown mushroom halves with dark seared surfaces, recognizable caps and stems',
+    'Tofu': 'firm tofu cut into bite-size cubes, gently pan-fried golden edges and clearly visible pale porous white cut faces',
 }
 ALIASES = {name.replace(" ", "").lower(): name for name in INGREDIENTS}
 
 DISHES = {
-    "rice_only": "a simple serving of freshly steamed Thai jasmine rice",
-    "coconut_only": "a Thai-inspired warm coconut-cream dessert with a glossy silky surface",
-    "curry": "a Thai-style creamy coconut curry, glossy and appetizing, with large visible cooked ingredients on top",
-    "curry_rice_suffix": ", served over jasmine rice on the SAME plate with plenty of rice grains exposed along one edge",
-    "fried_rice": "Thai khao pad style wok-fried jasmine rice with large recognizable pieces of the selected ingredients on top",
-    "salad": "a Thai yam-inspired composed salad, with crisp cucumber and other ingredients cooked where appropriate",
-    "stir_fry": "a Thai-style glossy wok stir-fry with large recognizable pieces, lightly caramelized and ready to eat",
+    'rice_only': 'ONLY plain freshly steamed Thai jasmine rice, a simple serving of rice grains with no toppings or other food',
+    'noodles_only': 'ONLY cooked Thai flat rice noodles, a loose serving of soft ivory noodle ribbons with bare plate around them, no toppings or other food',
+    'tofu_only': 'ONLY golden pan-seared firm tofu cubes with visible white porous cut faces, no other food, vegetable base or sauce pool',
+    'noodle_stir_fry': 'Thai PAD SEE EW inspired wok-fried flat rice noodles, long glossy noodle ribbons tossed with the selected bite-size pieces, a light amber seasoning glaze and delicate charred noodle edges',
+    'noodles_rice_suffix': ', with the selected jasmine rice grains also visibly incorporated at one edge of this SAME plate without hiding the noodles',
+    'fried_rice': 'Thai KHAO PAD, loose wok-fried jasmine rice with the selected bite-size ingredients tossed through the grains, lightly toasted and glossy',
+    'salad': 'Thai YAM inspired salad, selected fresh cucumber and the other prepared ingredients tossed together with a light glossy dressing, all selected proteins cooked',
+    'stir_fry': 'Thai PAD style wok stir-fry of the selected bite-size ingredients, lightly seared and tossed in a thin glossy seasoning glaze',
+    'single_ingredient': 'a simple Thai-style preparation of {0} alone, without any other food ingredient',
 }
 PROMPT_TEMPLATE = (
-    "Photorealistic Thai food photography for a Bangkok restaurant menu: {0}. "
-    "Overhead close-up of ONE coherent finished Thai-inspired dish in ONE shallow blue-and-white Thai ceramic plate, "
-    "on a warm teak table with a subtle banana-leaf placemat underneath the plate. "
-    "The dish contains {1} selected ingredient types: {2}. "
-    "All selected ingredients are large, individually recognizable and fully visible INSIDE the same plated dish: "
-    "{3}. Distribute all selected ingredients visibly across the surface of this ONE cooked dish, "
-    "integrated naturally with the Thai preparation while keeping every ingredient easy to recognize and uncovered. "
-    "No isolated piles of ingredient samples, no compartment tray, no Western steak-and-sides plating. "
-    "Every selected ingredient must be visible, not minced, pureed, buried or dissolved. "
-    "Use only the selected visible food ingredients; do not add unselected rice, chili, basil, lime or other food garnishes. "
-    "No separate ingredient bowls, raw ingredient display, collage, grid, labels, writing or hands. "
-    "The food fills most of the frame. Warm natural daylight, realistic moist food textures, rich natural colors, "
-    "sharp focus across the entire dish."
+    'Photorealistic Thai food photograph: {0}. '
+    'Exactly {1} selected food ingredients: {2}. '
+    'The visible prepared ingredients are: {3}. '
+    'One coherent finished Thai dish, with ALL selected ingredients recognizable inside the SAME serving. '
+    'Naturally intermix the cut pieces while keeping their recognizable surfaces exposed. '
+    'Use only the selected visible foods, without unselected garnishes or side dishes. '
+    'No separate ingredient bowls, raw ingredient displays, text or hands. '
+    'Close overhead food photograph on one blue-and-white Thai ceramic plate, warm natural light, realistic cooking texture, the full serving in focus.'
 )
 
 DETAIL_INGREDIENTS = {
-    **INGREDIENTS,
-    "Rice": "Thai jasmine rice with separate elongated grains, delicate grain edges and a light moist sheen",
-    "Egg": "a Thai crispy fried egg with fine lacy golden edges, gently blistered opaque egg white and a rich glossy yellow yolk",
-    "Chicken": "cooked chicken slices with small caramelized sear patches, moist white fibrous interiors and natural irregular cut edges",
-    "Beef": "cooked thin beef strips with fine visible meat fibers, browned seared edges and a light natural juice sheen",
-    "Fish": "a cooked fish fillet with fine silvery skin texture, delicate white flakes separating along natural muscle layers and moist flesh",
-    "Shrimp": "cooked pink-orange curled shrimp with distinct segmented flesh, gently seared edges and recognizable tails",
-    "Onion": "soft glossy caramelized onion petals with translucent curved layers and irregular golden-brown seared edges",
-    "Garlic": "small separate peeled garlic cloves, smooth ivory teardrop shapes with pointed tips and subtle golden sear spots, each a single clove rather than a whole garlic head",
-    "Carrot": "bright orange cooked carrot rounds with fine radial centers, moist cut surfaces and lightly caramelized edges",
-    "Potato": "golden cooked potato chunks with fine crisp browned edges and soft slightly crumbly pale yellow cut interiors",
-    "Cucumber": "crisp cucumber rounds with finely textured dark green peel, translucent pale flesh and distinct wet seed cavities",
-    "Cabbage": "soft sauteed cabbage pieces with thin folded pale green leaves, visible branching veins and gently seared edges",
-    "Chili pepper": "small thin red bird's-eye chili rings with delicate glossy red skin, hollow centers and tiny visible white seeds",
-    "Mushroom": "pan-fried brown mushroom halves with irregular caramelized caps, recognizable stems and fine visible gills on cut sides",
-    "Coconut milk": "smooth silky ivory coconut milk with fine glossy highlights and delicate pale cream swirls",
+    'Rice': 'Thai jasmine rice with separate elongated grains, delicate grain edges and a light moist sheen',
+    'Egg': 'a Thai crispy fried egg with fine lacy golden edges, gently blistered opaque egg white and a rich glossy yellow yolk',
+    'Chicken': 'cooked chicken slices with small caramelized sear patches, moist white fibrous interiors and natural irregular cut edges',
+    'Beef': 'cooked thin beef strips with fine visible meat fibers, browned seared edges and a light natural juice sheen',
+    'Fish': 'a cooked fish fillet with fine silvery skin texture, delicate white flakes separating along natural muscle layers and moist flesh',
+    'Shrimp': 'cooked pink-orange curled shrimp with distinct segmented flesh, gently seared edges and recognizable tails',
+    'Onion': 'soft glossy caramelized onion petals with translucent curved layers and irregular golden-brown seared edges',
+    'Rice noodle': 'cooked flat rice noodle ribbons, long glossy ivory strands with slightly translucent edges, naturally folded and individually visible',
+    'Carrot': 'bright orange cooked carrot rounds with fine radial centers, moist cut surfaces and lightly caramelized edges',
+    'Potato': 'golden cooked potato chunks with fine crisp browned edges and soft slightly crumbly pale yellow cut interiors',
+    'Cucumber': 'crisp cucumber rounds with finely textured dark green peel, translucent pale flesh and distinct wet seed cavities',
+    'Cabbage': 'soft sauteed cabbage pieces with thin folded pale green leaves, visible branching veins and gently seared edges',
+    'Chili pepper': "small thin red bird's-eye chili rings with delicate glossy red skin, hollow centers and tiny visible white seeds",
+    'Mushroom': 'pan-fried brown mushroom halves with irregular caramelized caps, recognizable stems and fine visible gills on cut sides',
+    'Tofu': 'pan-seared firm tofu cubes with delicate irregular golden crust, fine porous pale white cut faces and straight cubed edges',
 }
-DETAIL_PROMPT_TEMPLATE = PROMPT_TEMPLATE.replace(
-    "Warm natural daylight, realistic moist food textures, rich natural colors, sharp focus across the entire dish.",
-    "Soft directional window daylight skims across the food, revealing fine natural surface texture and gentle contact shadows. "
-    "Appetizing realistic cooking detail: subtle irregular browning, moist cut surfaces, delicate crisp edges where appropriate, "
-    "and small controlled highlights on juices and sauce. Natural variations in size and shape, never identical repeated pieces. "
-    "Professional close food photograph with rich but believable colors, balanced exposure and clean fine detail. "
-    "The entire serving and every selected ingredient remain sharply focused and fully inside the frame. "
-    "Food texture is the main subject; the ceramic rim and background are secondary. "
-    "Natural photographic texture rather than waxy smooth plastic, illustration or aggressive sharpening."
+DETAIL_PROMPT_TEMPLATE = (
+    'Photorealistic Thai food photograph: {0}. '
+    'Exactly {1} selected food ingredients: {2}. '
+    'The visible prepared ingredients are: {3}. '
+    'One coherent finished Thai dish, with ALL selected ingredients recognizable inside the SAME serving. '
+    'Naturally intermix the cut pieces while keeping their recognizable surfaces exposed. '
+    'Use only the selected visible foods, without unselected garnishes or side dishes. '
+    'No separate ingredient bowls, raw ingredient displays, text or hands. '
+    'One shallow blue-and-white Thai ceramic plate. '
+    'Soft directional light shows delicate sear marks, moist cut faces and realistic fine food texture. '
+    'All selected ingredients are sharply focused inside the frame.'
 )
 DETAIL_DISHES = {
-    **DISHES,
-    "rice_only": "ONLY plain freshly steamed Thai jasmine rice on its own; a simple serving made entirely of rice grains with bare ceramic visible around it, no other edible items",
-    "coconut_only": "ONLY plain warm coconut milk on its own; a smooth continuous pool of silky ivory coconut milk filling the shallow dish, completely free of solid food pieces or toppings",
-    "single_ingredient": "a minimal Thai-style preparation of {0} ONLY, served on its own without any other food, vegetable base or garnish",
+    'rice_only': 'ONLY plain freshly steamed Thai jasmine rice, a simple serving of rice grains with no toppings or other food',
+    'noodles_only': 'ONLY cooked Thai flat rice noodles, a loose serving of soft ivory noodle ribbons with bare plate around them, no toppings or other food',
+    'tofu_only': 'ONLY golden pan-seared firm tofu cubes with visible white porous cut faces, no other food, vegetable base or sauce pool',
+    'noodle_stir_fry': 'Thai PAD SEE EW inspired wok-fried flat rice noodles, long glossy noodle ribbons tossed with the selected bite-size pieces, a light amber seasoning glaze and delicate charred noodle edges',
+    'noodles_rice_suffix': ', with the selected jasmine rice grains also visibly incorporated at one edge of this SAME plate without hiding the noodles',
+    'fried_rice': 'Thai KHAO PAD, loose wok-fried jasmine rice with the selected bite-size ingredients tossed through the grains, lightly toasted and glossy',
+    'salad': 'Thai YAM inspired salad, selected fresh cucumber and the other prepared ingredients tossed together with a light glossy dressing, all selected proteins cooked',
+    'stir_fry': 'Thai PAD style wok stir-fry of the selected bite-size ingredients, lightly seared and tossed in a thin glossy seasoning glaze',
+    'single_ingredient': 'a simple Thai-style preparation of {0} alone, without any other food ingredient',
 }
 DETAIL_SINGLE_PROMPT_TEMPLATE = (
-    "Professional Thai restaurant food photograph of {0}. "
-    "Exactly ONE selected food ingredient: {2}. The food is {3}. "
-    "This one ingredient is served alone on a blue-and-white Thai ceramic plate. "
-    "The plate contains only this food; the rest of the plate is bare ceramic. "
-    "Overhead close-up, the full serving is visible, filling most of the frame. "
-    "Soft natural side daylight reveals fine true-to-life surface texture, gentle shadows and subtle moist highlights. "
-    "Sharp focus over the entire food, natural color, realistic photographic detail. "
-    "Warm teak table and a banana-leaf placemat underneath the plate. "
-    "No added toppings, garnishes, side dishes, labels, text, hands or separate ingredient bowls."
+    'Close-up Thai food photograph of {0}. '
+    'Exactly ONE selected food ingredient: {2}. '
+    'Actual food appearance: {3}. '
+    'Only this food is served, with bare plate around it. '
+    'No additional food ingredients, garnishes or side dishes. '
+    'The entire serving is visible, sharp natural cut surfaces, realistic texture, soft diffuse light. '
+    'One blue-and-white Thai ceramic plate, tight overhead composition.'
+)
+
+
+PREPARED_INGREDIENTS = {
+    'Rice': 'loose separate elongated Thai jasmine rice grains, lightly golden and glossy where wok-fried, naturally mixed with the selected cut pieces',
+    'Egg': 'many SHORT golden Thai omelet ribbons already chopped into bite-size strips and mixed between the other pieces, tender yellow cut interiors and crisp lacy edges, not an intact omelet or fried egg',
+    'Chicken': 'small thin irregular 2 cm boneless chicken slices cut across the grain, cooked opaque white with lightly browned wok-seared edges, not large grilled breast strips',
+    'Beef': 'thin bite-size beef slices cut across the grain, tender browned surfaces and visible fine meat fibers, no whole steak',
+    'Fish': 'deboned fish cut into small cooked fillet chunks, flaky white cut faces and occasional slender silvery skin edges, no whole fish',
+    'Shrimp': 'cleaned peeled deveined shrimp, heads and shells removed, butterfly-cut curved pink shrimp meat with visible segmented flesh',
+    'Onion': 'thin curved onion slices with translucent cooked layers, softened and lightly browned in the wok',
+    'Rice noodle': 'Thai flat rice noodles softened and wok-tossed into loose long glossy ribbons, recognizable folded strands intermingled with the other selected pieces',
+    'Carrot': 'short matchsticks and thin diagonal slices of orange carrot, lightly cooked with moist recognizable orange cut faces',
+    'Potato': 'peeled potato cut into small spoon-size cubes, cooked golden outside with soft pale yellow cut faces',
+    'Cucumber': 'fresh cucumber cut into thin diagonal half-moons with dark green peel and visible pale seeded centers, mixed into the salad',
+    'Cabbage': 'cabbage cut into short bite-size leaf ribbons, wok-wilted pale green folds with visible veins and lightly seared edges',
+    'Chili pepper': "thin diagonal slices of small red Thai bird's-eye chili with glossy red skin and a few tiny pale seeds",
+    'Mushroom': 'trimmed brown mushrooms cut into bite-size quarters and thick slices, cooked glossy caps and visible pale cut faces with gills',
+    'Tofu': 'firm tofu cut into 1.5 cm cubes, lightly fried golden on the outside with moist finely porous ivory cut interiors, intact recognizable cubes',
+}
+PREPARED_DISHES = {
+    'rice_only': 'ONLY plain freshly steamed Thai jasmine rice, a simple serving of rice grains with no toppings or other food',
+    'noodles_only': 'ONLY cooked Thai flat rice noodles, a loose serving of soft ivory noodle ribbons with bare plate around them, no toppings or other food',
+    'tofu_only': 'ONLY golden pan-seared firm tofu cubes with visible white porous cut faces, no other food, vegetable base or sauce pool',
+    'noodle_stir_fry': 'Thai PAD SEE EW inspired wok-fried flat rice noodles, long glossy noodle ribbons tossed with the selected bite-size pieces, a light amber seasoning glaze and delicate charred noodle edges',
+    'noodles_rice_suffix': ', with the selected jasmine rice grains also visibly incorporated at one edge of this SAME plate without hiding the noodles',
+    'fried_rice': 'Thai KHAO PAD, loose wok-fried jasmine rice with the selected bite-size ingredients tossed through the grains, lightly toasted and glossy',
+    'salad': 'Thai YAM inspired salad, selected fresh cucumber and the other prepared ingredients tossed together with a light glossy dressing, all selected proteins cooked',
+    'stir_fry': 'Thai PAD style wok stir-fry of the selected bite-size ingredients, lightly seared and tossed in a thin glossy seasoning glaze',
+    'single_ingredient': 'a simple Thai-style preparation of {0} alone, without any other food ingredient',
+}
+PREPARED_PROMPT_TEMPLATE = (
+    'Photorealistic Thai food photograph: {0}. '
+    'Exactly {1} selected food ingredients: {2}. '
+    'The visible prepared ingredients are: {3}. '
+    'One coherent finished Thai dish, with ALL selected ingredients recognizable inside the SAME serving. '
+    'Naturally intermix the cut pieces while keeping their recognizable surfaces exposed. '
+    'Use only the selected visible foods, without unselected garnishes or side dishes. '
+    'No separate ingredient bowls, raw ingredient displays, text or hands. '
+    'All ingredients are cleaned and cut as appropriate, ready to eat, naturally irregular in shape and gently wok-seared. '
+    'One shallow Thai ceramic plate, close overhead view, natural soft light and believable fine detail.'
+)
+PREPARED_SINGLE_PROMPT_TEMPLATE = (
+    'Close-up Thai food photograph of {0}. '
+    'Exactly ONE selected food ingredient: {2}. '
+    'Actual food appearance: {3}. '
+    'Only this food is served, with bare plate around it. '
+    'No additional food ingredients, garnishes or side dishes. '
+    'The entire serving is visible, sharp natural cut surfaces, realistic texture, soft diffuse light. '
+    'Ready-to-eat preparation in one shallow Thai ceramic plate, close overhead composition.'
+)
+
+FOCUS_INGREDIENTS = {
+    'Rice': 'loose separate elongated Thai jasmine rice grains, lightly toasted by a hot wok when fried, interspersed with the selected pieces',
+    'Egg': 'irregular bite-size torn pieces of Thai khai jiao, a fluffy deeply golden fried omelet with airy bubbles, blistered craggy crisp edges and soft egg interior',
+    'Chicken': 'small thin irregular 2 cm boneless chicken slices cut across the grain, cooked opaque white with lightly browned wok-seared edges, not large grilled breast strips',
+    'Beef': 'thin bite-size beef slices cut across the grain, tender browned surfaces and visible fine meat fibers, no whole steak',
+    'Fish': 'deboned fish cut into small cooked fillet chunks, flaky white cut faces and occasional slender silvery skin edges, no whole fish',
+    'Shrimp': 'cleaned peeled deveined shrimp, heads and shells removed, butterfly-cut curved pink shrimp meat with visible segmented flesh',
+    'Onion': 'thin curved onion slices with translucent cooked layers, softened and lightly browned in the wok',
+    'Rice noodle': 'Thai sen yai flat RICE NOODLE ribbons, soft long translucent ivory strands with light wok-browned edges, loose glossy folds visibly interwoven through the dish',
+    'Carrot': 'short matchsticks and thin diagonal slices of orange carrot, lightly cooked with moist recognizable orange cut faces',
+    'Potato': 'peeled potato cut into small spoon-size cubes, cooked golden outside with soft pale yellow cut faces',
+    'Cucumber': 'fresh cucumber cut into thin diagonal half-moons with dark green peel and visible pale seeded centers, mixed into the salad',
+    'Cabbage': 'cabbage cut into short bite-size leaf ribbons, wok-wilted pale green folds with visible veins and lightly seared edges',
+    'Chili pepper': "thin diagonal slices of small red Thai bird's-eye chili with glossy red skin and a few tiny pale seeds",
+    'Mushroom': 'trimmed brown mushrooms cut into bite-size quarters and thick slices, cooked glossy caps and visible pale cut faces with gills',
+    'Tofu': 'bite-size firm TOFU cubes with lightly blistered golden pan-seared surfaces and finely porous WHITE cut faces, angular cubes remain clearly recognizable',
+}
+FOCUS_DISHES = {
+    'rice_only': 'ONLY plain freshly steamed Thai jasmine rice, a simple serving of rice grains with no toppings or other food',
+    'noodles_only': 'ONLY cooked Thai flat rice noodles, a loose serving of soft ivory noodle ribbons with bare plate around them, no toppings or other food',
+    'tofu_only': 'ONLY golden pan-seared firm tofu cubes with visible white porous cut faces, no other food, vegetable base or sauce pool',
+    'noodle_stir_fry': 'Thai PAD SEE EW inspired wok-fried flat rice noodles, long glossy noodle ribbons tossed with the selected bite-size pieces, a light amber seasoning glaze and delicate charred noodle edges',
+    'noodles_rice_suffix': ', with the selected jasmine rice grains also visibly incorporated at one edge of this SAME plate without hiding the noodles',
+    'fried_rice': 'Thai KHAO PAD, loose wok-fried jasmine rice with the selected bite-size ingredients tossed through the grains, lightly toasted and glossy',
+    'salad': 'Thai YAM inspired salad, selected fresh cucumber and the other prepared ingredients tossed together with a light glossy dressing, all selected proteins cooked',
+    'stir_fry': 'Thai PAD style wok stir-fry of the selected bite-size ingredients, lightly seared and tossed in a thin glossy seasoning glaze',
+    'single_ingredient': 'a simple Thai-style preparation of {0} alone, without any other food ingredient',
+}
+FOCUS_PROMPT_TEMPLATE = (
+    'Photorealistic Thai food photograph: {0}. '
+    'Exactly {1} selected food ingredients: {2}. '
+    'The visible prepared ingredients are: {3}. '
+    'One coherent finished Thai dish, with ALL selected ingredients recognizable inside the SAME serving. '
+    'Naturally intermix the cut pieces while keeping their recognizable surfaces exposed. '
+    'Use only the selected visible foods, without unselected garnishes or side dishes. '
+    'No separate ingredient bowls, raw ingredient displays, text or hands. '
+    'Focus on the FOOD itself on one plain pale mint-green low-rim plate. '
+    'Authentic Thai cooking textures and naturally overlapping prepared pieces. '
+    'The serving fills 90 percent of the frame, all foods visible and in sharp focus. '
+    'A narrow plain neutral matte background only. '
+    'Soft diffuse light reveals sauce and cut surfaces. '
+    'No market, scenery, restaurant interior, people, utensils or cooking pans.'
+)
+FOCUS_SINGLE_PROMPT_TEMPLATE = (
+    'Close-up Thai food photograph of {0}. '
+    'Exactly ONE selected food ingredient: {2}. '
+    'Actual food appearance: {3}. '
+    'Only this food is served, with bare plate around it. '
+    'No additional food ingredients, garnishes or side dishes. '
+    'The entire serving is visible, sharp natural cut surfaces, realistic texture, soft diffuse light. '
+    'One plain pale mint-green low-rim plate. '
+    'Food fills almost the entire frame; only a narrow plain neutral matte background. '
+    'No market, scenery, people, utensils or cooking pans.'
 )
 
 
 def profile_dishes(profile):
+    if profile == "thai-focus-v4":
+        return FOCUS_DISHES
+    if profile == "thai-prepared-v3":
+        return PREPARED_DISHES
     return DETAIL_DISHES if profile == "detail-v2" else DISHES
 
 
@@ -112,6 +222,10 @@ def profile_data(profile):
         return INGREDIENTS, PROMPT_TEMPLATE, 512
     if profile == "detail-v2":
         return DETAIL_INGREDIENTS, DETAIL_PROMPT_TEMPLATE, 640
+    if profile == "thai-prepared-v3":
+        return PREPARED_INGREDIENTS, PREPARED_PROMPT_TEMPLATE, 640
+    if profile == "thai-focus-v4":
+        return FOCUS_INGREDIENTS, FOCUS_PROMPT_TEMPLATE, 640
     raise ValueError(f"Unknown workflow profile: {profile}")
 
 
@@ -136,22 +250,28 @@ def make_prompt(names, profile="legacy"):
     dishes = profile_dishes(profile)
     if profile == "detail-v2" and len(names) == 1:
         template = DETAIL_SINGLE_PROMPT_TEMPLATE
+    elif profile == "thai-prepared-v3" and len(names) == 1:
+        template = PREPARED_SINGLE_PROMPT_TEMPLATE
+    elif profile == "thai-focus-v4" and len(names) == 1:
+        template = FOCUS_SINGLE_PROMPT_TEMPLATE
     if names == ["Rice"]:
         dish = dishes["rice_only"]
-    elif names == ["Coconut milk"]:
-        dish = dishes["coconut_only"]
-    elif len(names) == 1 and "single_ingredient" in dishes:
+    elif names == ["Rice noodle"]:
+        dish = dishes["noodles_only"]
+    elif names == ["Tofu"]:
+        dish = dishes["tofu_only"]
+    elif len(names) == 1:
         dish = dishes["single_ingredient"].format(names[0])
-    elif "Coconut milk" in names:
-        dish = dishes["curry"]
-        if "Rice" in names:
-            dish += dishes["curry_rice_suffix"]
+    elif "Rice noodle" in names:
+        dish = dishes["noodle_stir_fry"]
     elif "Rice" in names:
         dish = dishes["fried_rice"]
     elif "Cucumber" in names:
         dish = dishes["salad"]
     else:
         dish = dishes["stir_fry"]
+    if "Rice noodle" in names and "Rice" in names:
+        dish += dishes["noodles_rice_suffix"]
     components = "; ".join(descriptions[name] for name in names)
     return template.format(dish, len(names), ", ".join(names), components)
 
@@ -212,17 +332,18 @@ def build(names, seed, width=512, height=512, profile="legacy"):
           "sigmas": (9, 0, "SIGMAS"), "latent_image": (6, 0, "LATENT")}, ["LATENT", "LATENT"])
     node(12, "VAEDecode", "Decode once", [1380, 200], [240, 80], {}, [],
          {"samples": (11, 0, "LATENT"), "vae": (3, 0, "VAE")}, ["IMAGE"])
+    prefix = {"legacy": "Thai03/Food", "detail-v2": "Thai03/FoodNoodleTofuDefault",
+              "thai-prepared-v3": "Thai03/FoodThaiPreparedV3", "thai-focus-v4": "Thai03/FoodNoodleTofuTest"}[profile]
     node(13, "SaveImage", "Finished dish / local PNG", [1660, 20], [420, 500],
-         {"filename_prefix": "Thai03/FoodDetailV2" if profile == "detail-v2" else "Thai03/Food"},
-         ["Thai03/FoodDetailV2" if profile == "detail-v2" else "Thai03/Food"], {"images": (12, 0, "IMAGE")}, [])
+         {"filename_prefix": prefix}, [prefix], {"images": (12, 0, "IMAGE")}, [])
     ui_nodes.append({"id": 14, "type": "MarkdownNote", "title": "Usage and acceptance limits",
                      "pos": [1020, 420], "size": [570, 300], "flags": {}, "order": 13, "mode": 0,
                      "inputs": [], "outputs": [], "properties": {}, "widgets_values": [
                          "Select 1-6 unique ingredients with food_workflow.py; unused slots are not filled.\n"
                          f"{width}x{height}, 4 steps, CFG 1, batch 1. No refiner, upscale or remote API.\n"
                          "Generation time on RTX 3060 is UNVERIFIED. Keep models warm, queue empty.\n"
-                         "All ingredients are requested inside one finished dish. Coconut milk is a visible white sauce; "
-                         "its chemical identity cannot be proven from a photo. Visual review is required.\n"
+                         "All ingredients are requested inside one finished dish. "
+                         "Visual ingredient review is required.\n"
                          "Changing dimensions: update BOTH latent and Flux2Scheduler.\n"
                          "Source: docs.comfy.org/tutorials/flux/flux-2-klein"]})
     ui = {"last_node_id": 14, "last_link_id": len(links), "nodes": ui_nodes, "links": links,
@@ -303,9 +424,9 @@ def run_local(api, ui, base, budget):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("ingredients", nargs="+", help='1-6 names, e.g. Rice Egg Shrimp Garlic Mushroom "Coconut milk"')
+    parser.add_argument("ingredients", nargs="+", help='1-6 names, e.g. RiceNoodle Egg Shrimp Tofu Carrot ChiliPepper')
     parser.add_argument("--seed", type=int, default=None)
-    parser.add_argument("--profile", choices=("legacy", "detail-v2"), default="detail-v2")
+    parser.add_argument("--profile", choices=("legacy", "detail-v2", "thai-prepared-v3", "thai-focus-v4"), default="detail-v2")
     parser.add_argument("--width", type=int, default=None)
     parser.add_argument("--height", type=int, default=None)
     parser.add_argument("--output", type=Path, default=None)
@@ -319,7 +440,8 @@ def main():
     seed = secrets.randbelow(2**53) if args.seed is None else args.seed
     if not 0 <= seed < 2**64:
         parser.error("Seed must be an unsigned 64-bit integer.")
-    output = args.output or ROOT / ("Thai_03_Food_Detail_v2" if args.profile == "detail-v2" else "Thai_03_Food_Ingredients")
+    output = args.output or ROOT / {"legacy": "Thai_03_Food_Noodle_Tofu_Legacy", "detail-v2": "Thai_03_Food_Noodle_Tofu_Default",
+                                 "thai-prepared-v3": "Thai_03_Food_Noodle_Tofu_Prepared", "thai-focus-v4": "Thai_03_Food_Noodle_Tofu_Test"}[args.profile]
     try:
         descriptions, template, default_size = profile_data(args.profile)
         width = default_size if args.width is None else args.width
@@ -332,6 +454,10 @@ def main():
                       "prompt_template": template, "profile": args.profile}
             if args.profile == "detail-v2":
                 shared["single_ingredient_prompt_template"] = DETAIL_SINGLE_PROMPT_TEMPLATE
+            elif args.profile == "thai-prepared-v3":
+                shared["single_ingredient_prompt_template"] = PREPARED_SINGLE_PROMPT_TEMPLATE
+            elif args.profile == "thai-focus-v4":
+                shared["single_ingredient_prompt_template"] = FOCUS_SINGLE_PROMPT_TEMPLATE
             write_json(args.export_unity, shared)
         print(f"[FoodWorkflow] Exported {len(ui['extra']['ingredients'])}-ingredient workflow.", flush=True)
         if args.run:

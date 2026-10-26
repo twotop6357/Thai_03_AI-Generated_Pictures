@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-22",
+  "base_commit": "d3b478c",
+  "files": [
+    {
+      "source": "Assets/Scripts/Core/IngredientBlock.cs",
+      "backup": "Assets/Scripts/Core/IngredientBlock.cs",
+      "sha256": "ae576a835bd9060bf1d4fb12ec13205b9333229ba692630827123cc6a047fe50"
+    },
+    {
+      "source": "Assets/Scripts/Core/BlockDetectionController.cs",
+      "backup": "Assets/Scripts/Core/BlockDetectionController.cs",
+      "sha256": "cf5772bdf2b4af31fff5c0e65a2b5b3e3f2f86e7433a55643f9f03b7b4d27524"
+    },
+    {
+      "source": "Assets/Scripts/Core/BlockDetectionTester.cs",
+      "backup": "Assets/Scripts/Core/BlockDetectionTester.cs",
+      "sha256": "ebdf77da8712f3a4b140dc29f2c7bf9e5d1b7e49cd84bde4b52bbab999b1d041"
+    },
+    {
+      "source": "Assets/Scripts/Core/GeneratedFoodHistory.cs",
+      "backup": "Assets/Scripts/Core/GeneratedFoodHistory.cs",
+      "sha256": "a9fac5daf7eae88e0fc871a5cd39faa68102fdd0d83a9056591b1679e4a80f58"
+    },
+    {
+      "source": "Assets/Scripts/Network/ComfyFoodWorkflow.cs",
+      "backup": "Assets/Scripts/Network/ComfyFoodWorkflow.cs",
+      "sha256": "388cf58751caee59eb846e990ad587b4ed2c21fbf55fb21851a4e6b511382ee5"
+    },
+    {
+      "source": "Assets/Resources/ComfyFoodWorkflow.json",
+      "backup": "Assets/Resources/ComfyFoodWorkflow.json",
+      "sha256": "956a270d633c57f494dd7a5a91ced3f6d2da38c0f7faf6f68011909f2c29b745"
+    },
+    {
+      "source": "Assets/Resources/ComfyFoodWorkflow.json.meta",
+      "backup": "Assets/Resources/ComfyFoodWorkflow.json.meta",
+      "sha256": "6d855f8403db8b3311d845d9cf1dcf6a2c6cca26e6d84ddad2d92851f83f27f2"
+    },
+    {
+      "source": "Assets/Resources/ComfyFoodWorkflowTest.json",
+      "backup": "Assets/Resources/ComfyFoodWorkflowTest.json",
+      "sha256": "5815741640d5509e0e611b75d1f1843bd43833d3c4b54ee95d297d1eed551ac9"
+    },
+    {
+      "source": "Assets/Resources/ComfyFoodWorkflowTest.json.meta",
+      "backup": "Assets/Resources/ComfyFoodWorkflowTest.json.meta",
+      "sha256": "aaaa64612c630d13b203b121263333e24571b679bde9d2caddc57df1fc27fb3a"
+    },
+    {
+      "source": "Tools/ComfyUI/food_workflow.py",
+      "backup": "Tools/ComfyUI/food_workflow.py",
+      "sha256": "d787f4eb7dc14284ce8fbfe686e9edebe998abc0e06cd3a6e0e8ef50b1b69c05"
+    },
+    {
+      "source": "Tools/ComfyUI/README.md",
+      "backup": "Tools/ComfyUI/README.md",
+      "sha256": "373c32204f3a1a007be6e2bac46a5fa607749895628aaee695aa12b870444c88"
+    },
+    {
+      "source": "Tools/ComfyUI/verification.json",
+      "backup": "Tools/ComfyUI/verification.json",
+      "sha256": "b60b099e2f33d535c6cd42858e9b1d322f5f30c6dfa7a25ae3fd2a3781b54e5a"
+    }
+  ],
+  "restore": "Copy backed-up files to source paths retaining .meta GUIDs; historical generated images are not migrated or rewritten."
+}

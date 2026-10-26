@@ -981,5 +981,258 @@
       "v2_six_640.png",
       "v2_egg_640.png"
     ]
+  },
+  "thai_prepared_v3_20261022": {
+    "date": "2026-10-22",
+    "default_workflow_unchanged": true,
+    "default_isTest": false,
+    "backup_files_verified": 13,
+    "python_unity_prompt_parity": [
+      {
+        "name": "ComfyFoodWorkflow",
+        "combinations": 9948,
+        "prompt_sha256": "afb4a4c9de1d18069a556900592862659f66edbf8dcb66fd87271abd551e819b"
+      },
+      {
+        "name": "ComfyFoodWorkflowTest",
+        "combinations": 9948,
+        "prompt_sha256": "77cda52b959b273d7f18f61f52d4ac0b4b35d151223d59b54bc75630a0371bf9"
+      }
+    ],
+    "legacy_and_v2_prompts_unchanged_each_9948": true,
+    "local_comfy_workflow": "workflows/Thai_03_Food_Thai_Prepared_v3.json",
+    "models_unchanged": true,
+    "size": [
+      640,
+      640
+    ],
+    "steps": 4,
+    "final_requests": 8,
+    "seconds_through_download_min": 2.775,
+    "seconds_through_download_max": 4.318,
+    "final_all_under_29": true,
+    "target_rtx3060_verified": false,
+    "all_ingredients_guaranteed": false,
+    "visual_review": {
+      "reviewer": "Codex",
+      "improvements": [
+        "Garlic appears as slices rather than whole cloves",
+        "Carrot matchsticks and sliced onion in fried rice",
+        "Cut omelet strips instead of intact fried egg",
+        "Fish pieces and cleaned shrimp in Thai-style wok dishes"
+      ],
+      "limitations": [
+        "Unselected red chili or garlic-like garnish still appears in some 2-4 ingredient samples",
+        "Rice-only sample includes extra golden strips; single-ingredient guarantees are not met",
+        "Some chicken/beef pieces remain larger than requested; omelet can look uniformly cut",
+        "Thai style and curry appearance are subjective; coconut identity cannot be proved visually",
+        "Test-only profile, not promoted to default"
+      ]
+    },
+    "unity_integration": {
+      "checks_passed": 11,
+      "runs": [
+        {
+          "profile": "detail-v2",
+          "prompt_id": "58547e28-4b93-4de9-b428-1a764ba0dfee",
+          "seconds": 6.691818
+        },
+        {
+          "profile": "thai-prepared-v3",
+          "prompt_id": "e86a9e48-5a13-4f96-a46d-4de876bbf174",
+          "seconds": 5.60930634
+        }
+      ],
+      "expected_error": "Missing test definition was intentionally injected; no request submitted.",
+      "visitor_history_untouched": true
+    }
+  },
+  "thai_focus_v4_20261022": {
+    "date": "2026-10-22",
+    "revision": "Thai Focus v4 / garlic germ",
+    "default_v2_unchanged": true,
+    "test_resource_guid_unchanged": true,
+    "models_unchanged": true,
+    "size": [
+      640,
+      640
+    ],
+    "steps": 4,
+    "backup_files_verified": 11,
+    "food_only_background": true,
+    "market_scenery_removed": true,
+    "garlic_description": "paper-thin knife slices of GARLIC CLOVES, real longitudinal garlic cross-sections, asymmetric pointed ivory wafers with a faint narrow pale-green central germ line inside the solid cut face, 0.5 mm thin translucent edges lightly toasted golden, naturally varying small clove-shaped slices without holes",
+    "final_requests": 6,
+    "seconds_through_download_min": 2.521,
+    "seconds_through_download_max": 2.99,
+    "python_unity_parity": [
+      {
+        "name": "ComfyFoodWorkflow",
+        "combinations": 9948,
+        "prompt_sha256": "afb4a4c9de1d18069a556900592862659f66edbf8dcb66fd87271abd551e819b"
+      },
+      {
+        "name": "ComfyFoodWorkflowTest",
+        "combinations": 9948,
+        "prompt_sha256": "458fea035959635454f92d4b078393a1c5d96023fc62a9fc4b0d930ca8dbcc2c"
+      }
+    ],
+    "previous_legacy_v2_v3_prompts_unchanged_each_9948": true,
+    "unity_runs": [
+      {
+        "profile": "detail-v2",
+        "prompt_id": "1a6b0ec9-13a4-4ea3-939b-e708cd329899",
+        "seconds": 5.7363615
+      },
+      {
+        "profile": "thai-focus-v4",
+        "prompt_id": "20d750ae-0819-4b7d-80ce-895a21e43e94",
+        "seconds": 4.999749
+      }
+    ],
+    "unity_checks_passed": 11,
+    "target_rtx3060_verified": false,
+    "all_ingredients_guaranteed": false,
+    "comfy_workflow": "workflows/Thai_03_Food_Thai_Focus_v4.json",
+    "visual_review": {
+      "reviewer": "Codex",
+      "selected": "Thin solid ivory garlic slices with a pale central germ; airy Thai omelet; glistening coconut sauce and selected-chili red curry; close food-only framing.",
+      "limitations": [
+        "Some garlic slices are still thicker or more uniform than requested; exact anatomy and identity are not guaranteed.",
+        "Occasional serving spoon/pan and unselected food-like pieces remain despite prompt constraints.",
+        "Thai style is improved through cooking texture and sauce; limited selected ingredients constrain recipe fidelity."
+      ]
+    },
+    "tests": "Initial market candidate rejected by user; 3 garlic wording A/B trials, then 2 germ refinements; final 1-6 ingredients and Unity A/B in isolated history."
+  },
+  "noodle_tofu_20261022": {
+    "date": "2026-10-22",
+    "catalog": [
+      "Rice",
+      "Egg",
+      "Chicken",
+      "Beef",
+      "Fish",
+      "Shrimp",
+      "Onion",
+      "Rice noodle",
+      "Carrot",
+      "Potato",
+      "Cucumber",
+      "Cabbage",
+      "Chili pepper",
+      "Mushroom",
+      "Tofu"
+    ],
+    "active_count": 15,
+    "max_detected": 6,
+    "retired": [
+      "Garlic",
+      "Coconut milk"
+    ],
+    "added": [
+      "Rice noodle",
+      "Tofu"
+    ],
+    "legacy_ids_preserved": [
+      7,
+      14
+    ],
+    "new_ids": {
+      "Rice noodle": 15,
+      "Tofu": 16
+    },
+    "history_label_compatibility_checks": [
+      {
+        "name": "old IDs remain historical ingredients",
+        "pass": true
+      },
+      {
+        "name": "old gallery labels remain correct",
+        "pass": true
+      },
+      {
+        "name": "new numeric IDs cannot alias old history",
+        "pass": true
+      },
+      {
+        "name": "new records coexist with old records",
+        "pass": true
+      },
+      {
+        "name": "old stored labels not renamed during append",
+        "pass": true
+      },
+      {
+        "name": "new stored labels use Rice noodle and Tofu",
+        "pass": true
+      },
+      {
+        "name": "new photo rejects retired ingredients",
+        "pass": true
+      },
+      {
+        "name": "only 15 active choices",
+        "pass": true
+      },
+      {
+        "name": "new choices are recognizable and unknown IDs rejected",
+        "pass": true
+      },
+      {
+        "name": "prompt rejects retired ID 7",
+        "pass": true
+      },
+      {
+        "name": "prompt rejects retired ID 14",
+        "pass": true
+      }
+    ],
+    "prompt_parity": [
+      {
+        "name": "ComfyFoodWorkflow",
+        "combinations": 9948,
+        "prompt_sha256": "350282707f43ea47827f1247377854a785d07bdd57df2c4090a8cef1bfe6fb1c"
+      },
+      {
+        "name": "ComfyFoodWorkflowTest",
+        "combinations": 9948,
+        "prompt_sha256": "8e8529056e629ee0ba758caf44b094a8e2780efba33671075e81155a918a7931"
+      }
+    ],
+    "all_four_profiles_9948_inputs_checked": true,
+    "no_retired_ingredient_or_curry_text_in_active_prompts": true,
+    "unity_runs": [
+      {
+        "profile": "detail-v2",
+        "prompt_id": "8ddbbc57-25db-43ed-ab75-a08e20fae863",
+        "seconds": 3.55758381
+      },
+      {
+        "profile": "thai-focus-v4",
+        "prompt_id": "e9047d3f-f43a-4f5a-a122-eff628fc9de0",
+        "seconds": 3.28167725
+      }
+    ],
+    "unity_checks_passed": 15,
+    "generated_samples": 9,
+    "seconds_through_download_min": 2.53,
+    "seconds_through_download_max": 2.995,
+    "weights_and_graph_nodes_unchanged": true,
+    "size": [
+      640,
+      640
+    ],
+    "steps": 4,
+    "target_rtx3060_verified": false,
+    "all_ingredients_guaranteed": false,
+    "visual_review": {
+      "reviewer": "Codex",
+      "notes": [
+        "Long flat rice noodle ribbons and golden tofu cubes with white cut faces are visible in tested samples.",
+        "Tofu-only sample has exaggerated pores; some pieces can resemble bread or egg.",
+        "Six-ingredient sample has visible noodle/egg/shrimp/tofu/carrot/chili, but arbitrary combinations and seeds are not guaranteed."
+      ]
+    }
   }
 }

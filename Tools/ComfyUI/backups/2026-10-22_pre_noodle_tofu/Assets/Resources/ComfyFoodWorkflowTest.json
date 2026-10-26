@@ -1,0 +1,208 @@
+{
+  "workflow": {
+    "1": {
+      "class_type": "UNETLoader",
+      "inputs": {
+        "unet_name": "flux-2-klein-4b-fp8.safetensors",
+        "weight_dtype": "default"
+      },
+      "_meta": {
+        "title": "Distilled 4B FP8 / do not use base"
+      }
+    },
+    "2": {
+      "class_type": "CLIPLoader",
+      "inputs": {
+        "clip_name": "qwen_3_4b.safetensors",
+        "type": "flux2",
+        "device": "default"
+      },
+      "_meta": {
+        "title": "Qwen 3 4B text encoder"
+      }
+    },
+    "3": {
+      "class_type": "VAELoader",
+      "inputs": {
+        "vae_name": "flux2-vae.safetensors"
+      },
+      "_meta": {
+        "title": "Flux 2 VAE"
+      }
+    },
+    "4": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "Professional close-up photograph of the THAI DISH itself: Thai GAENG KATI coconut curry: cut ingredients simmered together in rich pale creamy coconut-milk sauce, glistening coconut-oil beads, a spoonable integrated curry, ladled partly over loose jasmine rice in the same Thai street-food serving plate, visible rice at one edge and curry pieces overlapping it naturally. One generous ready-to-eat serving on a plain pale mint-green low-rim plate. The food is the entire subject; a simple neutral matte background appears only as a narrow unobtrusive border. The finished dish contains exactly these 6 selected food ingredients: Rice, Egg, Shrimp, Garlic, Mushroom, Coconut milk. Clearly visible cooked ingredient details: loose separate elongated Thai jasmine rice grains, lightly toasted by a hot wok when fried, interspersed with the selected pieces; irregular bite-size torn pieces of Thai khai jiao, a fluffy deeply golden fried omelet with airy bubbles, blistered craggy crisp edges and soft egg interior; cleaned peeled deveined shrimp, heads and shells removed, butterfly-cut curved pink shrimp meat with visible segmented flesh; paper-thin knife slices of GARLIC CLOVES, real longitudinal garlic cross-sections, asymmetric pointed ivory wafers with a faint narrow pale-green central germ line inside the solid cut face, 0.5 mm thin translucent edges lightly toasted golden, naturally varying small clove-shaped slices without holes; trimmed brown mushrooms cut into bite-size quarters and thick slices, cooked glossy caps and visible pale cut faces with gills; Thai coconut curry sauce with a rich emulsified coconut-milk body, small glistening coconut-oil beads, gently simmered sauce clinging to the cut pieces. Pieces are naturally intermingled and sauce-coated in one cooked Thai dish, not arranged as separate ingredient samples or neat rows. Show recognizable surfaces of ALL selected foods inside the finished meal. All visible food must come from the selected list; do not add any unselected garnish, basil, lime, cilantro, chili or rice. Authentic Thai cooking textures and naturally overlapping cut pieces, no neatly arranged yellow egg ribbons or decorative food pattern. TIGHT overhead macro food photography: the serving fills 90 percent of the frame, all foods in sharp focus and visible inside the same plate. Soft diffuse light emphasizes sauce and fine cut surfaces. No scenery, market, restaurant interior, people, hands, utensils, cooking pans, separate bowls or writing.",
+        "clip": [
+          "2",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "1-6 detected ingredients: Rice, Egg, Shrimp, Garlic, Mushroom, Coconut milk"
+      }
+    },
+    "5": {
+      "class_type": "ConditioningZeroOut",
+      "inputs": {
+        "conditioning": [
+          "4",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Unused negative at CFG 1"
+      }
+    },
+    "6": {
+      "class_type": "EmptyFlux2LatentImage",
+      "inputs": {
+        "width": 640,
+        "height": 640,
+        "batch_size": 1
+      },
+      "_meta": {
+        "title": "Size / batch 1 / match scheduler size"
+      }
+    },
+    "7": {
+      "class_type": "RandomNoise",
+      "inputs": {
+        "noise_seed": 6102201
+      },
+      "_meta": {
+        "title": "Seed / increment per photo"
+      }
+    },
+    "8": {
+      "class_type": "KSamplerSelect",
+      "inputs": {
+        "sampler_name": "euler"
+      },
+      "_meta": {
+        "title": "Euler (4 evaluations)"
+      }
+    },
+    "9": {
+      "class_type": "Flux2Scheduler",
+      "inputs": {
+        "steps": 4,
+        "width": 640,
+        "height": 640
+      },
+      "_meta": {
+        "title": "4 steps / match latent size"
+      }
+    },
+    "10": {
+      "class_type": "CFGGuider",
+      "inputs": {
+        "cfg": 1.0,
+        "model": [
+          "1",
+          0
+        ],
+        "positive": [
+          "4",
+          0
+        ],
+        "negative": [
+          "5",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "CFG 1 / single conditioning pass"
+      }
+    },
+    "11": {
+      "class_type": "SamplerCustomAdvanced",
+      "inputs": {
+        "noise": [
+          "7",
+          0
+        ],
+        "guider": [
+          "10",
+          0
+        ],
+        "sampler": [
+          "8",
+          0
+        ],
+        "sigmas": [
+          "9",
+          0
+        ],
+        "latent_image": [
+          "6",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Single-pass generation"
+      }
+    },
+    "12": {
+      "class_type": "VAEDecode",
+      "inputs": {
+        "samples": [
+          "11",
+          0
+        ],
+        "vae": [
+          "3",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Decode once"
+      }
+    },
+    "13": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "Thai03/FoodThaiFocusV4",
+        "images": [
+          "12",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Finished dish / local PNG"
+      }
+    }
+  },
+  "ingredients": {
+    "Rice": "loose separate elongated Thai jasmine rice grains, lightly toasted by a hot wok when fried, interspersed with the selected pieces",
+    "Egg": "irregular bite-size torn pieces of Thai khai jiao, a fluffy deeply golden fried omelet with airy bubbles, blistered craggy crisp edges and soft egg interior",
+    "Chicken": "small thin irregular 2 cm boneless chicken slices cut across the grain, cooked opaque white with lightly browned wok-seared edges, not large grilled breast strips",
+    "Beef": "thin bite-size beef slices cut across the grain, tender browned surfaces and visible fine meat fibers, no whole steak",
+    "Fish": "deboned fish cut into small cooked fillet chunks, flaky white cut faces and occasional slender silvery skin edges, no whole fish",
+    "Shrimp": "cleaned peeled deveined shrimp, heads and shells removed, butterfly-cut curved pink shrimp meat with visible segmented flesh",
+    "Onion": "thin curved onion slices with translucent cooked layers, softened and lightly browned in the wok",
+    "Garlic": "paper-thin knife slices of GARLIC CLOVES, real longitudinal garlic cross-sections, asymmetric pointed ivory wafers with a faint narrow pale-green central germ line inside the solid cut face, 0.5 mm thin translucent edges lightly toasted golden, naturally varying small clove-shaped slices without holes",
+    "Carrot": "short matchsticks and thin diagonal slices of orange carrot, lightly cooked with moist recognizable orange cut faces",
+    "Potato": "peeled potato cut into small spoon-size cubes, cooked golden outside with soft pale yellow cut faces",
+    "Cucumber": "fresh cucumber cut into thin diagonal half-moons with dark green peel and visible pale seeded centers, mixed into the salad",
+    "Cabbage": "cabbage cut into short bite-size leaf ribbons, wok-wilted pale green folds with visible veins and lightly seared edges",
+    "Chili pepper": "thin diagonal slices of small red Thai bird's-eye chili with glossy red skin and a few tiny pale seeds",
+    "Mushroom": "trimmed brown mushrooms cut into bite-size quarters and thick slices, cooked glossy caps and visible pale cut faces with gills",
+    "Coconut milk": "Thai coconut curry sauce with a rich emulsified coconut-milk body, small glistening coconut-oil beads, gently simmered sauce clinging to the cut pieces"
+  },
+  "dishes": {
+    "rice_only": "ONLY plain freshly steamed Thai jasmine rice on its own; a simple serving made entirely of rice grains with bare ceramic visible around it, no other edible items",
+    "coconut_only": "ONLY plain warm coconut milk on its own; a smooth continuous pool of silky ivory coconut milk filling the shallow dish, completely free of solid food pieces or toppings",
+    "curry": "Thai GAENG KATI coconut curry: cut ingredients simmered together in rich pale creamy coconut-milk sauce, glistening coconut-oil beads, a spoonable integrated curry",
+    "curry_rice_suffix": ", ladled partly over loose jasmine rice in the same Thai street-food serving plate, visible rice at one edge and curry pieces overlapping it naturally",
+    "fried_rice": "Thai KHAO PAD, jasmine rice tossed hard in a very hot wok, loose lightly toasted grains thoroughly mixed with the selected bite-size pieces and a restrained glossy seasoning coating",
+    "salad": "Thai YAM salad, selected cucumber and other cut ingredients tossed together in a light glossy dressing, irregular hand-cut shapes, fully cooked proteins",
+    "stir_fry": "Thai PAD stir-fry, a hot-wok tossed mixture of the selected bite-size pieces with a thin glossy caramel-colored sauce, sizzling seared edges and a small amount of sauce pooling below",
+    "single_ingredient": "a simple Thai-style preparation of {0} alone, without any other food ingredient",
+    "curry_with_chili": "Thai gaeng phet coconut curry, with a warm reddish-orange chili-and-coconut sauce, tiny glistening oil beads and selected sliced red bird's-eye chilies visibly cooked into the curry"
+  },
+  "prompt_template": "Professional close-up photograph of the THAI DISH itself: {0}. One generous ready-to-eat serving on a plain pale mint-green low-rim plate. The food is the entire subject; a simple neutral matte background appears only as a narrow unobtrusive border. The finished dish contains exactly these {1} selected food ingredients: {2}. Clearly visible cooked ingredient details: {3}. Pieces are naturally intermingled and sauce-coated in one cooked Thai dish, not arranged as separate ingredient samples or neat rows. Show recognizable surfaces of ALL selected foods inside the finished meal. All visible food must come from the selected list; do not add any unselected garnish, basil, lime, cilantro, chili or rice. Authentic Thai cooking textures and naturally overlapping cut pieces, no neatly arranged yellow egg ribbons or decorative food pattern. TIGHT overhead macro food photography: the serving fills 90 percent of the frame, all foods in sharp focus and visible inside the same plate. Soft diffuse light emphasizes sauce and fine cut surfaces. No scenery, market, restaurant interior, people, hands, utensils, cooking pans, separate bowls or writing.",
+  "profile": "thai-focus-v4",
+  "single_ingredient_prompt_template": "Tight macro food photograph of a Thai preparation: {0}. ONLY one food ingredient: {2}. Actual food appearance: {3}. One serving on a plain pale mint-green low-rim plate, bare plate around the food. No added toppings, rice, garnish or other food. The food fills almost the entire frame; a narrow plain neutral matte background only. Full serving visible, sharply resolved natural cut surfaces and thin edges, soft diffuse light, realistic food. No scenery, market, restaurant, people, hands, utensils or cooking pans."
+}

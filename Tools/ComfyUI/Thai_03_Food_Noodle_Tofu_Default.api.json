@@ -1,0 +1,175 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "flux-2-klein-4b-fp8.safetensors",
+      "weight_dtype": "default"
+    },
+    "_meta": {
+      "title": "Distilled 4B FP8 / do not use base"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen_3_4b.safetensors",
+      "type": "flux2",
+      "device": "default"
+    },
+    "_meta": {
+      "title": "Qwen 3 4B text encoder"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "flux2-vae.safetensors"
+    },
+    "_meta": {
+      "title": "Flux 2 VAE"
+    }
+  },
+  "4": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "Photorealistic Thai food photograph: Thai PAD SEE EW inspired wok-fried flat rice noodles, long glossy noodle ribbons tossed with the selected bite-size pieces, a light amber seasoning glaze and delicate charred noodle edges. Exactly 6 selected food ingredients: Rice noodle, Egg, Shrimp, Tofu, Carrot, Chili pepper. The visible prepared ingredients are: cooked flat rice noodle ribbons, long glossy ivory strands with slightly translucent edges, naturally folded and individually visible; a Thai crispy fried egg with fine lacy golden edges, gently blistered opaque egg white and a rich glossy yellow yolk; cooked pink-orange curled shrimp with distinct segmented flesh, gently seared edges and recognizable tails; pan-seared firm tofu cubes with delicate irregular golden crust, fine porous pale white cut faces and straight cubed edges; bright orange cooked carrot rounds with fine radial centers, moist cut surfaces and lightly caramelized edges; small thin red bird's-eye chili rings with delicate glossy red skin, hollow centers and tiny visible white seeds. One coherent finished Thai dish, with ALL selected ingredients recognizable inside the SAME serving. Naturally intermix the cut pieces while keeping their recognizable surfaces exposed. Use only the selected visible foods, without unselected garnishes or side dishes. No separate ingredient bowls, raw ingredient displays, text or hands. One shallow blue-and-white Thai ceramic plate. Soft directional light shows delicate sear marks, moist cut faces and realistic fine food texture. All selected ingredients are sharply focused inside the frame.",
+      "clip": [
+        "2",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "1-6 detected ingredients: Rice noodle, Egg, Shrimp, Tofu, Carrot, Chili pepper"
+    }
+  },
+  "5": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "4",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Unused negative at CFG 1"
+    }
+  },
+  "6": {
+    "class_type": "EmptyFlux2LatentImage",
+    "inputs": {
+      "width": 640,
+      "height": 640,
+      "batch_size": 1
+    },
+    "_meta": {
+      "title": "Size / batch 1 / match scheduler size"
+    }
+  },
+  "7": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 6102301
+    },
+    "_meta": {
+      "title": "Seed / increment per photo"
+    }
+  },
+  "8": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "_meta": {
+      "title": "Euler (4 evaluations)"
+    }
+  },
+  "9": {
+    "class_type": "Flux2Scheduler",
+    "inputs": {
+      "steps": 4,
+      "width": 640,
+      "height": 640
+    },
+    "_meta": {
+      "title": "4 steps / match latent size"
+    }
+  },
+  "10": {
+    "class_type": "CFGGuider",
+    "inputs": {
+      "cfg": 1.0,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "4",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "CFG 1 / single conditioning pass"
+    }
+  },
+  "11": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "7",
+        0
+      ],
+      "guider": [
+        "10",
+        0
+      ],
+      "sampler": [
+        "8",
+        0
+      ],
+      "sigmas": [
+        "9",
+        0
+      ],
+      "latent_image": [
+        "6",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Single-pass generation"
+    }
+  },
+  "12": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "11",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Decode once"
+    }
+  },
+  "13": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "filename_prefix": "Thai03/FoodNoodleTofuDefault",
+      "images": [
+        "12",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Finished dish / local PNG"
+    }
+  }
+}

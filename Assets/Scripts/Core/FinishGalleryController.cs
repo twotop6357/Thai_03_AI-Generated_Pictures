@@ -12,7 +12,7 @@ using UnityEngine.InputSystem;
 namespace Core
 {
     /// <summary>Finish의 최근 12장 선택, 상세 보기, 로드 취소와 Sprite/Texture 수명을 소유한다.</summary>
-    public sealed class FinishGalleryController : MonoBehaviour
+    public sealed class FinishGalleryController : MonoBehaviour, ISceneDisplayReady
     {
         [SerializeField] private GameObject picturePanel;
         [SerializeField] private GameObject otherPictureViewPanel;
@@ -34,6 +34,7 @@ namespace Core
         private bool _wasInputBlocked;
 
         public bool IsReady { get; private set; }
+        public bool IsDisplayReady => _loading == null;
         public int SelectedIndex { get; private set; }
         public int VisibleCount { get; private set; }
         public bool IsDetailVisible => otherPictureViewPanel.activeSelf;
@@ -80,9 +81,9 @@ namespace Core
             VisibleCount = 0;
             ClearImages();
             ClearWords();
-            otherPictureViewPanel.SetActive(false);
+            ScreenTransition.ShowImmediate(otherPictureViewPanel, false);
             _wasInputBlocked = IsInputBlocked;
-            picturePanel.SetActive(!_wasInputBlocked);
+            ScreenTransition.ShowImmediate(picturePanel, !_wasInputBlocked);
             navigationText.text = "Loading photos...";
             _loading = new CancellationTokenSource();
             LoadAsync(++_version, _loading).Forget();
@@ -93,11 +94,18 @@ namespace Core
             bool blocked = IsInputBlocked;
             if (blocked != _wasInputBlocked)
             {
-                if (blocked && IsDetailVisible) CloseDetail();
-                picturePanel.SetActive(!blocked && !IsDetailVisible);
+                // 설문 표시 등 외부 복구 경로는 진행 중 전환을 취소한 후 즉시 정렬한다.
+                ScreenTransition.Cancel(this);
+                if (blocked)
+                {
+                    ScreenTransition.ShowImmediate(otherPictureViewPanel, false);
+                    selectedImage.sprite = null;
+                    ClearWords();
+                }
+                ScreenTransition.ShowImmediate(picturePanel, !blocked && !IsDetailVisible);
                 _wasInputBlocked = blocked;
             }
-            if (!IsReady || blocked) return;
+            if (!IsReady || blocked || ScreenTransition.IsBusy) return;
 #if ENABLE_INPUT_SYSTEM
             var keyboard = Keyboard.current;
             if (keyboard == null) return;
@@ -186,14 +194,14 @@ namespace Core
 
         private void MoveSelection(int direction)
         {
-            if (!isActiveAndEnabled || !IsReady || IsInputBlocked || IsDetailVisible || VisibleCount == 0) return;
+            if (ScreenTransition.IsBusy || !isActiveAndEnabled || !IsReady || IsInputBlocked || IsDetailVisible || VisibleCount == 0) return;
             SelectedIndex = (SelectedIndex + direction + VisibleCount) % VisibleCount;
             UpdateSelection();
         }
 
         public void ConfirmSelection()
         {
-            if (!isActiveAndEnabled || !IsReady || IsInputBlocked || VisibleCount == 0) return;
+            if (ScreenTransition.IsBusy || !isActiveAndEnabled || !IsReady || IsInputBlocked || VisibleCount == 0) return;
             if (IsDetailVisible) { CloseDetail(); return; }
             selectedImage.sprite = _sprites[SelectedIndex];
             selectedImage.preserveAspect = true;
@@ -205,17 +213,20 @@ namespace Core
                 selectedWords[i].text = visible ? IngredientBlockNames.GetDisplayName(words[i]) : string.Empty;
                 selectedWords[i].transform.parent.gameObject.SetActive(visible);
             }
-            otherPictureViewPanel.SetActive(true);
-            picturePanel.SetActive(false);
+            ScreenTransition.PanelsAsync(this, picturePanel, otherPictureViewPanel).Forget();
         }
 
         public void CloseDetail()
         {
-            if (!_configured || !isActiveAndEnabled) return;
-            otherPictureViewPanel.SetActive(false);
+            if (ScreenTransition.IsBusy || !_configured || !isActiveAndEnabled || !IsDetailVisible) return;
+            CloseDetailAsync().Forget();
+        }
+
+        private async UniTask CloseDetailAsync()
+        {
+            if (!await ScreenTransition.PanelsAsync(this, otherPictureViewPanel, picturePanel)) return;
             selectedImage.sprite = null;
             ClearWords();
-            picturePanel.SetActive(true);
             if (IsReady) UpdateSelection();
         }
 
@@ -276,6 +287,7 @@ namespace Core
 
         private void OnDisable()
         {
+            ScreenTransition.Cancel(this);
             ++_version;
             IsReady = false;
             _loading?.Cancel();

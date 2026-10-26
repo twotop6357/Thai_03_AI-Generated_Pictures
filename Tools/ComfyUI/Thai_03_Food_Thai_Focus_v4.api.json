@@ -1,0 +1,175 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "flux-2-klein-4b-fp8.safetensors",
+      "weight_dtype": "default"
+    },
+    "_meta": {
+      "title": "Distilled 4B FP8 / do not use base"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen_3_4b.safetensors",
+      "type": "flux2",
+      "device": "default"
+    },
+    "_meta": {
+      "title": "Qwen 3 4B text encoder"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "flux2-vae.safetensors"
+    },
+    "_meta": {
+      "title": "Flux 2 VAE"
+    }
+  },
+  "4": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "Professional close-up photograph of the THAI DISH itself: Thai GAENG KATI coconut curry: cut ingredients simmered together in rich pale creamy coconut-milk sauce, glistening coconut-oil beads, a spoonable integrated curry, ladled partly over loose jasmine rice in the same Thai street-food serving plate, visible rice at one edge and curry pieces overlapping it naturally. One generous ready-to-eat serving on a plain pale mint-green low-rim plate. The food is the entire subject; a simple neutral matte background appears only as a narrow unobtrusive border. The finished dish contains exactly these 6 selected food ingredients: Rice, Egg, Shrimp, Garlic, Mushroom, Coconut milk. Clearly visible cooked ingredient details: loose separate elongated Thai jasmine rice grains, lightly toasted by a hot wok when fried, interspersed with the selected pieces; irregular bite-size torn pieces of Thai khai jiao, a fluffy deeply golden fried omelet with airy bubbles, blistered craggy crisp edges and soft egg interior; cleaned peeled deveined shrimp, heads and shells removed, butterfly-cut curved pink shrimp meat with visible segmented flesh; paper-thin knife slices of GARLIC CLOVES, real longitudinal garlic cross-sections, asymmetric pointed ivory wafers with a faint narrow pale-green central germ line inside the solid cut face, 0.5 mm thin translucent edges lightly toasted golden, naturally varying small clove-shaped slices without holes; trimmed brown mushrooms cut into bite-size quarters and thick slices, cooked glossy caps and visible pale cut faces with gills; Thai coconut curry sauce with a rich emulsified coconut-milk body, small glistening coconut-oil beads, gently simmered sauce clinging to the cut pieces. Pieces are naturally intermingled and sauce-coated in one cooked Thai dish, not arranged as separate ingredient samples or neat rows. Show recognizable surfaces of ALL selected foods inside the finished meal. All visible food must come from the selected list; do not add any unselected garnish, basil, lime, cilantro, chili or rice. Authentic Thai cooking textures and naturally overlapping cut pieces, no neatly arranged yellow egg ribbons or decorative food pattern. TIGHT overhead macro food photography: the serving fills 90 percent of the frame, all foods in sharp focus and visible inside the same plate. Soft diffuse light emphasizes sauce and fine cut surfaces. No scenery, market, restaurant interior, people, hands, utensils, cooking pans, separate bowls or writing.",
+      "clip": [
+        "2",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "1-6 detected ingredients: Rice, Egg, Shrimp, Garlic, Mushroom, Coconut milk"
+    }
+  },
+  "5": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "4",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Unused negative at CFG 1"
+    }
+  },
+  "6": {
+    "class_type": "EmptyFlux2LatentImage",
+    "inputs": {
+      "width": 640,
+      "height": 640,
+      "batch_size": 1
+    },
+    "_meta": {
+      "title": "Size / batch 1 / match scheduler size"
+    }
+  },
+  "7": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 6102201
+    },
+    "_meta": {
+      "title": "Seed / increment per photo"
+    }
+  },
+  "8": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "_meta": {
+      "title": "Euler (4 evaluations)"
+    }
+  },
+  "9": {
+    "class_type": "Flux2Scheduler",
+    "inputs": {
+      "steps": 4,
+      "width": 640,
+      "height": 640
+    },
+    "_meta": {
+      "title": "4 steps / match latent size"
+    }
+  },
+  "10": {
+    "class_type": "CFGGuider",
+    "inputs": {
+      "cfg": 1.0,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "4",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "CFG 1 / single conditioning pass"
+    }
+  },
+  "11": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "7",
+        0
+      ],
+      "guider": [
+        "10",
+        0
+      ],
+      "sampler": [
+        "8",
+        0
+      ],
+      "sigmas": [
+        "9",
+        0
+      ],
+      "latent_image": [
+        "6",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Single-pass generation"
+    }
+  },
+  "12": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "11",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Decode once"
+    }
+  },
+  "13": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "filename_prefix": "Thai03/FoodThaiFocusV4",
+      "images": [
+        "12",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Finished dish / local PNG"
+    }
+  }
+}

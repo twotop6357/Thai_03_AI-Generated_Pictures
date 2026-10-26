@@ -1,0 +1,8 @@
+{
+  "task": "FEAT-023",
+  "base_commit": "d3b478c",
+  "files": {
+    "ComfyFoodWorkflow.default.json": "0232d092748726f10e6f24a56c60e1a636ba0af591685a3d962bd585f414960b",
+    "ComfyFoodWorkflow.selected-test.json": "6224aadceb95a6e33beeaf69e50481d579320534597b0839ca9c94ec1d0e0778"
+  }
+}

@@ -49,6 +49,9 @@ namespace Core
         {
             if (!Guid.TryParseExact(promptId, "D", out _)) throw new ArgumentException("A prompt UUID is required.");
             ValidateIngredients(ingredients);
+            foreach (var block in ingredients)
+                if (!IngredientBlockNames.IsRecognizable(block))
+                    throw new ArgumentException("Retired ingredient blocks cannot be used for new photos.");
             if (png == null || png.Length < 8 || png.Length > MaxImageBytes ||
                 png[0] != 137 || png[1] != 80 || png[2] != 78 || png[3] != 71 ||
                 png[4] != 13 || png[5] != 10 || png[6] != 26 || png[7] != 10)
@@ -244,7 +247,7 @@ namespace Core
             foreach (var block in ingredients)
             {
                 int index = (int)block;
-                if (index < 0 || index > (int)IngredientBlock.CoconutMilk || (seen & (1 << index)) != 0)
+                if (index < 0 || index > (int)IngredientBlock.Tofu || (seen & (1 << index)) != 0)
                     throw new ArgumentException("Ingredients must be valid and unique.");
                 seen |= 1 << index;
             }

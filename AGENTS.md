@@ -10,7 +10,7 @@
 
 이 저장소는 개인 Unity 시작 템플릿(0_Startup 복사본)에서 파생된 전시·키오스크용 Unity 프로젝트다. 아래 항목은 아직 확정되지 않았다. 확인되면 이곳에 기록하고, 확인되기 전에는 추측해서 채우지 않는다.
 
-- 전시명, 설치 장소, 씬 흐름: 미기록. 현재 씬은 `Assets/Scenes/0_Idle.unity` 하나다.
+- 전시명, 설치 장소: 미기록. 씬은 `0_Idle`, `1_Game`, `2_Finish`다. Game 결과의 안내 후 Finish 갤러리 이동을 연결했으며 Idle의 진입 흐름은 미확정이다.
 - 하드웨어·외부 연동(센서, RFID, 시리얼, API 엔드포인트): 미기록. `Settings.json`의 `apiUrl`은 비어 있다.
 - 확인된 버전·식별자·로컬 상태는 [HANDOFF의 현재 프로젝트 확인값](docs/agents/HANDOFF.md#현재-프로젝트-확인값)을 기준으로 한다.
 
@@ -47,7 +47,7 @@
 
 - **로그 언어**: 런타임과 에디터 도구를 포함한 프로그램 로그 메시지는 모두 영문으로 쓰고 `[ClassName] message` 형식을 따른다. 코드 주석과 문서는 한글을 써도 된다. 예외를 다시 던지거나 기록할 때 원본 스택과 진단 정보를 숨기지 않는다.
 - **기준 버전**: Unity `2022.3.62f3`, URP `14.0.12`. 에디터 버전을 바꾸지 않는다. 버전 변경이 필요하면 사용자에게 먼저 확인한다.
-- **주 대상 플랫폼**: Windows Standalone x64. 빌드 씬 목록은 `0_Idle` 하나다. `productName`, `companyName`, `applicationIdentifier`는 아직 템플릿 기본값이며, 사용자가 정한 값으로 바꾸기 전까지 임의로 정하지 않는다. 이 값들은 로그 폴더와 PlayerPrefs 위치를 결정한다.
+- **주 대상 플랫폼**: Windows Standalone x64. 빌드 씬 목록은 `0_Idle`, `1_Game`, `2_Finish` 순서다. `productName`, `companyName`, `applicationIdentifier`는 아직 템플릿 기본값이며, 사용자가 정한 값으로 바꾸기 전까지 임의로 정하지 않는다. 이 값들은 로그 폴더와 PlayerPrefs 위치를 결정한다.
 - **첫 화면 복귀**: `GameManager.ReturnToFirstScreen()`이 무입력 타임아웃(`InactivityTimeoutEvent`)과 수동 복귀가 함께 쓰는 진입점이다. 타임아웃 경로의 `move_idle_timeout` 로그는 `ApiManagerBase`가 직접 보낸다. 수동 복귀 경로에서만 `MoveIdleEvent`를 발행해 로그가 중복되지 않게 한다.
 - **설정 로드**: `Assets/StreamingAssets/Settings.json`과 `ShutdownSettings.json`은 공통 코드(`GameManagerBase` 등)가 비동기로 읽는다. 설정을 읽지 못하면 오류 로그를 남기고, 비활동 복귀를 90초로 켠 대체 설정으로 실행한다. 설정 키를 추가하거나 바꿀 때는 기본값과 실패 시 동작을 함께 정하고 CHANGELOG에 기록한다.
 - **DI**: VContainer를 쓴다. 루트 스코프는 `Assets/Prefabs/GameLifetimeScope.prefab`(VContainerSettings의 Root Lifetime Scope)이다. override할 때 `base.Configure`, `base.OnEnable`, `base.OnDisable` 호출을 보존한다. 프로젝트 의존성은 베이스 `Construct` 시그니처를 바꾸지 않고, 별도의 `[Inject]` 메서드로 추가한다.
